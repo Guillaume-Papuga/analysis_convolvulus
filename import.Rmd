@@ -9,3 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
+```{r}
+plot (sample(1:20, 344, replace = T))
+```
+
