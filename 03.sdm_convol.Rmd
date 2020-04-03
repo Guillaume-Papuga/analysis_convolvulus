@@ -1,0 +1,142 @@
+---
+title: "03.sdm_convol"
+author: "Guillaume Papuga"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, include=FALSE, message=FALSE, warning=FALSE)
+```
+
+```{r packages}
+library (tidyverse)
+library (ade4)
+library (here)
+library (stringr)
+library (ade4)
+library (dismo)
+library (mapdata)
+library (maps)
+library (maptools)
+library (raster)
+library (rgdal)
+library (rgeos)
+library (sdm)
+library (sp)
+library (usdm) 
+```
+
+# Project set up
+
+## Define the CSR and the extent
+```{r}
+# Définir la zone d'étude et en faire un objet "Spatial Polygon"
+# Define the projection of the project 
+p.proj = "+proj=longlat +datum=WGS84"
+
+# First draw of the study area (with an online database)
+zone.etude = map("world", regions = c("Spain", "France"), exact=F, fill=T)  # défini le fond de carte en "objet map"; il faut que "fill = T" pour pouvoir convertir en spatialpolygon
+IDs = sapply(strsplit(zone.etude$names, ":"), function(x) x[1]) # récupère les noms des pays
+zone.etudeSpp = map2SpatialPolygons(zone.etude, IDs=IDs, proj4string=CRS(p.proj))  # convertit en "Spatial Polygon"
+
+### Define the global extent of the project
+e = extent(zone.etudeSpp) # recuperer spatial extent du shapefile utilisé pour extraire les données
+#e = drawExtent(show=TRUE, col="red") # draw the spatial extent
+```
+
+
+# Load data
+## Environment
+```{r}
+# Ecological variables
+## Bioclim
+## 1a. Upload from external drive
+# Bioclim variables are stored on my external drive
+source = "/Volumes/My Passport for Mac/spatial.data/03.environement/wc2.0_30s_bio/" # folder path
+lst <- list.files(source, pattern='tif$') # $ means end of filename, (here we see list of files ended with img)
+var.path.name = as.vector(paste (source, lst, sep="")) # paste the right name
+bioclim.var = stack(var.path.name) # and stack it
+
+## 1b. Convert the dataset
+# each time you want to stack data, you have to respect the same PER : PROJECTION - EXTENT - RESOLUTION
+# Same projection
+projection(bioclim.var) # read the projection definition (raster dataset)
+# test = projectRaster(bioclim.var, crs = p.proj) # transform the projection into a new one (raster dataset)
+
+# Same extent
+bioclim.var.c = crop (bioclim.var, e) # crop to the same extent
+rm (bioclim.var) # delete the big original file
+
+# Same resolution 
+##if the cell size is not the same, you need to convert it
+# a. change the pixel size with aggregate or disaggregate
+
+# b. resample the value with resample () (package raster)
+
+## Stack all files together
+ecov = stack (bioclim.var.c)
+
+```
+
+
+## Presence data
+```{r psce data}
+# Distribution data
+d.occ = read.csv(here::here("data","processed", "d.occ.conv.lan.txt"), sep = ";", dec = ".") # upload
+
+# transform a matrix file to a spatial point file
+coordinates (d.occ) = ~x*y # the name of the x and y columns
+proj4string (d.occ) = p.proj # attributes a projection for the object, it DOES NOT reproject
+# spplot(d.occ) # plot the spatial data with attributes
+
+# Delete points that fall in the same pixel
+```
+
+## Crop the environment raster
+```{r pseudo-abs}
+# Draw an area where to sample pseudo-absence (projection area)
+buff.pa = buffer(d.occ, width = 200*1000) # 200 * 1000m buffer
+r = mask(ecov, buff.pa)
+
+######
+
+x <- reclassify(ept.raster, cbind(min(values (ept.raster), na.rm =T), 
+                                  max(values (ept.raster), na.rm =T), 
+                                  1), 
+                right=FALSE)
+x[is.na(x[])] <- 0 
+y = rasterToContour(x)
+
+buff.pa.c = crop (buff.pa, y)
+
+ept.raster[ept.raster != NA] = 1
+
+
+max(values (ept.raster), na.rm =T)
+
+r <- raster(ncol=10, nrow=10)
+values(r) <- rnorm(100)
+
+x = reclassify(x, cbind(-Inf, 0.9, 0), right=FALSE)
+
+
+# Create pseudo-absence data
+random.Spoints = spsample(sard, 200, type="random") # spsample echantillonne dans un "SpatialPolygon"
+
+# choisit un raster qu'on utilise pour ne selectionner qu'un point par "cell"
+mask = stk$bio1
+cells = cellFromXY(mask, random.Spoints) # cellFrom permet de récuperer les numéros des cellules avec toute sorte de fichier (XY, ligne, polygone, etc.)
+cells <- unique(cells)
+
+# enlever les valeurs doublons avec les cellules contenant l'espèce
+cells.p = cellFromXY(mask, pts [, c("x", "y")]) # récupérer les cellules de présence
+cells.p = unique(cells.p) 
+cells = setdiff(cells, cells.p) # enlève les points communs aux deux
+xy = xyFromCell(mask, cells) # récupère les coordonnées des cellules de mask dont le n° correspond a cell
+
+random.Spoints = data.frame(xy) # reprend le mm nom que sur méthode avant pour pseudo absence
+coordinates(random.Spoints) = ~x+y # set spatial coordinates to create a Spatial object
+projection(random.Spoints) = CRS('+proj=longlat +datum=WGS84') # set the coordinate reference system (CRS)
+```
+

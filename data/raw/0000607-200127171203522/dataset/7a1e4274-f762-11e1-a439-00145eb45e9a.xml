@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="7a1e4274-f762-11e1-a439-00145eb45e9a"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>10.15468/a7isx1</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=rediam</alternateIdentifier>
+        <alternateIdentifier>7a1e4274-f762-11e1-a439-00145eb45e9a</alternateIdentifier>
+        <alternateIdentifier>10833</alternateIdentifier>
+    <title>Cartografía de vegetación a escala de detalle 1:10.000 de la masa forestal de Andalucía</title>
+    <creator>
+    <individualName>
+<givenName>Francisco M.</givenName>          <surName>Marín Solís</surName>
+    </individualName>
+<organizationName>GBIF Spain</organizationName><positionName>Technical point of contact</positionName>    <address>
+<country>SPAIN</country>    </address>
+<phone>+34 955 044 970</phone><electronicMailAddress>fmmarin@egmasa.es</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Francisco M.</givenName>          <surName>Marín Solís</surName>
+    </individualName>
+<organizationName>GBIF Spain</organizationName><positionName>Technical point of contact</positionName>    <address>
+<country>SPAIN</country>    </address>
+<phone>+34 955 044 970</phone><electronicMailAddress>fmmarin@egmasa.es</electronicMailAddress>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+          <surName>Francisco M. Marín Solís</surName>
+    </individualName>
+<phone>+34 955 044 970</phone><electronicMailAddress>fmmarin@egmasa.es</electronicMailAddress>    <role>TECHNICAL_POINT_OF_CONTACT</role>
+    </associatedParty>
+      <pubDate>
+      2019-07-11
+      </pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+        <para>&lt;p&gt;Datos procedentes de los trabajos de campo para la elaboración de la cartografía de vegetación a escala de detalle 1:10.000 de la masa forestal de Andalucía. En esta colección se incluyen las localizaciones de las especies observadas en los transectos, notas de campo e inventarios de vegetación Datos procedentes de los trabajos de campo para la elaboración de la cartografía de vegetación a escala de detalle 1:10.000 de la masa forestal de Andalucía. En esta colección se incluyen las localizaciones de las especies observadas en los transectos, notas de campo e inventarios de vegetación.&lt;/p&gt;
+&lt;p&gt;Note: this dataset was previously orphaned. It has been rescued by ① extracting it from the GBIF.org index (see GBIF Download in External Data) and ② republishing it on this IPT data hosting centre as version 1.0.&lt;/p&gt;</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by/4.0/legalcode"><citetitle>Creative Commons Attribution (CC-BY) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.juntadeandalucia.es/medioambiente/site/web/rediam/</url>
+          </online>
+      </distribution>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Francisco M.</givenName>          <surName>Marín Solís</surName>
+    </individualName>
+<organizationName>GBIF Spain</organizationName><positionName>Technical point of contact</positionName>    <address>
+<country>SPAIN</country>    </address>
+<phone>+34 955 044 970</phone><electronicMailAddress>fmmarin@egmasa.es</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:43Z</dateStamp>
+      <citation>Marín Solís F M (2019). Cartografía de vegetación a escala de detalle 1:10.000 de la masa forestal de Andalucía. Environmental Information Network of Andalusia (REDIAM), Regional Ministry for the Environment, Regional Government of Andalusia. Occurrence dataset https://doi.org/10.15468/a7isx1 accessed via GBIF.org on 2020-01-28.</citation>
+              <physical>
+                  <objectName>GBIF Occurrence Download</objectName>
+                  <characterEncoding>UTF-8</characterEncoding>
+                  <dataFormat>
+                      <externallyDefinedFormat>
+                          <formatName>Darwin Core Archive</formatName>
+                      </externallyDefinedFormat>
+                  </dataFormat>
+                  <distribution>
+                      <online>
+                          <url function="download">http://api.gbif.org/v1/occurrence/download/request/0002045-180131172636756.zip</url>
+                      </online>
+                  </distribution>
+              </physical>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

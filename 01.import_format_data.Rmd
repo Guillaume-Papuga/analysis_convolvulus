@@ -1,0 +1,141 @@
+---
+title: "01.import_format_data"
+author: "Guillaume Papuga"
+date: "12/11/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages}
+require(here)
+library(tidyverse)
+library(stringr)
+```
+
+# Introduction
+## Article
+Data processed in this file belongs to a project of ecological niche analysis of Convolvulus lanuginosus. 
+
+## Format
+This document is used to format data. No analysis is coded here.
+All data names once processed follow the form d.something (d stands for "data", and the second part must clearly refer to the type of data).
+
+# Niche data ##> to be updated
+#```{r}
+# load raw data
+d.hab = read.csv(here::here("data","raw", "bhab.csv"), sep = ";", dec = ",")
+
+# process & correct
+nb.row = nrow(d.hab)
+
+# write data in the "processed" folder
+write.table (x = d.hab, here::here("data","processed","d.hab.txt"), sep = ";", dec = ".")
+#```
+
+The *niche* dataset contains `r nb.row` populations.
+
+# Occurences (databases)
+The aim of this section is to build a database of occurence throughout the two species range in order to compute their climatic niche based on WorldClim data. 
+
+## 1. Dataset structure
+```{r}
+# The matrix is named `d.occ` and must contain 6 columns
+# code.pop : population code (dataset specific)
+# sp.name : species names (Convolvulus lanuginosus)
+# date : the date (yyyymmdd)
+# x : coordinate on the x-axis (longitude in decimal degree)
+# y : coordinate on the y-axis (latitude in decimal degree)
+# precision : precision of the location (expressed in meter)
+# source : explicit name of the source of the imported dataset
+
+d.occ = as.data.frame(matrix (ncol = 7,nrow = 0))
+colnames (d.occ) = c("code.pop", "sp.name", "date", "x", "y", "precision", "source")
+```
+
+## 2. Import
+To date, we have gathered one dataset.
+
+### 2a. CBN data
+```{r}
+# load raw data
+d.occ.cbn = read.csv(here::here("data","raw", "bdd.psce.csv"), sep = ";", dec = ",")
+
+# select correct columns
+d.occ.cbn = d.occ.cbn[,c("code", 
+                         "nom_retenu", 
+                         "date", 
+                         "longitude", 
+                         "latitude", 
+                         "precision.m", 
+                         "organisation")]
+colnames(d.occ.cbn) = colnames (d.occ)
+
+# process & correct
+d.occ.cbn = unique (d.occ.cbn) # delete duplicates
+## correct the date
+
+## correct the name of the species
+species.id = unique (d.occ.cbn$nom_retenu)
+
+## count observation
+nb.row = nrow(d.occ.cbn)
+```
+
+This dataset contains `r nb.row` populations.
+
+### 2b. iNat
+```{r}
+# load raw data
+d.occ.inat = read.csv(here::here("data","raw", "occ.inat.convol_lan.200120.csv"), sep = ";", dec = ".")
+
+# select correct columns
+d.occ.inat = d.occ.inat[,c("id", 
+                         "scientific_name", 
+                         "observed_on", 
+                         "longitude", 
+                         "latitude", 
+                         "positional_accuracy")]
+d.occ.inat[,"organisation"] = rep("inat", nrow(d.occ.inat))
+colnames(d.occ.inat) = colnames (d.occ)
+
+# process & correct
+d.occ.cbn = unique (d.occ.inat) # delete duplicates
+
+## correct the date
+
+## select observation >1990
+
+## correct the name of the species
+species.id = unique (d.occ.inat$sp.name)
+
+## retain observation with data accuracy <1km
+
+## count observation
+nb.row = nrow(d.occ.inat)
+```
+
+The iNaturalist dataset contains `r nb.row` populations.
+
+### 2c. Anthos
+### 2d. Valenciana
+### 2e. Catalunya
+### 2f. GBIF
+
+## 3. Synthesis
+```{r}
+# Copy and paste each dataset on the basic matrix
+d.occ = rbind(d.occ, d.occ.cbn)
+
+# Eliminate duplicates
+d.occ = unique (d.occ)
+
+# write data in the "processed" folder
+write.table (x = d.occ, here::here("data","processed","d.occ.conv.lan.txt"), sep = ";", dec = ".")
+```
+
+
+
+

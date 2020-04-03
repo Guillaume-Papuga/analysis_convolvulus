@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="bd2be1e9-f2fc-404a-8246-783af0055829"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>10.15468/vfvnmu</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=hbc</alternateIdentifier>
+        <alternateIdentifier>http://ipt.gbif.es/resource?r=hbc</alternateIdentifier>
+        <alternateIdentifier>bd2be1e9-f2fc-404a-8246-783af0055829</alternateIdentifier>
+        <alternateIdentifier>e92ae187-dd9e-4ee7-8d2b-007d56f9bbc6</alternateIdentifier>
+        <alternateIdentifier>14703</alternateIdentifier>
+    <title>Herbario del Jardín Botánico-Histórico La Concepción: HBC</title>
+    <creator>
+    <individualName>
+<givenName>Amelia</givenName>          <surName>Denis Burgos</surName>
+    </individualName>
+<organizationName>Herbario del Jardín Botánico-Histórico La Concepción</organizationName>    <address>
+<deliveryPoint>Camino del Jardín Botánico, 3</deliveryPoint><city>Málaga</city><administrativeArea>Andalucía</administrativeArea><postalCode>29014</postalCode><country>SPAIN</country>    </address>
+<phone>+34 95 225 07 45</phone><electronicMailAddress>adenis@malaga.eu</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Amelia</givenName>          <surName>Denis Burgos</surName>
+    </individualName>
+<organizationName>Herbario del Jardín Botánico-Histórico La Concepción</organizationName>    <address>
+<deliveryPoint>Camino del Jardín Botánico, 3</deliveryPoint><city>Málaga</city><administrativeArea>Andalucía</administrativeArea><postalCode>29014</postalCode><country>SPAIN</country>    </address>
+<phone>+34 95 225 07 45</phone><electronicMailAddress>adenis@malaga.eu</electronicMailAddress>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Katia</givenName>          <surName>Cezón</surName>
+    </individualName>
+<electronicMailAddress>katia.gbif@gmail.com</electronicMailAddress>    <role>USER</role>
+    </associatedParty>
+      <pubDate>
+      2018-11-30
+      </pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+        <para>&lt;p&gt;El Herbario del Jardín Botánico La Concepción de Málaga está dividido en Herbario Ornamental (HOBC), Herbario Silvestre (HSBC), y Herbario de México, una cesión de una expedición a Yucatán (HMBC).&lt;/p&gt;
+&lt;p&gt;Note: this dataset was previously orphaned. It has been rescued by ① extracting it from the GBIF.org index (see GBIF Download in External Data) and ② republishing it on this IPT data hosting centre as version 1.0.&lt;/p&gt;</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Katia</givenName>          <surName>Cezón</surName>
+    </individualName>
+<organizationName>GBIF Spain</organizationName>    <address>
+<city>Madrid</city><administrativeArea>Madrid</administrativeArea>    </address>
+<electronicMailAddress>katia.gbif@gmail.com</electronicMailAddress><onlineUrl>http://www.gbif.es</onlineUrl>      </contact>
+      <contact>
+    <individualName>
+<givenName>Amelia</givenName>          <surName>Denis Burgos</surName>
+    </individualName>
+<organizationName>Herbario del Jardín Botánico-Histórico La Concepción</organizationName>    <address>
+<deliveryPoint>Camino del Jardín Botánico, 3</deliveryPoint><city>Málaga</city><administrativeArea>Andalucía</administrativeArea><postalCode>29014</postalCode><country>SPAIN</country>    </address>
+<phone>+34 95 225 07 45</phone><electronicMailAddress>adenis@malaga.eu</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:41Z</dateStamp>
+      <citation>Denis Burgos A (2018). Herbario del Jardín Botánico-Histórico La Concepción: HBC. Version 1.4. GBIF-Spain. Occurrence dataset https://doi.org/10.15468/vfvnmu accessed via GBIF.org on 2020-01-28.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

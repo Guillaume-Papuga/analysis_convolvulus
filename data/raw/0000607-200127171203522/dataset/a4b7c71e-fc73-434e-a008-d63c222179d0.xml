@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="a4b7c71e-fc73-434e-a008-d63c222179d0"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>10.15470/fzwiiu</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=floracat</alternateIdentifier>
+        <alternateIdentifier>a4b7c71e-fc73-434e-a008-d63c222179d0</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource?r=floracat</alternateIdentifier>
+    <title>FloraCAT: Banco de datos de los cormófitos de Cataluña</title>
+    <creator>
+    <individualName>
+<givenName>Xavier</givenName>          <surName>Font Castell</surName>
+    </individualName>
+<organizationName>Universidad de Barcelona</organizationName><positionName>Profesor titular de Universidad</positionName>    <address>
+<deliveryPoint>Avd. Diagonal 643</deliveryPoint><city>Barcelona</city><administrativeArea>Barcelona</administrativeArea><postalCode>E-08028</postalCode><country>SPAIN</country>    </address>
+<phone>+34 934021474</phone><electronicMailAddress>Xfont@ub.edu</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Xavier</givenName>          <surName>Font Castell</surName>
+    </individualName>
+<organizationName>Universidad de Barcelona</organizationName><positionName>Profesor titular de Universidad</positionName>    <address>
+<deliveryPoint>Avd. Diagonal 643</deliveryPoint><city>Barcelona</city><administrativeArea>Barcelona</administrativeArea><postalCode>e-08028</postalCode><country>SPAIN</country>    </address>
+<phone>+34 934021474</phone><electronicMailAddress>xfont@ub.edu</electronicMailAddress>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Katia</givenName>          <surName>Cezón</surName>
+    </individualName>
+<electronicMailAddress>katia.gbif@gmail.com</electronicMailAddress>    <role>USER</role>
+    </associatedParty>
+      <pubDate>
+      2018-11-30
+      </pubDate>
+    <language>CATALAN</language>
+    <abstract>
+        <para>FloraCat es un banco de datos que recoge las observaciones sobre Cormófitos (pteridofitos, gimnosperamas y angiospermas) que a aparecen en la bibliografía especializada en el marco territorial de Cataluña. También se recoge la información taxonómica, ecológica, corológica, fitosociológica, etc., del taxón, siempre que estos datos figuren en el trabajo.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Observation</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>Cataluña</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>0.24</westBoundingCoordinate>
+                      <eastBoundingCoordinate>3.5</eastBoundingCoordinate>
+                      <northBoundingCoordinate>43.01</northBoundingCoordinate>
+                      <southBoundingCoordinate>40.47</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+          <temporalCoverage>
+            <rangeOfDates>
+              <beginDate>
+                <calendarDate>      1700
+</calendarDate>
+              </beginDate>
+              <endDate>
+                <calendarDate>      2016
+</calendarDate>
+              </endDate>
+            </rangeOfDates>
+          </temporalCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Cormófitos</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Monilophyta</taxonRankValue>
+                          <commonName>Helechos y colas de caballo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Lycophyta</taxonRankValue>
+                          <commonName>licopodios</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Spermatophyta</taxonRankValue>
+                          <commonName>plantas con semillas</commonName>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>annually</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Xavier</givenName>          <surName>Font Castell</surName>
+    </individualName>
+<organizationName>Universidad de Barcelona</organizationName><positionName>Profesor titular de Universidad</positionName>    <address>
+<deliveryPoint>Avd. Diagonal 643</deliveryPoint><city>Barcelona</city><administrativeArea>Barcelona</administrativeArea><postalCode>E-08028</postalCode><country>SPAIN</country>    </address>
+<phone>+34 934021474</phone><electronicMailAddress>xfont@ub.edu</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:44Z</dateStamp>
+      <citation identifier="http://doi.org/10.15470/fzwiiu">Font Castell X (2018). FloraCAT: Banco de datos de los cormófitos de Cataluña. Version 2.2. Banc de dades de biodiversitat de Catalunya. Occurrence dataset https://doi.org/10.15470/fzwiiu accessed via GBIF.org on 2020-01-28.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

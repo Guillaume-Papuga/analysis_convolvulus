@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="2d680d46-d783-4ea7-94b1-2556cd653e36"  system="http://gbif.org" scope="system"
+  xml:lang="fr">
+
+<dataset>
+      <alternateIdentifier>10.15468/x3te8g</alternateIdentifier>
+        <alternateIdentifier>12442</alternateIdentifier>
+    <title>Phytochorologie des départements français</title>
+    <associatedParty>
+    <individualName>
+          <surName>Equipe Informatique</surName>
+    </individualName>
+<positionName>system administrator</positionName><positionName>data administrator</positionName><phone>+33467524122</phone><electronicMailAddress>webmestre@tela-botanica.org</electronicMailAddress>    </associatedParty>
+    <language>en</language>
+    <abstract>
+        <para>Ce projet à pour but de réaliser les listes  de plantes présentes dans chaque département français.
+
+Un travail d&amp;#39;harmonisation est réalisé pour la nomenclature des taxons sur la base de l&amp;#39;index synonymique réalisé par Benoît BOCK dans le cadre du projet &amp;#34;Index synonymique&amp;#34; de Tela Botanica.
+
+Les listes réalisées seront disponibles en ligne au fur et à mesure de leur réalisation.
+
+Vous pouvez aussi consulter, via une interface web, l&amp;#39;état d&amp;#39;avancement du projet : http://www.tela-botanica.org/chorologie</para>
+    </abstract>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://api.tela-botanica.org/tapirlink/tapir.php/chorodep</url>
+          </online>
+      </distribution>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:41Z</dateStamp>
+      <citation>Tela Botanica. Phytochorologie des départements français. Occurrence dataset https://doi.org/10.15468/x3te8g accessed via GBIF.org on 2020-01-28.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

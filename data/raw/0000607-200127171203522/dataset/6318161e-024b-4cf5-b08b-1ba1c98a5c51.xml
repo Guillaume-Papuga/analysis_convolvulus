@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="6318161e-024b-4cf5-b08b-1ba1c98a5c51"  system="http://gbif.org" scope="system"
+  xml:lang="fr">
+
+<dataset>
+      <alternateIdentifier>10.15468/sn94rf</alternateIdentifier>
+        <alternateIdentifier>http://ipt-inpn.gbif.fr/resource?r=IPT-55B6397C-2AD2-7457-E053-2614A8C0FB88</alternateIdentifier>
+        <alternateIdentifier>6318161e-024b-4cf5-b08b-1ba1c98a5c51</alternateIdentifier>
+        <alternateIdentifier>http://ipt-inpn.gbif.fr/resource?r=55B6397C-2AD2-7457-E053-2614A8C0FB88</alternateIdentifier>
+    <title>Données de la base Ecosphère</title>
+    <creator>
+    <individualName>
+<givenName>n/a</givenName>          <surName>SAUZON Thomas</surName>
+    </individualName>
+<organizationName>BUREAU D&apos;ETUDE EN ENVIRONNEMENT</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+<electronicMailAddress>thomas.sauzon@ecosphere.fr</electronicMailAddress>    </creator>
+    <creator>
+    <individualName>
+<givenName>n/a</givenName>          <surName>KOVACS Jean-Christophe</surName>
+    </individualName>
+<organizationName>BUREAU D&apos;ETUDE EN ENVIRONNEMENT</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+<electronicMailAddress>jean-christophe.kovacs@ecosphere.fr</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+          <surName>Inventaire National du Patrimoine Naturel</surName>
+    </individualName>
+<organizationName>Unité mixte de service 2006 Patrimoine Naturel</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+    </metadataProvider>
+    <associatedParty>
+    <individualName>
+          <surName>GBIF France</surName>
+    </individualName>
+<organizationName>GBIF France</organizationName><positionName>IT support</positionName>    <address>
+<deliveryPoint>GBIF France - MNHN Géologie CP48, 43 rue Buffon</deliveryPoint><city>Paris</city><administrativeArea>Île-de-France</administrativeArea><postalCode>75005</postalCode><country>FRANCE</country>    </address>
+<phone>+33140798065</phone><electronicMailAddress>connexion@gbif.fr</electronicMailAddress>    <role>DISTRIBUTOR</role>
+    </associatedParty>
+      <pubDate>
+      2019-12-12
+      </pubDate>
+    <language>FRENCH</language>
+    <abstract>
+        <para>Premier lot de données issu de diverses études réalisées par Ecosphère et ses sous-traitants, ces données sont principalement réparties sur la moitié ouest du pays, sur la région Provence-Alpes-Côte-d&amp;#39;Azur et sur la Bassée.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>See map.</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-1.817</westBoundingCoordinate>
+                      <eastBoundingCoordinate>9.481</eastBoundingCoordinate>
+                      <northBoundingCoordinate>48.571</northBoundingCoordinate>
+                      <southBoundingCoordinate>41.535</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>n/a</givenName>          <surName>CHANET Coline</surName>
+    </individualName>
+<organizationName>UNITE MIXTE DE SERVICE 2006 PATRIMOINE NATUREL</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+<electronicMailAddress>coline.chanet@mnhn.fr</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:43Z</dateStamp>
+      <citation>SAUZON Thomas N, KOVACS Jean-Christophe N (2019). Données de la base Ecosphère. Version 1.1. UMS PatriNat (OFB-CNRS-MNHN), Paris. Occurrence dataset https://doi.org/10.15468/sn94rf accessed via GBIF.org on 2020-01-28.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>
