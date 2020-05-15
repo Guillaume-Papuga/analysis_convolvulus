@@ -27,116 +27,313 @@ library (sp)
 library (usdm) 
 ```
 
-# Project set up
 
-## Define the CSR and the extent
+
 ```{r}
-# Définir la zone d'étude et en faire un objet "Spatial Polygon"
-# Define the projection of the project 
+### Définir la zone d'étude et en faire un objet "Spatial Polygon"
+### Define the projection of the project 
 p.proj = "+proj=longlat +datum=WGS84"
 
-# First draw of the study area (with an online database)
-zone.etude = map("world", regions = c("Spain", "France"), exact=F, fill=T)  # défini le fond de carte en "objet map"; il faut que "fill = T" pour pouvoir convertir en spatialpolygon
-IDs = sapply(strsplit(zone.etude$names, ":"), function(x) x[1]) # récupère les noms des pays
-zone.etudeSpp = map2SpatialPolygons(zone.etude, IDs=IDs, proj4string=CRS(p.proj))  # convertit en "Spatial Polygon"
+# with an online database
+zone.etude <-map("world", regions="Italy:Sardinia", exact=F, fill=T)  # défini le fond de carte en "objet map"; il faut que "fill = T" pour pouvoir convertir en spatialpolygon
+IDs <- sapply(strsplit(zone.etude$names, ":"), function(x) x[1]) # récupère les noms des pays
+zone.etudeSpp <- map2SpatialPolygons(zone.etude, IDs=IDs, proj4string=CRS(p.proj))  # convertit en "Spatial Polygon"
+
+# with a polygon of the project
+# zone.etudeSpp <- readOGR('bound.shp') 
+# proj4string(zone.etudeSpp)
+# zone.etudeSpp <- spTransform(bnd,CRSobj = CRS(proj4string(sp))) # convert the CRS for the same projection
+
+# based on the presence points * a radius
 
 ### Define the global extent of the project
 e = extent(zone.etudeSpp) # recuperer spatial extent du shapefile utilisé pour extraire les données
-#e = drawExtent(show=TRUE, col="red") # draw the spatial extent
-```
+e = drawExtent(show=TRUE, col="red") # draw the spatial extent
 
 
-# Load data
-## Environment
-```{r}
-# Ecological variables
-## Bioclim
-## 1a. Upload from external drive
-# Bioclim variables are stored on my external drive
-source = "/Volumes/My Passport for Mac/spatial.data/03.environement/wc2.0_30s_bio/" # folder path
-lst <- list.files(source, pattern='tif$') # $ means end of filename, (here we see list of files ended with img)
-var.path.name = as.vector(paste (source, lst, sep="")) # paste the right name
-bioclim.var = stack(var.path.name) # and stack it
+###############################################################################################
+######################### Méthode simple : GLM ################################################
+###############################################################################################
 
-## 1b. Convert the dataset
-# each time you want to stack data, you have to respect the same PER : PROJECTION - EXTENT - RESOLUTION
-# Same projection
-projection(bioclim.var) # read the projection definition (raster dataset)
-# test = projectRaster(bioclim.var, crs = p.proj) # transform the projection into a new one (raster dataset)
+#------------------------------------------------------------------------
+# Pre processing
+#-----------------------------------------------------------------------
+### 1. Environmental data
+# 1b. Download data from internet
+bioclim.data = getData('worldclim', var='bio', res=0.5, lon = 8, lat = 40) # from raster package
+predictors = crop (bioclim.data, e)
+r = predictors
 
-# Same extent
-bioclim.var.c = crop (bioclim.var, e) # crop to the same extent
-rm (bioclim.var) # delete the big original file
+# each time you want to stack data, you have to respect the same PROJECTION - EXTENT - RESOLUTION
 
-# Same resolution 
-##if the cell size is not the same, you need to convert it
-# a. change the pixel size with aggregate or disaggregate
+### 2. Presence data
+# 2a. Gather presence data
+# Upload data from your computer
+sp = read.csv("cyc.sard.loc.csv", header = T, row.names = 1, sep = ";", dec = ",") # CSV file
 
-# b. resample the value with resample () (package raster)
+# to transform a matrix file to a spatial point file
+coordinates (sp) = ~x*y # the name of the x and y columns
+proj4string (sp) = p.proj # attributes a projection for the object, it DOES NOT reproject
+sp1 = sp[which(sp$status == "p"),] # keep only the presence
+sp1$species = 1
+sp1 = sp1[,"species"]
 
-## Stack all files together
-ecov = stack (bioclim.var.c)
+### 5. Variables selection
+# PCA
+df = as.data.frame(r)
+df = na.omit(df)
+pca = dudi.pca (df, scannf = F, nf = 2)
+s.corcircle (pca$co, clabel = 0.6)
 
-```
+# var.r = c("bio1_16", "bio3_16", "bio15_16", "bio7_16", "bio12_16")
+r1 = stack(r$bio1_16, r$bio2_16)
+
+#------------------------------------------------------------------------
+# Processing
+#------------------------------------------------------------------------
+
+### Step 1. Create a loop to select which model should be used
+
+mat.auc = as.data.frame(matrix(data = NA, ncol = 1, nrow = 275))
+colnames(mat.auc)[1] = 'mod.id'
+mat.auc$mod.id = 1:275
+
+mat.tss = as.data.frame(matrix(data = NA, ncol = 1, nrow = 275))
+colnames(mat.tss)[1] = 'mod.id'
+mat.tss$mod.id = 1:275
+
+for (i in 1:50){
+  ### create the sdmData object with spatial data
+  d = sdmData (species ~ ., train = sp1, predictors = r1, 
+               bg = list(n = 44, method = 'gRandom', remove = T))
+  
+  ### fit the model
+  m = sdm (species ~., data = d, 
+           methods = c('bioclim', 'brt', 'cart', 'domain.dismo', 'fda', 'gam', 'glm', 'mars', 'mda', 'rf', 'svm'), # algorithms
+           replication = 'cross-validation', # method
+           cv.folds = 5,
+           n = 5, 
+           modelSettings = list (brt = list (n.trees = 2000, shrinkage = 0.01))) # change the default settings of each model
+  
+  ### Extract both values and store them into a dataframe
+  m.auc = getEvaluation(m, stat='AUC')
+  mat.auc = merge (mat.auc, m.auc, by.x = 'mod.id', by.y = 'modelID', all.x = T)
+  
+  m.tss = getEvaluation(m, stat='TSS')
+  mat.tss = merge (mat.tss, m.tss, by.x = 'mod.id', by.y = 'modelID', all.x = T)
+  }
+
+mod.info = getModelInfo(m)
+
+### Model selection
+## AUC
+# matrix
+colnames(mat.auc) = c('mod.id', 1:50)
+mat.test.auc = cbind(as.data.frame(mod.info[,'method']), mat.auc[,-1])
+colnames(mat.test.auc)[1] = 'model'
+mean.auc = aggregate(.~ model, data = mat.test.auc, FUN = 'mean')
+row.names(mean.auc) = mean.auc$model
+mean.auc = t(mean.auc[,-1])
+mean.auc
+
+# sort the matrix
+vec.sort = colMeans(mean.auc)
+mat.sort.auc = mean.auc[,order(vec.sort)]
+
+# plot
+boxplot(mat.sort.auc) 
+abline(h = 0.7, col = "red")
+
+## TSS
+# matrix
+colnames(mat.tss) = c('mod.id', 1:50)
+mat.test.tss = cbind(as.data.frame(mod.info[,'method']), mat.tss[,-1])
+colnames(mat.test.tss)[1] = 'model'
+mean.tss = aggregate(.~ model, data = mat.test.tss, FUN = 'mean')
+row.names(mean.tss) = mean.tss$model
+mean.tss = t(mean.tss[,-1])
+mean.tss
+
+# sort the matrix
+vec.sort.t = colMeans(mean.tss)
+mat.sort.tss = mean.tss[,order(vec.sort.t)]
+
+# plot
+boxplot(mat.sort.tss) 
+abline(h = 0.5, col = "red")
 
 
-## Presence data
-```{r psce data}
-# Distribution data
-d.occ = read.csv(here::here("data","processed", "d.occ.conv.lan.txt"), sep = ";", dec = ".") # upload
+### Step 2. Create the model with fda, glm, gam, mda
+### Empty stack
+stk = stack()
 
-# transform a matrix file to a spatial point file
-coordinates (d.occ) = ~x*y # the name of the x and y columns
-proj4string (d.occ) = p.proj # attributes a projection for the object, it DOES NOT reproject
-# spplot(d.occ) # plot the spatial data with attributes
+eval = as.data.frame(matrix(data = NA, ncol = 1, nrow = 50))
+colnames(eval)[1] = 'auc'
 
-# Delete points that fall in the same pixel
-```
+### loop to generate 50 replicates of the model
+for (i in 1:50){
+  # create the sdmData object with spatial data
+  d = sdmData (species ~ ., train = sp1, predictors = r1, 
+               bg = list(n = 44, method = 'gRandom', remove = T))
+  
+  # fit the models
+  m = sdm (species ~., data = d, 
+           methods = c( 'fda', 'gam', 'glm', 'mda'), # algorithms
+           replication = 'cross-validation', # method
+           cv.folds = 5,
+           n = 5) 
+  
+  # Run an ensemble model with all models
+  setwd("~/Dropbox/Recherche/Projets & articles/en cours/article_Cyclamen in Sardinia/data/SDM/raster.ensemble")
+  en = ensemble(m, r1, filename = paste ('ens', i, '_sdm.img', sep = ''),
+                setting=list(method='weighted', stat='AUC', opt=2))
+  
+  # evaluate the model
+  tab.eval = as.data.frame(cbind(coordinates(d), as.data.frame(d)$species))
+  tab.eval = cbind(tab.eval, extract(en, tab.eval[,c('x', 'y')]))
+  colnames(tab.eval)[3:4] = c('species', 'suitability')
+  
+  val.auc = evaluates(tab.eval$species, tab.eval$suitability)
+  eval[i,'auc'] = val.auc@statistics$AUC
+  
+  # create the stack
+  stk = addLayer(stk, en)
+  
+  # set the right directory back again
+  setwd("~/Dropbox/Recherche/Projets & articles/en cours/article_Cyclamen in Sardinia/data/SDM")
+}
 
-## Crop the environment raster
-```{r pseudo-abs}
-# Draw an area where to sample pseudo-absence (projection area)
-buff.pa = buffer(d.occ, width = 200*1000) # 200 * 1000m buffer
-r = mask(ecov, buff.pa)
+### Step 3. create the two raster layers (mean + std error)  
+# Mean prediction
+m.pred = calc(stk, mean)
 
-######
+# map Sardinia
+map.it = raster::getData('GADM', country='ITA', level = 1)
+sard = map.it[map.it$NAME_1 == "Sardegna",]
+plot(sard, bg="white", axes=T, col = "white", lwd = 3)
 
-x <- reclassify(ept.raster, cbind(min(values (ept.raster), na.rm =T), 
-                                  max(values (ept.raster), na.rm =T), 
-                                  1), 
-                right=FALSE)
-x[is.na(x[])] <- 0 
-y = rasterToContour(x)
+# add the suitability map
+m.pred.sard = mask (m.pred, sard)
+plot(m.pred.sard, main='weighted mean of three models', box = F, add = T)
 
-buff.pa.c = crop (buff.pa, y)
-
-ept.raster[ept.raster != NA] = 1
-
-
-max(values (ept.raster), na.rm =T)
-
-r <- raster(ncol=10, nrow=10)
-values(r) <- rnorm(100)
-
-x = reclassify(x, cbind(-Inf, 0.9, 0), right=FALSE)
+# add the dots
+#gbif.cycl = read.csv("gbif.database.csv",header=TRUE,row.names=NULL,dec=".",sep=";")
+#points(gbif.cycl$x, gbif.cycl$y, 
+#       pch = 16, cex = 0.4, col = 'black')
+points(sp1, pch = 16, cex = 0.6, col = 'red')
+points(sp[which(sp$status == 'm'),], pch = 16, cex = 0.6, col = 'blue')
 
 
-# Create pseudo-absence data
-random.Spoints = spsample(sard, 200, type="random") # spsample echantillonne dans un "SpatialPolygon"
+# Plot AUC
+hist(eval$auc, freq = T)
 
-# choisit un raster qu'on utilise pour ne selectionner qu'un point par "cell"
-mask = stk$bio1
-cells = cellFromXY(mask, random.Spoints) # cellFrom permet de récuperer les numéros des cellules avec toute sorte de fichier (XY, ligne, polygone, etc.)
-cells <- unique(cells)
+# Standard error
+se.pred = calc(stk,function(x) sd(x)/sqrt(length(x)))
+plot(sard, bg="white", axes=T, col = "white", lwd = 3)
+# add the standard error map
+se.pred.sard = mask (se.pred, sard)
+plot(se.pred.sard, box = F, add = T)
 
-# enlever les valeurs doublons avec les cellules contenant l'espèce
-cells.p = cellFromXY(mask, pts [, c("x", "y")]) # récupérer les cellules de présence
-cells.p = unique(cells.p) 
-cells = setdiff(cells, cells.p) # enlève les points communs aux deux
-xy = xyFromCell(mask, cells) # récupère les coordonnées des cellules de mask dont le n° correspond a cell
+plot(se.pred)
 
-random.Spoints = data.frame(xy) # reprend le mm nom que sur méthode avant pour pseudo absence
-coordinates(random.Spoints) = ~x+y # set spatial coordinates to create a Spatial object
-projection(random.Spoints) = CRS('+proj=longlat +datum=WGS84') # set the coordinate reference system (CRS)
+# Evaluation
+mean(eval$auc)
+sd(eval$auc)/sqrt(length(eval$auc))
+
+
+### Step 4. Produce individual maps for fda, glm, gam, mda
+### Empty stack
+stk = stack()
+
+for (i in 1:50){
+  # create the sdmData object with spatial data
+  d = sdmData (species ~ ., train = sp1, predictors = r1, 
+               bg = list(n = 44, method = 'gRandom', remove = T))
+  
+  # fit the models c( 'fda', 'gam', 'glm', 'mda')
+  m = sdm (species ~., data = d, 
+           methods = 'mda', # algorithms
+           replication = 'cross-validation', # method
+           cv.folds = 5,
+           n = 5) 
+  
+  # Run an ensemble model with all models
+  setwd("~/Dropbox/Recherche/Projets & articles/en cours/article_Cyclamen in Sardinia/data/SDM/raster.ensemble")
+  en = ensemble(m, r1, filename = paste ('ens.mda', i, '_sdm.img', sep = ''),
+                setting=list(method='weighted', stat='AUC', opt=2))
+  
+    # create the stack
+  stk = addLayer(stk, en)
+  
+  # set the right directory back again
+  setwd("~/Dropbox/Recherche/Projets & articles/en cours/article_Cyclamen in Sardinia/data/SDM")
+}
+
+### Step 5. create the two raster layers (mean + std error)  
+# Mean prediction
+m.pred = calc(stk, mean)
+
+# map Sardinia
+# map.it = raster::getData('GADM', country='ITA', level = 1)
+# sard = map.it[map.it$NAME_1 == "Sardegna",]
+plot(sard, bg="white", axes=T, col = "white", lwd = 3, main = 'MDA')
+
+# add the suitability map
+m.pred.sard = mask (m.pred, sard)
+plot(m.pred.sard, box = F, add = T)
+
+
+
+### evaluate models
+m
+getModelInfo(m)
+gui(m) # open the interface 
+roc(m)
+getRoc(m2)
+getVarImp (m,2)
+rcurve(m, id = 1) # plot the response curve
+getResponseCurve (m, 1)
+
+
+
+### Run an ensemble model with all models
+en3 <- ensemble(m, r3, filename='ensemble3_sdm.img',
+               setting=list(method='weighted', stat='TSS', opt=2))
+en4 <- ensemble(m2, r3, filename='ensemble4_sdm.img',
+                setting=list(method='weighted', stat='TSS', opt=2))
+
+
+### Select a subset of models with a given threshold
+# which models have TSS >= 0.7
+ev <- getEvaluation(m,stat='TSS',opt = 2)
+ev
+id <- ev$modelID[which(ev$TSS >= 0.7)] 
+# we run ensemble by incorporating the models with TSS >= 0.6:
+en3 <- ensemble(m, r3, filename='ensemble3_sdm.img',
+                setting=list(id=id, method='weighted', stat='TSS', opt=2))
+
+
+
+# we can take the mean of raster over different runs for each method and species:
+pm = predict(m, newdata = r3, filename='pm.img', mean=T, overwrite = T)
+plot(pm)
+plot(en)
+
+
+
+# Set a working directory
+setwd("~/Dropbox/Recherche/Projets & articles/en cours/article_Cyclamen in Sardinia/data/SDM/raster.ensemble")
+lst <- list.files(pattern = '^ens(.*)img$')
+lst = lst [201:250]
+stk <- stack(lst)
+
+std.error <- function(x) {
+  se <- sd(x)/sqrt(length(x))
+  return(se)
+}
+se.preds = calc(stk, std.error)
+se.preds.sard = mask (se.preds, sard)
+plot(se.preds.sard, box = F, add = T)
+
 ```
 

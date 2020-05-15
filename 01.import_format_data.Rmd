@@ -23,7 +23,7 @@ Data processed in this file belongs to a project of ecological niche analysis of
 This document is used to format data. No analysis is coded here.
 All data names once processed follow the form d.something (d stands for "data", and the second part must clearly refer to the type of data).
 
-# Niche data ##> to be updated
+# I. Micro-niche data ##> to be updated
 #```{r}
 # load raw data
 d.hab = read.csv(here::here("data","raw", "bhab.csv"), sep = ";", dec = ",")
@@ -37,7 +37,99 @@ write.table (x = d.hab, here::here("data","processed","d.hab.txt"), sep = ";", d
 
 The *niche* dataset contains `r nb.row` populations.
 
-# Occurences (databases)
+# II. Ecological variables
+
+
+# Setting
+```{r}
+## define the path to the folder "Sentinel"
+source = "/media/papuga/My Passport for Mac/spatial.data/09.projets.specifiques/couches_lag.temp/raw.layers/Sentinel/" # external memory / linux
+# source = "/home/papuga/Documents/couches_lag.temp/raw.layers/Sentinel/"  # computer memory / linux
+
+```
+
+
+## a. Download the base layer
+```{r}
+## hydroperiod
+## 1. Upload from computer
+tile = list.files(source) # names of each tile
+
+# use a loop to extract each variable
+for (i in tile){
+  var.name = paste ("/hydroperiod/hydroperiod_", i, "_sep2018_sep2019.tif", sep = "") # name of the variable in the initial folder
+  var.path.name = as.vector(paste (source, i, var.name, sep="")) # paste the right name
+  hydroperiod = raster(var.path.name) # upload the raster 
+  assign(paste("hydro_", i, sep = ""), hydroperiod) # assign the raster a unique name (from its tile)
+}
+
+# join the raster
+hydroperiod = mosaic(hydro_T31TDH, hydro_T31TEH, hydro_T31TEJ, hydro_T31TFH, hydro_T31TFJ, hydro_T31TGH, 
+                     fun = mean, tolerance=0.05)
+## 2. Plot
+plot(hydroperiod)
+```
+
+
+## b. Define the basic setting of raster layers
+```{r layers setting}
+## Set the basic parameters of the project
+# each time you want to stack data, you have to respect the same PER : PROJECTION - EXTENT - RESOLUTION
+# it's called the standard settings of the project.
+
+# Same projection
+p.proj = (CRS("+init=epsg:2154"))
+
+# Correct the projection of the hydroperiod layer
+p.proj
+projection(hydroperiod) # read the projection definition (raster dataset)
+hydroperiod.93 = projectRaster(hydroperiod, 
+                               crs = p.proj) # change the CRS of the raster to WGS84
+
+# Same extent
+p.extent = extent(hydroperiod.93)
+
+# Same resolution 
+p.res = res(hydroperiod.93)
+```
+
+
+
+
+## Environment
+```{r}
+# Ecological variables
+## Bioclim
+## 1a. Upload from external drive
+# Bioclim variables are stored on my external drive
+source = "/Volumes/My Passport for Mac/spatial.data/03.environement/wc2.0_30s_bio/" # folder path
+lst <- list.files(source, pattern='tif$') # $ means end of filename, (here we see list of files ended with img)
+var.path.name = as.vector(paste (source, lst, sep="")) # paste the right name
+bioclim.var = stack(var.path.name) # and stack it
+
+## 1b. Convert the dataset
+# each time you want to stack data, you have to respect the same PER : PROJECTION - EXTENT - RESOLUTION
+# Same projection
+projection(bioclim.var) # read the projection definition (raster dataset)
+# test = projectRaster(bioclim.var, crs = p.proj) # transform the projection into a new one (raster dataset)
+
+# Same extent
+bioclim.var.c = crop (bioclim.var, e) # crop to the same extent
+rm (bioclim.var) # delete the big original file
+
+# Same resolution 
+##if the cell size is not the same, you need to convert it
+# a. change the pixel size with aggregate or disaggregate
+
+# b. resample the value with resample () (package raster)
+
+## Stack all files together
+ecov = stack (bioclim.var.c)
+
+```
+
+
+# III. Occurences (databases)
 The aim of this section is to build a database of occurence throughout the two species range in order to compute their climatic niche based on WorldClim data. 
 
 ## 1. Dataset structure
@@ -124,7 +216,56 @@ The iNaturalist dataset contains `r nb.row` populations.
 ### 2e. Catalunya
 ### 2f. GBIF
 
-## 3. Synthesis
+## 3. Pseudo-absences
+```{r pseudo-abs}
+# Draw an area where to sample pseudo-absence (projection area)
+buff.pa = buffer(d.occ, width = 200*1000) # 200 * 1000m buffer
+r = mask(ecov, buff.pa)
+
+######
+
+x <- reclassify(ept.raster, cbind(min(values (ept.raster), na.rm =T), 
+                                  max(values (ept.raster), na.rm =T), 
+                                  1), 
+                right=FALSE)
+x[is.na(x[])] <- 0 
+y = rasterToContour(x)
+
+buff.pa.c = crop (buff.pa, y)
+
+ept.raster[ept.raster != NA] = 1
+
+
+max(values (ept.raster), na.rm =T)
+
+r <- raster(ncol=10, nrow=10)
+values(r) <- rnorm(100)
+
+x = reclassify(x, cbind(-Inf, 0.9, 0), right=FALSE)
+
+
+# Create pseudo-absence data
+random.Spoints = spsample(sard, 200, type="random") # spsample echantillonne dans un "SpatialPolygon"
+
+# choisit un raster qu'on utilise pour ne selectionner qu'un point par "cell"
+mask = stk$bio1
+cells = cellFromXY(mask, random.Spoints) # cellFrom permet de récuperer les numéros des cellules avec toute sorte de fichier (XY, ligne, polygone, etc.)
+cells <- unique(cells)
+
+# enlever les valeurs doublons avec les cellules contenant l'espèce
+cells.p = cellFromXY(mask, pts [, c("x", "y")]) # récupérer les cellules de présence
+cells.p = unique(cells.p) 
+cells = setdiff(cells, cells.p) # enlève les points communs aux deux
+xy = xyFromCell(mask, cells) # récupère les coordonnées des cellules de mask dont le n° correspond a cell
+
+random.Spoints = data.frame(xy) # reprend le mm nom que sur méthode avant pour pseudo absence
+coordinates(random.Spoints) = ~x+y # set spatial coordinates to create a Spatial object
+projection(random.Spoints) = CRS('+proj=longlat +datum=WGS84') # set the coordinate reference system (CRS)
+```
+
+
+
+## 4. Synthesis
 ```{r}
 # Copy and paste each dataset on the basic matrix
 d.occ = rbind(d.occ, d.occ.cbn)
@@ -136,6 +277,40 @@ d.occ = unique (d.occ)
 write.table (x = d.occ, here::here("data","processed","d.occ.conv.lan.txt"), sep = ";", dec = ".")
 ```
 
+# IV. Crop dataset to the study area
 
+## a. Preset
+```{r plot extent}
+# due to the spatial extent of the project, it is difficult to map results
+# define a local extent to visualize a subset of results (Frontignan, Hérault, France)
+ext.fronti = extent (756670, 768435, 6257688, 6267642)
+ext.practice = extent (762364.9, 803269.3, 6256546, 6286295 )
+```
 
+```{r open layers}
+# Read layers (to avoid running the whole script when session restarts)
+hydroperiod.93 = raster("/home/papuga/Documents/couches_lag.temp/processed_layers/hydroperiod.93.tif")
+msavi.93 = raster("/home/papuga/Documents/couches_lag.temp/processed_layers/msavi.93.tif")
+altitude.93.c.adj = raster("/home/papuga/Documents/couches_lag.temp/processed_layers/altitude.93.c.adj.tif")
+
+## Stack all files together
+## This is a way to check that everything has been done carefully and raster layers are compatible
+ecov = stack (hydroperiod.93, 
+              msavi.93,
+              altitude.93.c.adj)
+
+# crop to spatial extent
+st = Sys.time()
+lim = as(p.bound, Class = "Spatial")
+ecov.m = raster::mask(ecov, lim)
+ecov.c = raster::crop (ecov.m, lim)
+end = Sys.time()
+t1 = end-st
+
+# crop to training area
+st = Sys.time()
+ecov.p = raster::crop (ecov, ext.practice)
+end = Sys.time()
+t1 = end-st
+```
 
