@@ -1,7 +1,7 @@
 ---
 title: "01.import_format_data"
 author: "Guillaume Papuga"
-date: "12/11/2019"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -10,9 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r packages}
-require(here)
-library(tidyverse)
-library(stringr)
+library (here)
+library (tidyverse)
+library (stringr)
+library (raster)
 ```
 
 # Introduction
@@ -24,52 +25,39 @@ This document is used to format data. No analysis is coded here.
 All data names once processed follow the form d.something (d stands for "data", and the second part must clearly refer to the type of data).
 
 # I. Micro-niche data ##> to be updated
-#```{r}
+```{r}
 # load raw data
-d.hab = read.csv(here::here("data","raw", "bhab.csv"), sep = ";", dec = ",")
+d.flore = read.csv(here::here("data","raw", "flore.convol_complet.csv"), sep = ";", dec = ",") # plant community
+d.niche = read.csv(here::here("data","raw", "micro_niche.csv"), sep = ";", dec = ",") # micro niche
+d.station = read.csv(here::here("data","raw", "info_station.csv"), sep = ";", dec = ",") # station
 
-# process & correct
-nb.row = nrow(d.hab)
+# calculate plat community index 
+
+# join d.flore and d.niche
+d.microniche
+nb.row = nrow(d.microniche)
 
 # write data in the "processed" folder
-write.table (x = d.hab, here::here("data","processed","d.hab.txt"), sep = ";", dec = ".")
-#```
-
+write.table (x = d.microniche, here::here("data","processed","d.microniche.txt"), sep = ";", dec = ".")
+```
 The *niche* dataset contains `r nb.row` populations.
 
 # II. Ecological variables
-
-
-# Setting
 ```{r}
 ## define the path to the folder "Sentinel"
-source = "/media/papuga/My Passport for Mac/spatial.data/09.projets.specifiques/couches_lag.temp/raw.layers/Sentinel/" # external memory / linux
-# source = "/home/papuga/Documents/couches_lag.temp/raw.layers/Sentinel/"  # computer memory / linux
-
+source = "/home/papuga/Documents/climate" # linux
 ```
-
 
 ## a. Download the base layer
 ```{r}
-## hydroperiod
+# Bioclim variables for current climate
 ## 1. Upload from computer
-tile = list.files(source) # names of each tile
+tile = list.files(path = paste(source, "/current/wc2.1_10m_bio", sep = "")) # names of each tile
+cur.st = stack(paste(source, "/current/wc2.1_10m_bio/",tile, sep = ""))
 
-# use a loop to extract each variable
-for (i in tile){
-  var.name = paste ("/hydroperiod/hydroperiod_", i, "_sep2018_sep2019.tif", sep = "") # name of the variable in the initial folder
-  var.path.name = as.vector(paste (source, i, var.name, sep="")) # paste the right name
-  hydroperiod = raster(var.path.name) # upload the raster 
-  assign(paste("hydro_", i, sep = ""), hydroperiod) # assign the raster a unique name (from its tile)
-}
-
-# join the raster
-hydroperiod = mosaic(hydro_T31TDH, hydro_T31TEH, hydro_T31TEJ, hydro_T31TFH, hydro_T31TFJ, hydro_T31TGH, 
-                     fun = mean, tolerance=0.05)
 ## 2. Plot
-plot(hydroperiod)
+plot(cur.st$wc2.1_10m_bio_1)
 ```
-
 
 ## b. Define the basic setting of raster layers
 ```{r layers setting}
@@ -78,54 +66,37 @@ plot(hydroperiod)
 # it's called the standard settings of the project.
 
 # Same projection
-p.proj = (CRS("+init=epsg:2154"))
-
-# Correct the projection of the hydroperiod layer
-p.proj
-projection(hydroperiod) # read the projection definition (raster dataset)
-hydroperiod.93 = projectRaster(hydroperiod, 
-                               crs = p.proj) # change the CRS of the raster to WGS84
+p.proj = crs(cur.st)
 
 # Same extent
-p.extent = extent(hydroperiod.93)
+p.extent = extent(cur.st)
 
 # Same resolution 
-p.res = res(hydroperiod.93)
+p.res = res(cur.st)
 ```
 
 
-
-
-## Environment
+## c. Stack other climate variables (Bioclim)
 ```{r}
 # Ecological variables
-## Bioclim
-## 1a. Upload from external drive
-# Bioclim variables are stored on my external drive
-source = "/Volumes/My Passport for Mac/spatial.data/03.environement/wc2.0_30s_bio/" # folder path
-lst <- list.files(source, pattern='tif$') # $ means end of filename, (here we see list of files ended with img)
-var.path.name = as.vector(paste (source, lst, sep="")) # paste the right name
-bioclim.var = stack(var.path.name) # and stack it
+## LGM
+tile = list.files(path = paste(source, "/lgm/cclgmbi_10m", sep = "")) # names of each tile
+lgm_cc.st = stack(paste(source, "/lgm/cclgmbi_10m/",tile, sep = "")) # stack the tiles
 
-## 1b. Convert the dataset
-# each time you want to stack data, you have to respect the same PER : PROJECTION - EXTENT - RESOLUTION
-# Same projection
-projection(bioclim.var) # read the projection definition (raster dataset)
-# test = projectRaster(bioclim.var, crs = p.proj) # transform the projection into a new one (raster dataset)
+## LGM
+tile = list.files(path = paste(source, "/lgm/mrlgmbi_10m", sep = "")) # names of each tile
+lgm_mr.st = stack(paste(source, "/lgm/mrlgmbi_10m/",tile, sep = "")) # stack the tiles
 
-# Same extent
-bioclim.var.c = crop (bioclim.var, e) # crop to the same extent
-rm (bioclim.var) # delete the big original file
+## Mid Holocen
+tile = list.files(path = paste(source, "/mid_holocen/ccmidbi_10m", sep = "")) # names of each tile
+mid_cc.st = stack(paste(source, "/mid_holocen/ccmidbi_10m/",tile, sep = "")) # stack the tiles
 
-# Same resolution 
-##if the cell size is not the same, you need to convert it
-# a. change the pixel size with aggregate or disaggregate
+## Mid olocen
+tile = list.files(path = paste(source, "/mid_holocen/mrmidbi_10m", sep = "")) # names of each tile
+mid_mr.st = stack(paste(source, "/mid_holocen/mrmidbi_10m/",tile, sep = "")) # stack the tiles
 
-# b. resample the value with resample () (package raster)
-
-## Stack all files together
-ecov = stack (bioclim.var.c)
-
+## Plot
+# to be done
 ```
 
 
