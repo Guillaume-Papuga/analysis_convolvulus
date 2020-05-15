@@ -14,6 +14,7 @@ library (here)
 library (tidyverse)
 library (stringr)
 library (raster)
+library (mgrs)
 ```
 
 # Introduction
@@ -108,40 +109,52 @@ The aim of this section is to build a database of occurence throughout the two s
 # The matrix is named `d.occ` and must contain 6 columns
 # code.pop : population code (dataset specific)
 # sp.name : species names (Convolvulus lanuginosus)
+# presence : 1-0 for presence-(pseudo)absence
 # date : the date (yyyymmdd)
 # x : coordinate on the x-axis (longitude in decimal degree)
 # y : coordinate on the y-axis (latitude in decimal degree)
 # precision : precision of the location (expressed in meter)
 # source : explicit name of the source of the imported dataset
 
-d.occ = as.data.frame(matrix (ncol = 7,nrow = 0))
-colnames (d.occ) = c("code.pop", "sp.name", "date", "x", "y", "precision", "source")
+d.occ.raw = as.data.frame(matrix (ncol = 8,nrow = 0))
+colnames (d.occ.raw) = c("code.pop", "sp.name", "presence", "date", "x", "y", "precision", "source")
 ```
 
 ## 2. Import
-To date, we have gathered one dataset.
+To date, we have gathered four datasets.
 
 ### 2a. CBN data
 ```{r}
 # load raw data
-d.occ.cbn = read.csv(here::here("data","raw", "bdd.psce.csv"), sep = ";", dec = ",")
+data.cbn = read.csv(here::here("data","raw", "export_360_28012020_cbnmed.csv"), sep = "\t", dec = ".")
 
 # select correct columns
-d.occ.cbn = d.occ.cbn[,c("code", 
-                         "nom_retenu", 
-                         "date", 
-                         "longitude", 
-                         "latitude", 
-                         "precision.m", 
-                         "organisation")]
-colnames(d.occ.cbn) = colnames (d.occ)
+d.occ.cbn = data.cbn %>%
+  mutate (presence = 1) %>%
+  mutate (source = "cbnmed") %>%
+  dplyr::select(c(id_observation, nom_reconnu, presence, date_releve_fin, lon_wgs84, lat_wgs84, id_precision, source)) %>%
+  mutate(id_precision = case_when(id_precision  == 'P' ~ 10,
+                                  id_precision  == 'T' ~ 500,
+                                  id_precision  == 'C' ~ 10000,
+                                  id_precision  == 'N' ~ 10000)) %>%
+  rename (code.pop = id_observation, 
+          sp.name = nom_reconnu, 
+          date = date_releve_fin, 
+          x = lon_wgs84, 
+          y = lat_wgs84, 
+          precision = id_precision)
 
 # process & correct
 d.occ.cbn = unique (d.occ.cbn) # delete duplicates
-## correct the date
 
-## correct the name of the species
-species.id = unique (d.occ.cbn$nom_retenu)
+# change the format of the date
+
+## filter for the date and the precision
+d.occ.cbn = d.occ.cbn %>%
+  drop_na() %>% # remove NA
+  filter (precision < 1001)# precision
+  # date
+
 
 ## count observation
 nb.row = nrow(d.occ.cbn)
@@ -152,29 +165,33 @@ This dataset contains `r nb.row` populations.
 ### 2b. iNat
 ```{r}
 # load raw data
-d.occ.inat = read.csv(here::here("data","raw", "occ.inat.convol_lan.200120.csv"), sep = ";", dec = ".")
+data.inat = read.csv(here::here("data","raw", "occ.inat.convol_lan.200120.csv"), sep = ";", dec = ".")
 
 # select correct columns
-d.occ.inat = d.occ.inat[,c("id", 
-                         "scientific_name", 
-                         "observed_on", 
-                         "longitude", 
-                         "latitude", 
-                         "positional_accuracy")]
-d.occ.inat[,"organisation"] = rep("inat", nrow(d.occ.inat))
-colnames(d.occ.inat) = colnames (d.occ)
+d.occ.inat = data.inat %>%
+  mutate (presence = 1) %>%
+  mutate (source = "inat") %>%
+  dplyr::select(c(id, scientific_name, presence, observed_on, longitude, latitude, positional_accuracy, source)) %>%
+  rename (code.pop = id, 
+          sp.name = scientific_name, 
+          date = observed_on, 
+          x = longitude, 
+          y = latitude, 
+          precision = positional_accuracy) %>%
+  replace_na(list(precision = 5)) # consider that obs without precision are camera based GPS obs
+
 
 # process & correct
-d.occ.cbn = unique (d.occ.inat) # delete duplicates
+d.occ.inat = unique (d.occ.inat) # delete duplicates
 
-## correct the date
+# change the format of the date
 
-## select observation >1990
+## filter for the date and the precision
+d.occ.inat = d.occ.inat %>%
+  drop_na() %>% # remove NA
+  filter (precision < 1001)# precision
+  # date
 
-## correct the name of the species
-species.id = unique (d.occ.inat$sp.name)
-
-## retain observation with data accuracy <1km
 
 ## count observation
 nb.row = nrow(d.occ.inat)
@@ -183,12 +200,100 @@ nb.row = nrow(d.occ.inat)
 The iNaturalist dataset contains `r nb.row` populations.
 
 ### 2c. Anthos
+```{r}
+# load raw data
+data.anthos = read.csv(here::here("data","raw", "convol_anthos.csv"), sep = ";", dec = ".")
+coord = mgrs_to_latlng (as.vector(data.anthos$utm))
+
+# select correct columns
+d.occ.anthos = data.anthos %>%
+  mutate (presence = 1) %>%
+  mutate (source = "anthos") %>%
+  unite (sp.name, c(agenero, aespecie), sep = " ") %>%
+  mutate (x = as.numeric(coord$lng)) %>%
+  mutate (y = as.numeric(coord$lat)) %>%
+  mutate (precision = (mgrs_precision(as.vector(data.anthos$utm)))$precision) %>%
+  dplyr::select(c(id_cita, sp.name, presence, X.4, x, y, precision, source)) %>%
+  rename (code.pop = id_cita, 
+          date = X.4)
+  
+# process & correct
+d.occ.anthos = unique (d.occ.anthos) # delete duplicates
+
+# change the format of the date
+
+## filter for the date and the precision
+d.occ.anthos = d.occ.anthos %>%
+  drop_na() %>% # remove NA
+  filter (precision < 1001)# precision
+  # date
+
+
+## count observation
+nb.row = nrow(d.occ.anthos)
+```
+The Anthos dataset contains `r nb.row` populations.
+
 ### 2d. Valenciana
 ### 2e. Catalunya
 ### 2f. GBIF
+```{r}
+# load raw data
+data.gbif = read.csv(here::here("data","raw", "0000607-200127171203522", "occurrence.csv"), sep = "\t", dec = ".")
 
-## 3. Pseudo-absences
+# select correct columns
+d.occ.gbif = data.gbif %>%
+  mutate (presence = 1) %>%
+  mutate (source = "gbif") %>%
+  dplyr::select(c(gbifID, acceptedScientificName, presence, eventDate, decimalLongitude, decimalLatitude, coordinatePrecision, source)) %>%
+  mutate (decimalLongitude = as.numeric(decimalLongitude)) %>%
+  mutate (decimalLatitude = as.numeric(decimalLatitude)) %>%
+  rename (code.pop = gbifID, 
+          sp.name = acceptedScientificName, 
+          date = eventDate, 
+          x = decimalLongitude, 
+          y = decimalLatitude, 
+          precision = coordinatePrecision)
+  
+# process & correct
+d.occ.gbif = unique (d.occ.gbif) # delete duplicates
+
+# change the format of the date
+
+## filter for the date and the precision
+d.occ.gbif = d.occ.gbif %>%
+  drop_na() %>% # remove NA
+  filter (precision < 1001)# precision
+  # date
+
+## count observation
+nb.row = nrow(d.occ.gbif)
+```
+The GBIF dataset contains `r nb.row` populations.
+
+## 3. Synthesis
+```{r}
+# Copy and paste each dataset on the basic matrix
+d.occ = rbind(d.occ.raw, 
+              d.occ.cbn, 
+              d.occ.anthos,
+              d.occ.gbif,
+              d.occ.inat)
+
+# Eliminate double occurence in a signel cell
+d.occ = d.occ %>%
+  mutate (cell = cellFromXY(cur.st$wc2.1_10m_bio_1, d.occ[,c("x", "y")])) %>%
+  distinct(cell)
+
+# write data in the "processed" folder
+write.table (x = d.occ, here::here("data","processed","d.occ.conv.lan.txt"), sep = ";", dec = ".")
+```
+
+## 4. Pseudo-absences
 ```{r pseudo-abs}
+# Create a background area and sample bg points
+
+
 # Draw an area where to sample pseudo-absence (projection area)
 buff.pa = buffer(d.occ, width = 200*1000) # 200 * 1000m buffer
 r = mask(ecov, buff.pa)
@@ -234,19 +339,6 @@ coordinates(random.Spoints) = ~x+y # set spatial coordinates to create a Spatial
 projection(random.Spoints) = CRS('+proj=longlat +datum=WGS84') # set the coordinate reference system (CRS)
 ```
 
-
-
-## 4. Synthesis
-```{r}
-# Copy and paste each dataset on the basic matrix
-d.occ = rbind(d.occ, d.occ.cbn)
-
-# Eliminate duplicates
-d.occ = unique (d.occ)
-
-# write data in the "processed" folder
-write.table (x = d.occ, here::here("data","processed","d.occ.conv.lan.txt"), sep = ";", dec = ".")
-```
 
 # IV. Crop dataset to the study area
 
