@@ -14,6 +14,7 @@ library (here)
 library (tidyverse)
 library (stringr)
 library (raster)
+library(sf)
 library (mgrs)
 ```
 
@@ -283,7 +284,7 @@ d.occ = rbind(d.occ.raw,
 # Eliminate double occurence in a signel cell
 d.occ = d.occ %>%
   mutate (cell = cellFromXY(cur.st$wc2.1_10m_bio_1, d.occ[,c("x", "y")])) %>%
-  distinct(cell)
+  distinct(cell, .keep_all = TRUE)
 
 # write data in the "processed" folder
 write.table (x = d.occ, here::here("data","processed","d.occ.conv.lan.txt"), sep = ";", dec = ".")
@@ -292,6 +293,16 @@ write.table (x = d.occ, here::here("data","processed","d.occ.conv.lan.txt"), sep
 ## 4. Pseudo-absences
 ```{r pseudo-abs}
 # Create a background area and sample bg points
+d.occ_sf = st_as_sf (d.occ, coords = c("x", "y")) # convert to an SF object
+# TD : change the CRS of the map to get the precise buffer size
+bg.area = st_union(st_buffer(d.occ_sf, 1)) # draw a buffer of 
+bg.points_sf = st_coordinates(st_sample(bg.area, 200)) # sample 200 points
+bg.points = as.data.frame (bg.points_sf) %>%
+  mutate (cell = cellFromXY(cur.st$wc2.1_10m_bio_1, bg.points_sf)) %>% # extract the cell number
+  distinct(cell, .keep_all = TRUE) %>% # eliminate duplicates
+  anti_join (d.occ) # and delete those of d.occ
+
+#########" end 
 
 
 # Draw an area where to sample pseudo-absence (projection area)
@@ -314,7 +325,7 @@ ept.raster[ept.raster != NA] = 1
 
 max(values (ept.raster), na.rm =T)
 
-r <- raster(ncol=10, nrow=10)
+r <- raster(ncol=10, nrow=10
 values(r) <- rnorm(100)
 
 x = reclassify(x, cbind(-Inf, 0.9, 0), right=FALSE)
