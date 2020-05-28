@@ -295,96 +295,40 @@ write.table (x = d.occ, here::here("data","processed","d.occ.conv.lan.txt"), sep
 # Create a background area and sample bg points
 d.occ_sf = st_as_sf (d.occ, coords = c("x", "y")) # convert to an SF object
 # TD : change the CRS of the map to get the precise buffer size
-bg.area = st_union(st_buffer(d.occ_sf, 1)) # draw a buffer of 
+bg.area = st_union(st_buffer(d.occ_sf, 1.5)) # draw a buffer of 
 bg.points_sf = st_coordinates(st_sample(bg.area, 200)) # sample 200 points
 bg.points = as.data.frame (bg.points_sf) %>%
   mutate (cell = cellFromXY(cur.st$wc2.1_10m_bio_1, bg.points_sf)) %>% # extract the cell number
   distinct(cell, .keep_all = TRUE) %>% # eliminate duplicates
-  anti_join (d.occ) # and delete those of d.occ
+  anti_join (d.occ) %>% # and delete those of d.occ
+  rename(x = X, y = Y) 
 
-#########" end 
+# select bg.points that fall on land
+bg.land = is.na(raster::extract(cur.st$wc2.1_10m_bio_1, bg.points [,c("x", "y")])) # create a vector TF
+bg.points = bg.points %>%
+  mutate (land = bg.land) %>% # add the vector
+  filter (land == "FALSE") %>% # select the F (not in the sea)
+  dplyr::select (-land) # delete the column
 
-
-# Draw an area where to sample pseudo-absence (projection area)
-buff.pa = buffer(d.occ, width = 200*1000) # 200 * 1000m buffer
-r = mask(ecov, buff.pa)
-
-######
-
-x <- reclassify(ept.raster, cbind(min(values (ept.raster), na.rm =T), 
-                                  max(values (ept.raster), na.rm =T), 
-                                  1), 
-                right=FALSE)
-x[is.na(x[])] <- 0 
-y = rasterToContour(x)
-
-buff.pa.c = crop (buff.pa, y)
-
-ept.raster[ept.raster != NA] = 1
-
-
-max(values (ept.raster), na.rm =T)
-
-r <- raster(ncol=10, nrow=10
-values(r) <- rnorm(100)
-
-x = reclassify(x, cbind(-Inf, 0.9, 0), right=FALSE)
-
-
-# Create pseudo-absence data
-random.Spoints = spsample(sard, 200, type="random") # spsample echantillonne dans un "SpatialPolygon"
-
-# choisit un raster qu'on utilise pour ne selectionner qu'un point par "cell"
-mask = stk$bio1
-cells = cellFromXY(mask, random.Spoints) # cellFrom permet de récuperer les numéros des cellules avec toute sorte de fichier (XY, ligne, polygone, etc.)
-cells <- unique(cells)
-
-# enlever les valeurs doublons avec les cellules contenant l'espèce
-cells.p = cellFromXY(mask, pts [, c("x", "y")]) # récupérer les cellules de présence
-cells.p = unique(cells.p) 
-cells = setdiff(cells, cells.p) # enlève les points communs aux deux
-xy = xyFromCell(mask, cells) # récupère les coordonnées des cellules de mask dont le n° correspond a cell
-
-random.Spoints = data.frame(xy) # reprend le mm nom que sur méthode avant pour pseudo absence
-coordinates(random.Spoints) = ~x+y # set spatial coordinates to create a Spatial object
-projection(random.Spoints) = CRS('+proj=longlat +datum=WGS84') # set the coordinate reference system (CRS)
 ```
 
 
 # IV. Crop dataset to the study area
 
-## a. Preset
 ```{r plot extent}
-# due to the spatial extent of the project, it is difficult to map results
-# define a local extent to visualize a subset of results (Frontignan, Hérault, France)
-ext.fronti = extent (756670, 768435, 6257688, 6267642)
-ext.practice = extent (762364.9, 803269.3, 6256546, 6286295 )
+# define a local extent to visualize a subset of results (Wester Mediterranean basin)
+ext.stud = st_make_grid (bg.area, n = 1)
 ```
 
-```{r open layers}
-# Read layers (to avoid running the whole script when session restarts)
-hydroperiod.93 = raster("/home/papuga/Documents/couches_lag.temp/processed_layers/hydroperiod.93.tif")
-msavi.93 = raster("/home/papuga/Documents/couches_lag.temp/processed_layers/msavi.93.tif")
-altitude.93.c.adj = raster("/home/papuga/Documents/couches_lag.temp/processed_layers/altitude.93.c.adj.tif")
-
-## Stack all files together
-## This is a way to check that everything has been done carefully and raster layers are compatible
-ecov = stack (hydroperiod.93, 
-              msavi.93,
-              altitude.93.c.adj)
-
+```{r crop layers}
 # crop to spatial extent
-st = Sys.time()
-lim = as(p.bound, Class = "Spatial")
-ecov.m = raster::mask(ecov, lim)
-ecov.c = raster::crop (ecov.m, lim)
-end = Sys.time()
-t1 = end-st
+lim = as(ext.stud, Class = "Spatial")
+cur.st.m = raster::mask(cur.st, lim)
+cur.st.c = raster::crop (cur.st.m, lim)
 
-# crop to training area
-st = Sys.time()
-ecov.p = raster::crop (ecov, ext.practice)
-end = Sys.time()
-t1 = end-st
+# plot
+plot(cur.st.c$wc2.1_10m_bio_1)
+points (d.occ$x, d.occ$y, pch = 16, col = "red")
+points (bg.points$x, bg.points$y, pch = 16, col = "blue")
 ```
 
