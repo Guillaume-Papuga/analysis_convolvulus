@@ -318,6 +318,9 @@ bg.points = bg.points %>%
 ```{r plot extent}
 # define a local extent to visualize a subset of results (Wester Mediterranean basin)
 ext.stud = st_make_grid (bg.area, n = 1)
+
+# create a Spatial object for the background area
+bg.area.sp = as (bg.area, Class = "Spatial")
 ```
 
 ```{r crop layers}
@@ -330,5 +333,9 @@ cur.st.c = raster::crop (cur.st.m, lim)
 plot(cur.st.c$wc2.1_10m_bio_1)
 points (d.occ$x, d.occ$y, pch = 16, col = "red")
 points (bg.points$x, bg.points$y, pch = 16, col = "blue")
+
+# crop to background area (for VIF)
+cur.st.bg.m = raster::mask(cur.st, bg.area.sp)
+cur.st.bg.c = raster::crop (cur.st.bg.m, bg.area.sp)
 ```
 
