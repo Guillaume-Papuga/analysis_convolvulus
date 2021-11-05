@@ -1,0 +1,17 @@
+---
+title: "91.appendix"
+author: "Guillaume Papuga"
+date: "05/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Appendix 1 : 
+```{r cars}
+load.image(here::here("outputs", "figures", "appendix_total.community.analysis.pdf"))
+```
+
+

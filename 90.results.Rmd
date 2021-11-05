@@ -1,0 +1,20 @@
+---
+title: "90_results"
+author: "Guillaume Papuga"
+date: "05/11/2021"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+ 
+# Figure X : temporal dissimilarity
+```{r cars}
+t = imager::load.image(here::here ("outputs", "figures", "temp.dissi.jpg"))
+plot(t, axes = FALSE)
+
+```
+Analyse the plot here.
+
+

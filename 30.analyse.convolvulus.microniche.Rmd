@@ -1,0 +1,55 @@
+---
+title: "02.analyse.convolvulus.microniche"
+author: "Guillaume Papuga"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Loading data
+# I. Micro-niche data ##> to be updated
+```{r}
+# load raw data
+d.flore = read.csv(here::here("data","raw", "flore.convol_complet.csv"), sep = ";", dec = ",") # plant community
+d.niche = read.csv(here::here("data","raw", "micro_niche.csv"), sep = ";", dec = ",") # micro niche
+d.station = read.csv(here::here("data","raw", "info_station.csv"), sep = ";", dec = ",") # station
+
+# calculate plat community index 
+
+# join d.flore and d.niche
+d.microniche
+nb.row = nrow(d.microniche)
+
+# write data in the "processed" folder
+write.table (x = d.microniche, here::here("data","processed","d.microniche.txt"), sep = ";", dec = ".")
+```
+The *niche* dataset contains `r nb.row` populations.
+
+
+```{r cars}
+summary(cars)
+```
+
+## Microniche analysis
+
+Test for the niche analysis.
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+We'll see if it works. 
+Second test now.
+An that's a third test. 
+And a fourth test. 
+
+
+And now, this is a first test to see if the push-command works (hopefuly yes)
+
+
+Woow second test
+
+That's a whole new test to add stuff from another session. (the github buttons does not appear)
