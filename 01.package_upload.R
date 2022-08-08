@@ -5,3 +5,15 @@
 # Authors : Guillaume Papuga & Thomas Masclaux
 # Last update : 5 novmber 2021
 #######################################################
+
+## R version
+R.Version()
+
+## Packages
+library(dplyr)
+library(raster)
+library(sf)
+library(tidyr)
+
+## Packages conflict
+

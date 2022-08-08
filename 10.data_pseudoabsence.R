@@ -6,6 +6,10 @@
 # Last update : 5 november 2021
 #######################################################
 
+#####
+# 3. Define the study area
+#####
+
 
 # Create a background area and sample bg points
 d.occ_sf = st_as_sf (d.occ, coords = c("x", "y")) # convert to an SF object

@@ -6,6 +6,16 @@
 # Last update : 5 november 2021
 #######################################################
 
+### Load data 
+df = read.csv(here::here ("data", "processed", "sb_data_cast.csv"), 
+              head = T, sep = ",", dec = ".")
+
+
+######################### A. Global analysis of the complete dataset ######################################
+### create the table that summarize the raw analysis
+dist = ecodist::distance(df[,-(1:3)], "bray-curtis") # create a distance matrix
+
+
 # Combine both datasets
 
 # Extract data
