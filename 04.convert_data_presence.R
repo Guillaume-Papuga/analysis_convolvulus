@@ -19,10 +19,10 @@ d.occ = read.csv(here::here ("data", "processed", "d.occ.csv"))
 ref.tile
 
 # Delete multiple points wthin cells
-d.occ = d.occ %>%
+u.occ = d.occ %>%
   mutate (cell = raster::cellFromXY(ref.tile, d.occ[, c("x", "y")])) %>%
   distinct(cell, .keep_all= TRUE) %>% # eliminate potential duplicate from different databases
-  dplyr::select(-cell)
+  dplyr::select(-cell, -X)
 
 # Save the dataset
 write.csv(u.occ, 
@@ -31,6 +31,20 @@ write.csv(u.occ,
 # Restrain the dataset to the extent of the project
 
 #####
-# 2. Convert
+# 3. Save a summary table
+#####
+
+# Build the table
+synth.tab = data.frame(t(table(u.occ$source))) #%>%
+  dplyr::select(Var2, Freq) %>%
+  dplyr::rename ("Source" = "Var2", # rename the variables
+                 "N_filtered" = "Freq") 
+
+# Write the table
+write.csv(synth.tab, 
+          here::here ("outputs", "tables", "synth.tab.unique.csv"))
+
+#####
+# 3. Convert
 #####
 

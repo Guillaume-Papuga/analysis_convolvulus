@@ -11,6 +11,7 @@
 #####
 # Raster : define the path to the source folder
 climate.folder = "/media/papuga/TOSHIBA EXT/02.spatial.data/20.environement/climat/chelsa_bioclim" # climate folder for the project
+geo.folder = "/media/papuga/TOSHIBA EXT/02.spatial.data/10.geographie"
 
 #####
 # 2. Set spatial attributes

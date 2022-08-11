@@ -6,4 +6,10 @@
 # Last update : 26 July 2022
 #######################################################
 
-#
+### Project and define the study area
+
+# Plot
+
+# Draw and save the extent
+
+
