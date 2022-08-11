@@ -22,165 +22,177 @@
 d.occ.raw = as.data.frame(matrix (ncol = 8,nrow = 0))
 colnames (d.occ.raw) = c("code.pop", "sp.name", "presence", "date", "x", "y", "precision", "source")
 
+# Set the correct format
+d.occ.raw = d.occ.raw %>%
+  mutate(code.pop = as.integer(code.pop), 
+         sp.name = as.character(sp.name), 
+         presence = as.numeric(presence), 
+         date = as.Date(date),
+         x = as.numeric(x), 
+         y = as.numeric(y), 
+         precision = as.numeric(precision), 
+         source = as.character(source))
+
 #####
 # 1. CBN Med
 #####
 # Load data
-d.occ_cbn = read.csv(here::here("data", "raw", "presence", "occ.cbn.convol_lan.260722.csv"), # upload data
-                     sep = "", header = T)
+raw.occ_cbn = read.csv(here::here("data", "raw", "presence", "occ.cbn.convol_lan.260722.csv"), # upload data
+                       sep = "\t", header = T, dec = ".")
 
-# Show the columns to select
-# str(d.occ_cbn) 
+# Identify the relevant columns
+# str(raw.occ_cbn) 
 
-# Filter data
-d.occ_cbn = d.occ_cbn %>% 
-  mutate (sp.name = rep("Convolvulus lanuginosus", nrow(d.occ_cbn)), # add the name of the species
-          presence = rep(1, nrow(d.occ_cbn)),
-          source = rep("cbn", nrow(d.occ_cbn))) %>% # add the `presence` column
-  mutate(date = as.Date(date_releve_deb, format =  "%Y-%m-%d")) %>% # transform the date into a `date` format
-  
-  dplyr::select ("id_observation", "sp.name", "presence", "date", "lon_wgs84", "lat_wgs84", "id_precision", "source") %>% # select the columns
-  dplyr::rename ("code.pop" = "id_observation", # rename the variables
-          "x" = "lon_wgs84", 
-          "y" = "lat_wgs84", 
-          "precision" = "id_precision") %>% # name each variable correctly
-  
-  tidyr::drop_na () %>% # delete rows with NA
-  filter (precision == "P", 
-          date > "1990-01-01") # %>%
-  # refaire la colonne precision
-
-
-  #arrange (year)
-
-#####
-# 2. GBIF
-#####
-
-
-
-#####
-# 3. iNat
-#####
-
-
-#####
-# 4. Anthos
-#####
-
-
-
-#####
-# 5. Assemble
-#####
-
-##################### I. GBIF #################################
-# Upload the dataset
-
-# Sort and filter
-
-# load raw data
-data.cbn = read.csv(here::here("data","raw", "export_360_28012020_cbnmed.csv"), sep = "\t", dec = ".")
-
-# select correct columns
-d.occ.cbn = data.cbn %>%
-  mutate (presence = 1) %>%
-  mutate (source = "cbnmed") %>%
-  dplyr::select(c(id_observation, nom_reconnu, presence, date_releve_fin, lon_wgs84, lat_wgs84, id_precision, source)) %>%
+# Format the dataset
+d.occ_cbn = raw.occ_cbn %>% 
+  # Add columns
+  mutate (sp.name = "Convolvulus lanuginosus", # add the name of the species
+          presence = 1,
+          source = "cbnmed") %>% # add the `presence` column
+  # Transform the date into a `date` format
+  mutate(date = as.Date(date_releve_deb, format =  "%Y-%m-%d")) %>% 
+  # Modify the precision column
   mutate(id_precision = case_when(id_precision  == 'P' ~ 10,
                                   id_precision  == 'T' ~ 500,
                                   id_precision  == 'C' ~ 10000,
                                   id_precision  == 'N' ~ 10000)) %>%
-  rename (code.pop = id_observation, 
-          sp.name = nom_reconnu, 
-          date = date_releve_fin, 
-          x = lon_wgs84, 
-          y = lat_wgs84, 
-          precision = id_precision)
-
-# process & correct
-d.occ.cbn = unique (d.occ.cbn) # delete duplicates
-
-# change the format of the date
-
-## filter for the date and the precision
-d.occ.cbn = d.occ.cbn %>%
-  drop_na() %>% # remove NA
-  filter (precision < 1001)# precision
-# date
-
-
-##################### Assemble #################################
-
-### Assemble sort and filter the complete dataset
-
-### Project and define the study area
-
-# Plot
-
-# Draw and save the extent
-
-#### Restrain the dataset to the extent of the project
-
-
-### Create a summary table of the dataset
-
-
-
+  # Select variables
+  dplyr::select ("id_observation",  # select the columns
+                 "sp.name", 
+                 "presence", 
+                 "date", 
+                 "lon_wgs84", 
+                 "lat_wgs84", 
+                 "id_precision", 
+                 "source") %>%
+  dplyr::rename ("code.pop" = "id_observation", # rename the variables
+                 "x" = "lon_wgs84", 
+                 "y" = "lat_wgs84", 
+                 "precision" = "id_precision") %>% 
+  # Filter
+  tidyr::drop_na () %>% # delete rows with NA
+  filter (precision < 1000 , 
+          date > "1990-01-01") %>%
+  # Arrange (year)
+  arrange (date)
 
 #####
-# 6. Assembling the dataset
+# 2. GBIF
+#####
+# Load data
+raw.occ_gbif = read.csv(here::here("data", "raw", "presence", "occ.gbif.convol_lan.260722.csv"), # upload data
+                        sep = "\t", header = T, dec = ".")
+
+# Identify the relevant columns
+# str(raw.occ_gbif) 
+
+# Format the dataset
+d.occ_gbif = raw.occ_gbif %>% 
+  # Add columns
+  mutate (sp.name = "Convolvulus lanuginosus", # add the name of the species
+          presence = 1,
+          source = "gbif") %>% # add the `presence` column
+  # Transform the date into a `date` format
+  mutate(date = as.Date(eventDate, format =  "%Y-%m-%d")) %>% 
+  # Select variables
+  dplyr::select ("gbifID",  # select the columns
+                 "sp.name", 
+                 "presence", 
+                 "date", 
+                 "decimalLongitude", 
+                 "decimalLatitude", 
+                 "coordinateUncertaintyInMeters", 
+                 "source") %>%
+  dplyr::rename ("code.pop" = "gbifID", # rename the variables
+                 "x" = "decimalLongitude", 
+                 "y" = "decimalLatitude", 
+                 "precision" = "coordinateUncertaintyInMeters") %>% 
+  # Filter
+  tidyr::drop_na () %>% # delete rows with NA
+  filter (precision < 1000 , 
+          date > "1990-01-01") %>%
+  # Arrange (year)
+  arrange (date)
+
+#####
+# 3. iNat
+#####
+# Load data
+raw.occ_inat = read.csv(here::here("data", "raw", "presence", "occ.inat.convol_lan.010822.csv"), # upload data
+                       sep = ",", header = T, dec = ".")
+
+# Identify the relevant columns
+# str(raw.occ_inat) 
+
+# Format the dataset
+d.occ_inat = raw.occ_inat %>% 
+  # Add columns
+  mutate (sp.name = "Convolvulus lanuginosus", # add the name of the species
+          presence = 1,
+          source = "inat") %>% # add the `presence` column
+  # Transform the date into a `date` format
+  mutate(date = as.Date(observed_on, format =  "%Y-%m-%d")) %>% 
+  # Select variables
+  dplyr::select ("id",  # select the columns
+                 "sp.name", 
+                 "presence", 
+                 "date", 
+                 "longitude", 
+                 "latitude", 
+                 "positional_accuracy", 
+                 "source") %>%
+  dplyr::rename ("code.pop" = "id", # rename the variables
+                 "x" = "longitude", 
+                 "y" = "latitude", 
+                 "precision" = "positional_accuracy") %>% 
+  # Filter
+  tidyr::drop_na () %>% # delete rows with NA
+  filter (precision < 1000 , 
+          date > "1990-01-01") %>%
+  # Arrange (year)
+  arrange (date)
+
+#####
+# 4. Assembling the dataset
 #####
 
-### Presentation
-head (cbnmed.melt.pa)
-head (ub.melt.pa)
-head (por.melt.pa)
-head (cat.melt.pa)
-head (arb.melt.pa)
+# Assemble-filter the complete dataset
+d.occ = d.occ.raw %>%
+  bind_rows(d.occ_cbn, d.occ_gbif, d.occ_inat) %>% 
+  distinct(x, y, .keep_all= TRUE) # eliminate potential duplicate from different databases
 
-### Joining the tables
-sb_data = cbnmed.melt.pa %>%
-  bind_rows(ub.melt.pa, por.melt.pa, cat.melt.pa, arb.melt.pa)
+# Identify and delete outliers in a plot
+X11(width=10, height=10) # Rstudio graphic window doesnt support `identify`
+plot(d.occ$x, d.occ$y, # set the plot
+     ylim = c(min (d.occ$y)*0.95, max (d.occ$y)*1.05),
+     xlim = c(min (d.occ$x)*0.95, max (d.occ$x)*1.05),
+     pch = 19, cex = 0.3) 
 
-### Cleaning the dataset
-sb_data = sb_data %>%
-  mutate (combe = str_to_lower(combe), 
-          quad = str_to_lower(quad),
-          variable = str_to_lower(variable)) # simplify the writing to lower case
+outliers = identify(d.occ$x, d.occ$y, # vectors of identified outliers
+                    tolerance = 0.8, 
+                    labels = d.occ$code.pop, atpen = T)
 
-sb_data = sb_data %>%
-  filter(variable != "delete") # delete all the taxa we excluded from the analysis with "delete"
+d.occ = d.occ %>% 
+  slice(-outliers) # delete outliers
 
-missing_sp = sb_data %>%
-  group_by(variable) %>%
-  dplyr::summarize (n_obs = sum(value.pa)) %>%
-  filter(n_obs == 0) # give the list of species for which there is no observation
-missing_sp = as.vector(missing_sp$variable)
-`%notin%` <- Negate(`%in%`) # creating a not in operator
-sb_data = sb_data %>%
-  filter(variable %notin% missing_sp) # delete all the taxa we showed no data
+# Save the final version
+write.csv(d.occ, 
+          here::here ("data", "processed", "d.occ.csv"))
 
-### Compute the frequency for each species (= variable) on each site (= combe) per plot (= placette) for each year
-sb_data_freq = sb_data %>%
-  group_by(combe, placette, year, variable) %>%
-  dplyr::summarize (n_obs = sum(value.pa)/12)
+#####
+# 5. Summary table of the dataset
+#####
+# Create the table
+synth.tab = data.frame(t(table(d.occ$source))) %>%
+  
+  dplyr::select(Var2, Freq) %>%
+  dplyr::rename ("Source" = "Var2", # rename the variables
+                 "N_unfiltered" = "Freq") 
 
-### Cast the dataset into a large format with species as variables
-sb_data_cast = dcast(sb_data_freq, ... ~ variable)# %>% # structure the dataset
-sb_data_cast[is.na(sb_data_cast)] = 0 # replace NA with 0
+# Create the folder
+# dir.create (path = here::here("outputs", "tables"))
 
-### Delete empty rows = quadrat that were not followed due to snow, etc.
-sb_data_cast = sb_data_cast %>%
-  mutate (obs_quad = rowSums(sb_data_cast[, -(1:4)])) %>%
-  filter(obs_quad != 0) %>%
-  dplyr::select (-obs_quad)
-
-as.data.frame(table(sb_data_cast[,1:3])) %>%
-  arrange(combe, placette)
-
-### save the dataset
-write_csv( sb_data_cast, 
-           here::here ("data", "processed", "sb_data_cast.csv"))
-
+# Write the table
+write.csv(synth.tab, 
+          here::here ("outputs", "tables", "synth.tab.csv"))
 

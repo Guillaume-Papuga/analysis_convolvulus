@@ -9,15 +9,6 @@
 ### Load data
 # Load presence data
 
-# Raster : define the path to the source folder
-source = "/home/papuga/Documents/climate" # linux
-
-
-##################################### Define the system ##############################################
-
-
-
-
 
 #####
 # 6. Assembling the dataset

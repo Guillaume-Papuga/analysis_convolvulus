@@ -14,6 +14,7 @@ library(dplyr)
 library(raster)
 library(sf)
 library(tidyr)
+library(imager)
 
 ## Packages conflict
 

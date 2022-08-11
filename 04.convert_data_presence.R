@@ -8,11 +8,29 @@
 #######################################################
 
 #####
-# 1. Convert
+# 0. Load data
 #####
+d.occ = read.csv(here::here ("data", "processed", "d.occ.csv"))
 
 #####
-# 2. Filter
+# 1. Filter
 #####
-# with the ref.raster
+# with ref.tile
+ref.tile
+
+# Delete multiple points wthin cells
+d.occ = d.occ %>%
+  mutate (cell = raster::cellFromXY(ref.tile, d.occ[, c("x", "y")])) %>%
+  distinct(cell, .keep_all= TRUE) %>% # eliminate potential duplicate from different databases
+  dplyr::select(-cell)
+
+# Save the dataset
+write.csv(u.occ, 
+          here::here ("data", "processed", "u.occ.csv"))
+
+# Restrain the dataset to the extent of the project
+
+#####
+# 2. Convert
+#####
 

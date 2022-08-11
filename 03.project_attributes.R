@@ -12,7 +12,6 @@
 # Raster : define the path to the source folder
 climate.folder = "/media/papuga/TOSHIBA EXT/02.spatial.data/20.environement/climat/chelsa_bioclim" # climate folder for the project
 
-
 #####
 # 2. Set spatial attributes
 #####
@@ -27,13 +26,14 @@ ref.tile = raster (paste(climate.folder, "/", list.files(climate.folder)[1], sep
 p.proj = crs(ref.tile)
 
 # C. Project extent
-# p.extent = upload the extent from the previous script
+d.occ = read.csv(here::here ("data", "processed", "d.occ.csv"))
+ext.matrix = matrix (nrow = 2, ncol = 2, 
+                     byrow = T, 
+                     data = c(min (d.occ$x) - abs(max (d.occ$x) - min (d.occ$x))*0.30,  # add a percentage of the real extent
+                              max (d.occ$x) + abs(max (d.occ$x) - min (d.occ$x))*0.30, 
+                              min (d.occ$y) - abs(max (d.occ$y) - min (d.occ$y))*0.40, 
+                              max (d.occ$y) + abs(max (d.occ$y) - min (d.occ$y))*0.40))
+p.extent = extent (ext.matrix)
 
 # D. Project resolution 
 p.res = res(ref.tile)
-
-
-
-
-
-

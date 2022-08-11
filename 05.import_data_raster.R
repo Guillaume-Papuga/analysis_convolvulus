@@ -8,43 +8,37 @@
 
 
 #####
-# 1. Uploading variables
+# 1. Current climate
 #####
 
-tile = list.files(path = paste(source, "/current/wc2.1_10m_bio", sep = "")) # names of each tile
-cur.st = stack(paste(source, "/current/wc2.1_10m_bio/",tile, sep = ""))
+### A. Import data
 
+# List the files in the folder
+tiles = list.files(path = paste (climate.folder, "/current", sep = "")) # names of each tile
 
+# Retain the `bio` variables
+cur_tiles = grep("bio", tiles, value = TRUE)  
 
-# a. Potential Evapo Transpiration PET
-pet.an = raster ("/media/papuga/TOSHIBA EXT/02.spatial.data/03.environement/climat/pyrenees/PET/PET_Annual/PET_Annual_Pyrenees.tif")
+# load as a `stack`
+cur.st = stack(paste(climate.folder, "/current/", cur_tiles, sep = ""))
 
+# crop to the spatial extent
+# lim = as(ext.stud, Class = "Spatial")
+#cur.st.m = raster::mask(cur.st, lim)
+cur.st.c = raster::crop (cur.st, p.extent)
 
+### B. Transform data
+# Project projection
 
+# Project extent
 
-##################################### Define the system ##############################################
+# Project resolution 
 
+#####
+# 2. Past climate
+#####
 
-
-
-
-
-##################################### I. Model 1 ##############################################
-
-# Upload and work on layers
-# Ecological variables
-## LGM
-tile = list.files(path = paste(source, "/lgm/cclgmbi_10m", sep = "")) # names of each tile
-lgm_cc.st = stack(paste(source, "/lgm/cclgmbi_10m/",tile, sep = "")) # stack the tiles
-
-
-# crop to spatial extent
-lim = as(ext.stud, Class = "Spatial")
-cur.st.m = raster::mask(cur.st, lim)
-cur.st.c = raster::crop (cur.st.m, lim)
-
-##################################### I. Model 1 ##############################################
-
-# Assemble layers
-
+#####
+# 3. Elevation
+#####
 

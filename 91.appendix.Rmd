@@ -1,7 +1,7 @@
 ---
 title: "91.appendix"
 author: "Guillaume Papuga"
-date: "05/11/2021"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -9,9 +9,16 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Appendix 1 : 
-```{r cars}
-load.image(here::here("outputs", "figures", "appendix_total.community.analysis.pdf"))
+# Appendix X : data sources
+```{r}
+# Load the table
+tab = read.csv (here::here ("outputs", "tables", "synth.tab.csv"))
+tab
 ```
 
+
+# Appendix X : data sources
+![alt text here](/home/papuga/Dropbox/Recherche/Projets & articles/en cours/article_genetique & Convol lanu/analysis_convolvulus/images/exemple.png)
+
+![A nice figure](/home/papuga/Dropbox/Recherche/Projets & articles/en cours/article_genetique & Convol lanu/analysis_convolvulus/outputs/figures/appendix_corcircle.clim.jpg)
 
