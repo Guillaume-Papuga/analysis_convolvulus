@@ -9,7 +9,7 @@
 #####
 # 0. Load data
 #####
-u.occ = read.csv(here::here("data", "processed", "u.occ.csv"), # upload data
+u.occ = read.csv(here::here("data", "processed", "u.occ.csv"), # upload data (Unique Occurences)
                  sep = ",", header = T, dec = ".", row.names = 1)
 
 #####

@@ -31,7 +31,7 @@ write.csv(u.occ,
 # Restrain the dataset to the extent of the project
 
 #####
-# 3. Save a summary table
+# 2. Save a summary table
 #####
 
 # Build the table

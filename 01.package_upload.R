@@ -10,11 +10,14 @@
 R.Version()
 
 ## Packages
+library(ade4)
 library(dplyr)
 library(raster)
 library(sf)
 library(tidyr)
 library(imager)
+library(ggplot2)
+library(reshape2)
 
 ## Packages conflict
 

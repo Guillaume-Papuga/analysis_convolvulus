@@ -6,21 +6,37 @@
 # Last update : 5 november 2021
 #######################################################
 
-### Load data 
-df = read.csv(here::here ("data", "processed", "sb_data_cast.csv"), 
-              head = T, sep = ",", dec = ".")
+#####
+# 0. Load data
+#####
+env.tab = read.csv(here::here("data", "processed", "env.tab.csv"), # upload data
+                   sep = ",", header = T, dec = ".", row.names = 1)
+
+#####
+# 1. Multivariate analysis
+#####
+# Build the presence table
+env = env.tab %>% 
+  filter (presence == 1) %>%
+  dplyr::select(-presence) %>%
+  na.omit()
+
+# Run a PCA on climate data
+pca.env = dudi.pca(env, scannf = F, nf = 2)
+
+# Plot the correlation circle
+s.corcircle (pca.env$co)
+
+# Save the image 
+png(here::here("outputs", "figures", "corcircle.current.clim.png")) # open an empty png
+s.corcircle (pca.env$co)
+dev.off() # end the process
+
+#####
+# 2. Multiple correlation
+#####
 
 
-######################### A. Global analysis of the complete dataset ######################################
-### create the table that summarize the raw analysis
-dist = ecodist::distance(df[,-(1:3)], "bray-curtis") # create a distance matrix
 
 
 
-# Upload data
-
-# Multivariate analysis
-
-# Multiple correlation
-
-# Response curve

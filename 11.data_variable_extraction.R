@@ -19,11 +19,20 @@ u.abs = read.csv(here::here("data", "processed", "u.abs.csv"), # upload data
 # 1. Build the complete table
 #####
 # Combine the two datasets
-dtst = bind_rows(u.occ %>% dplyr::select(presence, x, y), 
-                 u.abs %>% dplyr::select(presence, x, y)) 
+dt = bind_rows(u.occ %>% dplyr::select(presence, x, y), 
+               u.abs %>% dplyr::select(presence, x, y)) 
 
 # Extract data
+env.tab = as.data.frame(raster::extract (cur_env, 
+                                         dt %>% dplyr::select(x, y))) %>%
+  mutate(presence = dt$presence) # add the presence column
+
+# Rename columns
+names(env.tab) = names(env.tab) %>%
+  gsub("CHELSA.", "", .) %>%
+  gsub("_1981.2010_V.2.1", "", .) %>%
+  gsub("wc2.1_30s_elev", "elev", .)
 
 # Save the dataset
-write.csv(bg.points, 
-          here::here ("data", "processed", "complete_dataset.csv"))
+write.csv(env.tab, 
+          here::here ("data", "processed", "env.tab.csv"))
