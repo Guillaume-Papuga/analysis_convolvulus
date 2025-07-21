@@ -69,8 +69,6 @@ dev.off() # end the process
 
 
 
-
-
 #####
 # 0. Load data
 #####
@@ -94,4 +92,7 @@ ggplot(data = test, aes (x = value, y = presence)) +
   geom_point(alpha = 0.01) + 
   geom_smooth() + 
   geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "red", se = F) 
+
+
+
 
