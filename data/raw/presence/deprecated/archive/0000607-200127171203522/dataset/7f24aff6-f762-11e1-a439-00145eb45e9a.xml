@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="7f24aff6-f762-11e1-a439-00145eb45e9a"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>10.15468/nf54bd</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=cfh-na</alternateIdentifier>
+        <alternateIdentifier>7f24aff6-f762-11e1-a439-00145eb45e9a</alternateIdentifier>
+        <alternateIdentifier>12958</alternateIdentifier>
+    <title>Catálogo Florístico Histórico de Navarra. Gobierno de Navarra</title>
+    <creator>
+<organizationName>Directorate General of Environment and Water, Dept. of Rural Development and Environment, Government of Navarre</organizationName>    </creator>
+    <creator>
+    <individualName>
+<givenName>Katia</givenName>          <surName>Cezón</surName>
+    </individualName>
+<organizationName>GBIF Spain</organizationName><electronicMailAddress>katia.gbif@gmail.com</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Katia</givenName>          <surName>Cezón</surName>
+    </individualName>
+<organizationName>GBIF Spain</organizationName><electronicMailAddress>katia.gbif@gmail.com</electronicMailAddress>    </metadataProvider>
+      <pubDate>
+      2018-11-30
+      </pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+        <para>&lt;p&gt;Recopilación de las citas sobre flora vascular de la Comunidad Foral de Navarra y su entorno, realizada por la Sociedad de Ciencias Aranzadi para el Gobierno de Navarra y que dio origen al Catálogo de Flora de Navarra publicado en el año 1992. Se compone de 1/3 de citas bibliográficas, 1/3 de ejemplares de distintos herbarios y 1/3 de observaciones. Su valor es histórico y de referencia por su volumen y amplitud (105.566 citas de 3.143 taxones). En el proceso de recopilación se han perdido los datos de observadores e identificadores y muchas citas carecen de fecha, por lo que su uso queda limitado por estas causas. En 2011 la nomenclatura taxonómica se ha normalizado y actualizado, principalmente con la ayuda de Species2000, versión 2010 y Anthos (www.anthos.es). Compilation of quotes about vascular flora of Navarra and the environment, conducted by Aranzadi Science Society for the Government of Navarra. It gave rise to the Flora of Navarra catalogue published in 1992. It consists of 1 / 3 of quotations, 1 / 3 of different herbarium copies and 1 / 3 of observations. It has an historical value as well as a reference value for its volume and extent (105,566 citations from 3,143 taxa). The use of the information is limited due to the lost of the data observers and data identifiers during the process of collecting data, as well as the lost of the date for many quotes. The taxonomic nomenclature has been standardized and updated in 2011, supported mainly by Species2000 – version 2010 database, and Project Anthos services (www.anthos.es).&lt;/p&gt;
+&lt;p&gt;Note: this dataset was previously orphaned. It has been rescued by ① extracting it from the GBIF.org index (see GBIF Download in External Data) and ② republishing it on this IPT data hosting centre as version 1.0.&lt;/p&gt;</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by/4.0/legalcode"><citetitle>Creative Commons Attribution (CC-BY) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Katia</givenName>          <surName>Cezón</surName>
+    </individualName>
+<organizationName>GBIF Spain</organizationName><electronicMailAddress>katia.gbif@gmail.com</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:40Z</dateStamp>
+      <citation>Cezón K (2018). Catálogo Florístico Histórico de Navarra. Gobierno de Navarra. Directorate General of Environment and Water, Dept. of Rural Development and Environment, Government of Navarre. Occurrence dataset https://doi.org/10.15468/nf54bd accessed via GBIF.org on 2020-01-28.</citation>
+              <physical>
+                  <objectName>GBIF Occurrence Download</objectName>
+                  <characterEncoding>UTF-8</characterEncoding>
+                  <dataFormat>
+                      <externallyDefinedFormat>
+                          <formatName>Darwin Core Archive</formatName>
+                      </externallyDefinedFormat>
+                  </dataFormat>
+                  <distribution>
+                      <online>
+                          <url function="download">http://api.gbif.org/v1/occurrence/download/request/0002019-180131172636756.zip</url>
+                      </online>
+                  </distribution>
+              </physical>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

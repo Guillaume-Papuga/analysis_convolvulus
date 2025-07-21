@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="579e870e-ddf2-4d40-9404-3073b5efe726"  system="http://gbif.org" scope="system"
+  xml:lang="fr">
+
+<dataset>
+      <alternateIdentifier>10.15468/ihclii</alternateIdentifier>
+        <alternateIdentifier>http://ipt.gbif.fr/resource?r=herbier_legrandboum</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.fr/ipt/resource?r=herbier_legrandboum</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.fr/ipt/resource.do?r=herbier_legrandboum</alternateIdentifier>
+        <alternateIdentifier>579e870e-ddf2-4d40-9404-3073b5efe726</alternateIdentifier>
+    <title>Collection botanique Le Grand A. (BOUM)</title>
+    <creator>
+    <individualName>
+<givenName>Ludovic</givenName>          <surName>Besson</surName>
+    </individualName>
+<organizationName>BOUM</organizationName><positionName>Curator</positionName>    <address>
+<deliveryPoint>Les Rives d&apos;Auron</deliveryPoint><city>Bourges</city><administrativeArea>Centre</administrativeArea><postalCode>18000</postalCode><country>FRANCE</country>    </address>
+<phone>02 48 65 37 34</phone><electronicMailAddress>Ludovic.BESSON@ville-Bourges.fr</electronicMailAddress><onlineUrl>http://www.museum-bourges.net/</onlineUrl>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Ludovic</givenName>          <surName>Besson</surName>
+    </individualName>
+<organizationName>BOUM</organizationName><positionName>Curator</positionName>    <address>
+<deliveryPoint>Les Rives d&apos;Auron</deliveryPoint><city>Bourges</city><administrativeArea>Centre</administrativeArea><postalCode>18000</postalCode><country>FRANCE</country>    </address>
+<phone>02 48 65 37 34</phone><electronicMailAddress>Ludovic.BESSON@ville-Bourges.fr</electronicMailAddress><onlineUrl>http://www.museum-bourges.net/</onlineUrl>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Ludovic</givenName>          <surName>Besson</surName>
+    </individualName>
+<organizationName>BOUM</organizationName><positionName>Curator</positionName>    <address>
+<deliveryPoint>Les Rives d&apos;Auron</deliveryPoint><city>Bourges</city><administrativeArea>Centre</administrativeArea><postalCode>18000</postalCode><country>FRANCE</country>    </address>
+<phone>02 48 65 37 34</phone><electronicMailAddress>Ludovic.BESSON@ville-Bourges.fr</electronicMailAddress><onlineUrl>http://www.museum-bourges.net/</onlineUrl>    <role>USER</role>
+    </associatedParty>
+      <pubDate>
+      2016-06-28
+      </pubDate>
+    <language>FRENCH</language>
+    <abstract>
+        <para>Antoine Le Grand est né à Gien (45) le 23 décembre 1839 et décédé à Bourges le 13 mars 1905. Agent voyer en chef de Bourges jusqu&amp;#39;en 1895 puis du Cher, de 1896 à 1905. Auteur de la Flore Analytique du Berry en 1887. L&amp;#39;herbier Le Grand, conservé au muséum de Bourges, a été réalisé par lui, à partir de ses doubles, pour constituer l&amp;#39;herbier pédagogique dit &amp;#34;Herbier du musée de Bourges&amp;#34;, à l&amp;#39;origine conservé au musée du Berry. Cet herbier a été cédé au muséum de Bourges en 1932. La transcription du cartel est donnée pour de nombreuses parts. Les plantes n&amp;#39;ont pas été redéterminées mais la nomenclature a été mise à jour à partir de l&amp;#39;Index de Kerguelen au moment de l&amp;#39;inventaire.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Herbarium</keyword>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.museum-bourges.net/</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>Worldwide</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-180</westBoundingCoordinate>
+                      <eastBoundingCoordinate>180</eastBoundingCoordinate>
+                      <northBoundingCoordinate>90</northBoundingCoordinate>
+                      <southBoundingCoordinate>-90</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+          <temporalCoverage>
+            <rangeOfDates>
+              <beginDate>
+                <calendarDate>      1850
+</calendarDate>
+              </beginDate>
+              <endDate>
+                <calendarDate>      1900
+</calendarDate>
+              </endDate>
+            </rangeOfDates>
+          </temporalCoverage>
+      </coverage>
+      <contact>
+    <individualName>
+<givenName>Ludovic</givenName>          <surName>Besson</surName>
+    </individualName>
+<organizationName>BOUM</organizationName><positionName>Curator</positionName>    <address>
+<deliveryPoint>Les Rives d&apos;Auron</deliveryPoint><city>Bourges</city><administrativeArea>Centre</administrativeArea><postalCode>18000</postalCode><country>FRANCE</country>    </address>
+<phone>02 48 65 37 34</phone><electronicMailAddress>Ludovic.BESSON@ville-Bourges.fr</electronicMailAddress><onlineUrl>http://www.museum-bourges.net/</onlineUrl>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:40Z</dateStamp>
+      <citation>Besson L (2016). Collection botanique Le Grand A. (BOUM). Version 13.4. Muséum d&apos;Histoire Naturelle de Bourges. Occurrence dataset https://doi.org/10.15468/ihclii accessed via GBIF.org on 2020-01-28.</citation>
+              <bibliography>
+      <citation>Le Grand, A. 1887. Flore analytique du Berry contenant toutes les plantes vasculaires spontanées ou cultivées en grand dans les départements de l’Indre et du Cher. Soumard-Berneau, libraire, Bourges.</citation>
+      <citation>Le Grand, A. 1894. Flore analytique du Berry contenant toutes les plantes vasculaires des départements de l’Indre et du Cher, 2ème édition. Léon Renaud, libraire-éditeur, Bourges.</citation>
+      <citation>Candegabe P. &amp; Bodin C. (2001) - Matériaux pour une histoire de la botanique en Berry : les botanistes, leurs publications et leurs herbiers. I. Des origines à 1905. Symbioses, n.s., 5 : 41-72.</citation>
+      <citation>Kerguélen M.. 1993. Index synonymique de la de la flore de France. Ed. Muséum National d&apos;Histoire Naturelle. Version en ligne de 1999.</citation>
+              </bibliography>
+              <collection>
+                <parentCollectionIdentifier>Herbier A. Le Grand (BOUM)</parentCollectionIdentifier>
+                <collectionIdentifier>Herbier A. Le Grand (BOUM)</collectionIdentifier>
+                <collectionName>Herbier A. Le Grand (BOUM)</collectionName>
+              </collection>
+                <specimenPreservationMethod>DRIED_AND_PRESSED</specimenPreservationMethod>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

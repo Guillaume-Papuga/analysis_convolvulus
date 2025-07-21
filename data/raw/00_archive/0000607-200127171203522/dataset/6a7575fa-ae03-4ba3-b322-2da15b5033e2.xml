@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="6a7575fa-ae03-4ba3-b322-2da15b5033e2"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>10.15468/pyzji3</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=plantasvascularesgda</alternateIdentifier>
+        <alternateIdentifier>http://ipt.gbif.es/resource?r=plantasvascularesgda</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource?r=plantasvascularesgda</alternateIdentifier>
+        <alternateIdentifier>6a7575fa-ae03-4ba3-b322-2da15b5033e2</alternateIdentifier>
+        <alternateIdentifier>9d85686e-bff6-4d29-8811-4b403c0807fa</alternateIdentifier>
+        <alternateIdentifier>14701</alternateIdentifier>
+    <title>Colección de plantas vasculares del Herbario de la Universidad de Granada.</title>
+    <creator>
+    <individualName>
+<givenName>Carmen</givenName>          <surName>Quesada Ochoa</surName>
+    </individualName>
+<organizationName>Herbario Universidad de Granada</organizationName><positionName>Conservadora</positionName>    <address>
+<deliveryPoint>C/ Rector López Argüeta, nº 8</deliveryPoint><city>Granada</city><administrativeArea>Andalucía</administrativeArea><postalCode>18071</postalCode><country>SPAIN</country>    </address>
+<phone>+34 958241551</phone><electronicMailAddress>cquesada@ugr.es</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>M. Teresa</givenName>          <surName>Vizoso Paz</surName>
+    </individualName>
+<organizationName>Herbario Universidad de Granada</organizationName><positionName>Técnico</positionName>    <address>
+<deliveryPoint>C/ Rector López Argüeta, nº 8</deliveryPoint><city>Granada</city><administrativeArea>Andalucía</administrativeArea><postalCode>18071</postalCode><country>SPAIN</country>    </address>
+<phone>+34 958246329</phone><electronicMailAddress>mariate@ugr.es</electronicMailAddress>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Concepción</givenName>          <surName>Morales Torres</surName>
+    </individualName>
+<organizationName>Herbario Universidad de Granada</organizationName><positionName>Directora</positionName>    <address>
+<deliveryPoint>C/ Rector López Argüeta, nº 8</deliveryPoint><city>Granada</city><administrativeArea>Andalucía</administrativeArea><postalCode>18071</postalCode><country>SPAIN</country>    </address>
+<phone>+34 958246329</phone><electronicMailAddress>cmorales@ugr.es</electronicMailAddress>    <role>POINT_OF_CONTACT</role>
+    </associatedParty>
+      <pubDate>
+      2018-11-30
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>&lt;p&gt;El Herbario de la Universidad de Granada (GDA) acoge la colección procedente de la Facultad de Farmacia y las nuevas inclusiones. También contiene el antiguo Herbario GDAC, procedente de la Facultad de Ciencias, que tras la unificación de ambas colecciones en un herbario único (año 2000), se incluyó como una colección independiente y cerrada (sin nuevas inclusiones) dentro de nuestro centro. Este juego de datos contiene 55.216 registros pertenecientes a la colección Fanerogamia en la que también se han incorporado los Pteridófitos. Incluye un total de 192 registros con imágenes asociadas que se corresponden a los tipos nomenclaturales, de los cuales 189 pertenecen a esta colección y los 3 restantes a la colección Criptogamia.&lt;/p&gt;
+&lt;p&gt;Note: this dataset was previously orphaned. It has been rescued by ① extracting it from the GBIF.org index (see GBIF Download in External Data) and ② republishing it on this IPT data hosting centre as version 1.0.&lt;/p&gt;</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Criptogamia</keyword>
+              <keyword>Península Ibérica</keyword>
+              <keyword>colecciones de herbario</keyword>
+              <keyword>Tipos nomenclaturales</keyword>
+              <keyword>Norte de África</keyword>
+              <keyword>especímenes</keyword>
+              <keyword>Fanerogamia</keyword>
+              <keyword>Spermatophyta</keyword>
+              <keyword>Pteridophyta</keyword>
+              <keywordThesaurus>NA</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.ugr.es/~cccn/identificacion.html</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>Península Ibérica y Marruecos. La mayoría de los registros pertenecen a España y de ellos el 82 % a Andalucía, con mayor representación de la flora de las provincias de Granada, Almería, Jaén y Málaga.</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-180</westBoundingCoordinate>
+                      <eastBoundingCoordinate>180</eastBoundingCoordinate>
+                      <northBoundingCoordinate>90</northBoundingCoordinate>
+                      <southBoundingCoordinate>-90</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+          <temporalCoverage>
+            <rangeOfDates>
+              <beginDate>
+                <calendarDate>      1826
+</calendarDate>
+              </beginDate>
+              <endDate>
+                <calendarDate>      2009
+</calendarDate>
+              </endDate>
+            </rangeOfDates>
+          </temporalCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Spermatophyta, Pteridophyta, Aceraceae, Adiantaceae, Aizoaceae, Amaranthaceae, Amaryllidaceae, Anacardiaceae, Araceae, Araucariaceae, Aspidiaceae, Aspleniaceae, Athyriaceae, Azollaceae, Berberidaceae, Blechnaceae, Boraginaceae, Buxaceae, Callitrichaceae, Campanulaceae, Capparidaceae, Caryophyllaceae, Cistaceae, Compositae, Cruciferae, Culcitaceae, Cyperaceae, Chenopodiaceae, Ericaceae, Euphorbiaceae, Geraniaceae, Gramineae, Hymenophyllaceae, Hypolepidaceae, Labiatae, Leguminosae, Liliaceae, Lycoppodiaceae, Marsileaceae, Orchidaceae, Papaveraceae, Pteridaceae, Ranunculaceae, Rosaceae, Salviniaceae, Scrophullariaceae, Selaginellaceae, Sinopteridaceae, Thelypteridaceae, Umbelliferae, otras</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                        <taxonRankValue>Tracheophyta</taxonRankValue>
+                          <commonName>Plantas vasculares</commonName>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Carmen</givenName>          <surName>Quesada Ochoa</surName>
+    </individualName>
+<organizationName>Herbario Universidad de Granada</organizationName><positionName>Conservadora</positionName>    <address>
+<deliveryPoint>C/ Rector López Argüeta, nº 8</deliveryPoint><city>Granada</city><administrativeArea>Andalucía</administrativeArea><postalCode>18071</postalCode><country>SPAIN</country>    </address>
+<phone>+34 958241551</phone><electronicMailAddress>cquesada@ugr.es</electronicMailAddress>      </contact>
+      <methods>
+            <methodStep>
+                <description>
+                    <para>El Herbario de la Universidad de Granada acoge las colecciones procedentes del Departamento de Botánica, de las Facultades de Ciencias y Farmacia de esta Universidad, inicialmente surgieron como colecciones separadas con los acrónimos validados por el Index Herbariorum de GDAC y GDA, respectivamente. A partir de 2000 se produce la unificación de ambas colecciones en un único herbario que mantiene el acrónimo más antiguo (GDA)y que es la colección que sigue creciendo. La colección GDAC está cerrada pero mantiene su individualidad por lo que su consulta en el portal de datos de GBIF aparece en una URL(http://data.gbif.org/datasets/resource/1742/)diferente a la general vinculada a esta publicación.</para>
+                </description>
+            </methodStep>
+            <sampling>
+                <studyExtent>
+                    <description>
+                        <para>La mayoría de los especímenes de esta colección proceden de las recolecciones llevadas a cabo en Andalucía oriental, principalmente en las provincias de Granada y Almería y en menor medida en Jaén y Málaga. También componen dicha colección otras recolecciones del resto de España, Portugal y norte de Marruecos. Procedentes de los intercambios de material con otras instituciones o investigadores se tiene representación de algunos paises europeos, y del Mediterráneo.</para>
+                    </description>
+                </studyExtent>
+                <samplingDescription>
+                    <para>Los especímenes proceden de las recolecciones que tradicionalmente han realizado los investigadores del Departamento de Botánica (Facultad de Farmacia y Facultad de Ciencias)de la Universidad de Granada, de las campañas de herborización realizadas por el personal del herbario y por los componentes del grupo de investigación en su compromiso de ampliación y mejora de los fondos, de su representación taxonómica y geográfica y otra pequeña parte procede de intercambios de materiales realizados con otras instituciones o investigadores.</para>
+                </samplingDescription>
+            </sampling>
+            <qualityControl>
+                <description>
+                    <para>Los datos computados se refieren tanto a la identificación original como a revisiones posteriores realizadas por investigadores de diversas intituciones como base de estudios para la publicación de floras regionales y nacionales tales como &quot;Flora vascular de Andalucía oriental&quot; o &quot;Flora iberica&quot;.</para>
+                </description>
+            </qualityControl>
+      </methods>
+
+      <project >
+          <title>El Herbario de la Universidad de Granada como fuente de estudios Taxonómicos, Medioambientales y de Biodiversidad</title>
+          <personnel>
+    <individualName>
+<givenName>Pedro M.</givenName>          <surName>Sánchez Castillo</surName>
+    </individualName>
+    <role>PRINCIPAL_INVESTIGATOR</role>
+          </personnel>
+          <abstract>
+              <para></para>
+          </abstract>
+          <funding>
+              <para>Grupo de investigación 288RNM: &quot;El Herbario de la Universidad de Granada como fuente de estudios Taxonómicos, Medioambientales y de Biodiversidad&quot;. Líneas de investigación:  Ampliación y mejora de fondos del Herbario de la Universidad de Granada, estudio y análisis de la flora vascular y ficología aplicada.</para>
+          </funding>
+            <studyAreaDescription>
+                <descriptor name="generic" citableClassificationSystem="false">
+                    <descriptorValue>La mayoría de los especímenes de esta colección proceden de las recolecciones llevadas a cabo en Andalucía oriental, principalmente en las provincias de Granada y Almería y en menor medida en Jaén y Málaga. También componen dicha colección otras recolecciones del resto de España, Portugal y norte de Marruecos.</descriptorValue>
+                </descriptor>
+            </studyAreaDescription>
+            <designDescription>
+                <description>
+                    <para>Entre las líneas de investigación desarrolladas por el grupo de investigación predomina la ampliación y mejora de los fondos del herbario y el estudio y análisis de la flora vascular, por lo que en base a completar su representación taxonómica y geográfica diseña sus campañas de recolección con el objetivo de ser un herbario de referencia en la representación de la flora de Andalucía Oriental.</para>
+                </description>
+            </designDescription>
+      </project>
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:41Z</dateStamp>
+      <citation>Quesada Ochoa C, Vizoso Paz M T (2018). Colección de plantas vasculares del Herbario de la Universidad de Granada.. Version 1.6. Herbario de la Universidad de Granada. Occurrence dataset https://doi.org/10.15468/pyzji3 accessed via GBIF.org on 2020-01-28.</citation>
+              <bibliography>
+      <citation>Blanca G., Cabezudo B., Cueto M., Morales Torres C. &amp; C. Salazar (2011). Claves de la flora vascular de Andalucía oriental. Editorial Universidad de Granada.</citation>
+      <citation>Blanca G., Cabezudo B., Cueto M., Fernández López C. &amp; Morales Torres C. (2009, eds.). Flora Vascular de Andalucía Oriental, 4 vols. Consejería de Medio Ambiente, Junta de Andalucía, Sevilla. ISBN: 978–84–92807–12–3.</citation>
+      <citation>Baena, L., Morales, C., Quesada, C. &amp; M.T. Vizoso (2008). Nueva colección en el Herbario de la Universidad de Granada - GDA. Colección de orquídeas de Costa de Marfil - Dr. F. Pérez-Vera. Boletín de la asociación de Herbarios Iberomacaronésicos (A.H.I.M.).</citation>
+      <citation>Baena Cobos, L. (2003). Tratamiento de las bases de datos del Herbario de la Universidad de Granada (GDA) como fuente para estudios de biodiversidad: ensayo en determinadas Angiospermas Dicotiledóneas de la provincia de Granada (Caryophyllaceae, Cistaceae, Cruciferae, Chenopodiaceae, Ericaceae, Leguminosae, Papaveraceae y Ranunculaceae). Tesis Doctoral, Dpto. Biología Vegetal, Facultad de Ciencias, Universidad de Granada, 199 + CDIV pp.</citation>
+      <citation>Vizoso, M.T., Baena, L. &amp; Navarro, F.B. (2002) . Nuevas citas de monocotiledóneas para la provincia de Granada (Sur de España). Acta Botánica Malacitana. 27. 326 - 328.</citation>
+              </bibliography>
+              <physical>
+                  <objectName>GBIF</objectName>
+                  <characterEncoding>iso-8859-1</characterEncoding>
+                  <dataFormat>
+                      <externallyDefinedFormat>
+                          <formatName>Access</formatName>
+                            <formatVersion>1.0</formatVersion>
+                      </externallyDefinedFormat>
+                  </dataFormat>
+                  <distribution>
+                      <online>
+                          <url function="download">http://data.gbif.org/datasets/resource/1741/</url>
+                      </online>
+                  </distribution>
+              </physical>
+              <resourceLogoUrl>http://herbarium.ugr.es/pages/tablon/*/noticias-45/aviso-necesitamos-vuestra-opinion-os-rogariamos-cumplimentaseis-la-encuesta-de-satisfaccion-necesaria-para-mejorar-en-la-prestacion-de-los-servicios-que-ofrecemos-y-cumplir-con-nuestros-objetivos-de-calidad/downloadfile/tf1c3323428c785f26de43207df6e5ea89</resourceLogoUrl>
+              <collection>
+                <parentCollectionIdentifier>NA</parentCollectionIdentifier>
+                <collectionIdentifier>6a7575fa-ae03-4ba3-b322-2da15b5033e2</collectionIdentifier>
+                <collectionName>GDA-GDAC</collectionName>
+              </collection>
+                <specimenPreservationMethod>DRIED_AND_PRESSED</specimenPreservationMethod>
+                  <jgtiCuratorialUnit>
+                      <jgtiUnitType>especímenes</jgtiUnitType>
+                      <jgtiUnits>55,216</jgtiUnits>
+                  </jgtiCuratorialUnit>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

@@ -1,0 +1,153 @@
+
+Dataset: Base de datos de plantas vasculares del País Vasco: ARAN-EH
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbarium specimens of the Muséum d'Histoire Naturelle of Aix-en-Provence (AIX)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbarium specimens, Harmas J.H. Fabre (FABR - Sérignan-du-Comtat) of the Muséum national d'Histoire naturelle (MNHN - Paris)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbarium specimens of Institut Scientifique Mohamed V university (RAB)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Lund Botanical Museum (LD)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Botany (UPS)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+Dataset: Banco de Germoplama del Jardín Botánico de Castilla-La Mancha
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Vascular Plant Herbarium, Oslo (O)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Relevés floristiques du protocole de l'Inventaire National Forestier de l'IGN
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Geneva Herbarium – General Collection (G)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Herbarium specimens of Limoges university (LIMO)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbarium specimens of the Muséum d'Histoire Naturelle d'Autun (AUT)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: MBM - Herbário do Museu Botânico Municipal
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Données ONF faune-flore-fonge
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Données d'occurrence Espèces issues de la base Natura 2000 : espèces d'intérêt communautaire et autres espèces remarquables renseignées dans les FSD
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Application INPN Espèces: Observations naturalistes, participatives et opportunistes, fondée sur des photographies
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Catálogo Florístico Histórico de Navarra. Gobierno de Navarra
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Universidad de Oviedo. Departamento de Biología de Organismos y Sistemas: FCO
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Universidad de Oviedo. Departamento de Biología de Organismos y Sistemas: FCO-Briof
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Données naturalistes d'Olivier ESCUDER
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Phanerogamic Botanical Collections (S)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+Dataset: RB - Rio de Janeiro Botanical Garden Herbarium Collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Collection botanique Le Grand A. (BOUM)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Tropicos Specimen Data
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Natural History Museum (London) Collection Specimens
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+Dataset: International Barcode of Life project (iBOL)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Colección de plantas vasculares del Herbario de la Universidad de Granada.
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Fundación Carl Faust: Herbario del Jardí Botànic Marimurtra: HMIM
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Aranzadi Zientzi Elkartea
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbarium of Vascular Plants Collection of the University of Extremadura (Spain)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Herbario de la Universidad de Sevilla, SEV-Historico
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Herbarium of Namur
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbarium Senckenbergianum (FR)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbario del Jardín Botánico-Histórico La Concepción: HBC
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Institut Menorquí d'Estudis. Colección Histórica de Rodríguez Femenías, Herbarium Generale Minoricae: HGM-Femenias
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Universidad de Navarra, Herbarium: PAMP-Vascular Plants
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Phytochorologie des départements français
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Données acquises dans le cadre de l'activité du bureau d'étude BIOTOPE (1994 - 2013)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Natural History Museum, Vienna - Herbarium W
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: NMNH Extant Specimen Records
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+Dataset: Herbario COFC de la Universidad de Córdoba: colección general de plantas vasculares
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: VIT Herbarium - Vascular Plants (The Natural History Museum of Alava)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Meise Botanic Garden Herbarium (BR)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Colección del Banco de Germoplasma de la Universitat de València
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: SANT Herbarium vascular plants collection
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: iNaturalist Research-grade Observations
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Colección de plantas vasculares del Herbario "Jaime Andrés Rodríguez". LEB
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Inventario de Flora y Vegetación del Municipio de Enguídanos (Cuenca), 2010. Asociación de Desarrollo Integral de la Manchuela Conquense (ADIMAN)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Geneva Herbarium – De Candolle's Prodromus (G-DC)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Herbario EMMA. Herbario de la Escuela Técnica Superior de Ingenieros de Montes. UPM
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Données naturalistes de Thomas GAILLARD
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Jardín Botánico de Córdoba: Herbarium COA
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbario de la Universidad de Almería
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbario de Universidad de Murcia: MUB
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Institut Botanic de Barcelona (IBB-CSIC-ICUB), BC-Plantae
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Données de la base Ecosphère
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Herbario de Plantas Vasculares de la Universidad de Salamanca: SALA
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Carnet en Ligne
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Données d'occurrences Espèces issues de l'inventaire des ZNIEFF
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Royal Botanic Garden Edinburgh Herbarium (E)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Herbario ABH (Universidad de Alicante)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbarium specimens of Université de Montpellier 2, Institut de Botanique (MPU))
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Naturalis Biodiversity Center (NL) - Botany
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+Dataset: Cartografía de vegetación a escala de detalle 1:10.000 de la masa forestal de Andalucía
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Herbario de la Universidad de Sevilla
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Localización de táxones botánicos de interés para la identificación de hábitats de la REDIAM (Secretaría General de Medio Ambiente, Agua y Cambio Climático)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: MGC Herbarium of University of Malaga (Spain): MGC-Cormof dataset
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Livre rouge de la flore menacée de France (tomes I et II) - (FCBN)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Colección de plantas vasculares del herbario de la Universitat de València (VAL).
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: The vascular plants collection (P) at the Herbarium of the Muséum national d'Histoire Naturelle (MNHN - Paris)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: CSIC-Real Jardín Botánico-Colección de Plantas Vasculares (MA)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: Sistema de Información de la vegetación Ibérica y Macaronésica
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: CSIC-Real Jardín Botánico-Anthos. Sistema de Información de las Plantas de España
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: FloraCAT: Banco de datos de los cormófitos de Cataluña
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+Dataset: INPN - Données flore des CBN agrégées par la FCBN
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+Dataset: Banco de Datos de la Biodiversidad de la Comunitat Valenciana
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode

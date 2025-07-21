@@ -1,0 +1,22 @@
+POPULATION ID		GENEPOP ID
+Leucate		Cla001
+Lapalme		Cla057
+Gruissan		Cla072
+Ceyreste		Cla056
+Ensues		Cla101
+Castellet		Cla021
+Serra_Sp		Cla116
+Roja_Sp		Cla126
+Conques_Sp		Cla136
+Alcai_Sp		Cla146
+Alhama_Sp		Cla156
+Rute_Sp		Cla181
+Marbella_Sp		Cla196
+Nerja_Sp		Cla211
+Puig_Nau_Sp		Cla226
+Pennaroya_Sp		Cla241
+Sitges_Sp		Cla256
+Barrage_Sp		Cla271
+Port_Alon		Cla321
+Azur_Valouc		Cla360
+Redonnes		Cla402

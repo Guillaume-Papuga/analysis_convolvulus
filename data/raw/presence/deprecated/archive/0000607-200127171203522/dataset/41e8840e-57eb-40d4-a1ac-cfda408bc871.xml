@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="41e8840e-57eb-40d4-a1ac-cfda408bc871"  system="http://gbif.org" scope="system"
+  xml:lang="fr">
+
+<dataset>
+      <alternateIdentifier>10.15468/sgoi2p</alternateIdentifier>
+        <alternateIdentifier>http://ipt-inpn.gbif.fr/resource?r=IPT-4A9DDA1F-B6ED-3E13-E053-2614A8C02B7C</alternateIdentifier>
+    <title>Livre rouge de la flore menacée de France (tomes I et II) - (FCBN)</title>
+    <creator>
+    <individualName>
+<givenName>n/a</givenName>          <surName>MILLET Jérôme</surName>
+    </individualName>
+<organizationName>FED CONSERVATOIRES BOTANIQUES NATIONAUX</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+<electronicMailAddress>jerome.millet@fcbn.fr</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+          <surName>Inventaire National du Patrimoine Naturel</surName>
+    </individualName>
+<organizationName>Unité mixte de service 2006 Patrimoine Naturel</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+    </metadataProvider>
+    <associatedParty>
+    <individualName>
+          <surName>GBIF France</surName>
+    </individualName>
+<organizationName>GBIF France</organizationName><positionName>IT support</positionName>    <address>
+<deliveryPoint>GBIF France - MNHN Géologie CP48, 43 rue Buffon</deliveryPoint><city>Paris</city><administrativeArea>Île-de-France</administrativeArea><postalCode>75005</postalCode><country>FRANCE</country>    </address>
+<phone>+33140798065</phone><electronicMailAddress>connexion@gbif.fr</electronicMailAddress>    <role>DISTRIBUTOR</role>
+    </associatedParty>
+      <pubDate>
+      2019-12-12
+      </pubDate>
+    <language>FRENCH</language>
+    <abstract>
+        <para>Historique:
+Le programme &amp;#34;Livre rouge de la flore menacée de France&amp;#34; a débuté en 1987 sous l&amp;#39;égide du Ministère en charge de la protection de la nature, qui en a confié la coordination et la réalisation aux Conservatoires botaniques nationaux (CBN). Sa réalisation a mobilisé l’ensemble de la communauté botanique française, comprenant botanistes professionnels et bénévoles. Elle a été coordonnée par le CBN méditerranéen de Porquerolles et la Fédération des CBN. Le travail a porté, au total, sur près de 1 100 taxons de la flore vasculaire de France métropolitaine.
+
+Contenu de la base transmise: 
+Plus de 64 000 données d&amp;#39;observations sur près de 1 100 taxons (espèces, sous-espèces et variétés) de la flore rare et menacée de France
+
+Réseau de collecte:
+Conservatoires botaniques nationaux :
+CBN alpin
+CBN de Bailleul
+CBN de Brest
+CBN de Corse
+CBN de Franche-Comté
+CBN des Pyrénées et de Midi-Pyrénées
+CBN du Bassin parisien
+CBN du Massif central
+CBN méditerranéen de Porquerolles
+CBN Sud-Atlantique
+
+Partenaires :
+ASTERS
+Conservatoire et Jardin botaniques de la ville de Nancy (CJBN)
+Conservatoire du patrimoine naturel de la Savoie (CPNS)
+Floraine
+Gentiana
+Office National des Forêts (ONF)
+Société botanique d’Alsace (SBA)
+Société Botanique du Centre-Ouest (SBCO)
+UNIMET
+AVENIR
+Société Française d&amp;#39;Orchidophilie (SFO)
+Serge Muller
+Institut méditerranéen d&amp;#39;écologie et de paléoécologie (IMEP)</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>See map.</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-5.123</westBoundingCoordinate>
+                      <eastBoundingCoordinate>9.579</eastBoundingCoordinate>
+                      <northBoundingCoordinate>51.086</northBoundingCoordinate>
+                      <southBoundingCoordinate>41.37</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>n/a</givenName>          <surName>ROBERT Solène</surName>
+    </individualName>
+<organizationName>UNITE MIXTE DE SERVICE 2006 PATRIMOINE NATUREL</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+<electronicMailAddress>sinp-data@mnhn.fr</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:44Z</dateStamp>
+      <citation>MILLET Jérôme N (2019). Livre rouge de la flore menacée de France (tomes I et II) - (FCBN). UMS PatriNat (OFB-CNRS-MNHN), Paris. Occurrence dataset https://doi.org/10.15468/sgoi2p accessed via GBIF.org on 2020-01-28.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

@@ -1,0 +1,31 @@
+Migraine 0.5.4.1 (Built on Feb 13 2019 at 14:06:23)
+blackbox, version 1.1.32 loaded
+R code run on  Tue May  4 23:08:22 2021
+
+Data file: 
+Settings file: migraine.txt
+
+Demographic model: OnePopVarSize
+Canonical parameters: pGSM 2Nmu Tg/2N Dg/2N 2Nancmu
+* N stands for number of gene copies, 
+    i.e. 2N = 4 x [the number of diploid individuals] *
+
+
+*** Confidence intervals *** 
+
+95%-coverage confidence interval for 2Nmu : [ 1.164 -- 1.659 ]
+95%-coverage confidence interval for Dg/2N : [ 1.225 -- 83.13 ]
+95%-coverage confidence interval for 2Nancmu : [ 0.0164 -- 352.7 ]
+95%-coverage confidence interval for Nratio : [ 0.000839 -- 1232858 ]
+95%-coverage confidence interval for Dg*mu : [ 1.026 -- 184.7 ]
+
+*** Point estimates *** 
+
+     pGSM     2Nmu    Tg/2N    Dg/2N  2Nancmu
+    0.652    1.504        0    2.863    0.157
+
+      N ratio: 9.579 
+
+      Dg*mu: 4.306 
+
+Normal ending.

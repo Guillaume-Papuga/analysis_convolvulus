@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="10.15468/dl.4zkqkp"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+        <alternateIdentifier>0000607-200127171203522</alternateIdentifier>
+    <title>GBIF Occurrence Download 10.15468/dl.4zkqkp</title>
+    <creator>
+    <individualName>
+          <surName>GBIF Download Service</surName>
+    </individualName>
+<electronicMailAddress>support@gbif.org</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+          <surName>GBIF Download Service</surName>
+    </individualName>
+<electronicMailAddress>support@gbif.org</electronicMailAddress>    </metadataProvider>
+      <pubDate>
+      2020-01-28
+      </pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+        <para>A dataset containing all occurrences available in GBIF matching the query:
+{
+  &quot;TaxonKey&quot; : [ &quot;is Convolvulus lanuginosus Desr.&quot; ]
+}
+The dataset includes records from the following constituent datasets. The full metadata for each constituent is also included in this archive:
+1 records from Base de datos de plantas vasculares del País Vasco: ARAN-EH
+1 records from Herbarium specimens of the Muséum d&apos;Histoire Naturelle of Aix-en-Provence (AIX)
+1 records from Herbarium specimens, Harmas J.H. Fabre (FABR - Sérignan-du-Comtat) of the Muséum national d&apos;Histoire naturelle (MNHN - Paris)
+1 records from Herbarium specimens of Institut Scientifique Mohamed V university (RAB)
+1 records from Lund Botanical Museum (LD)
+1 records from Botany (UPS)
+1 records from Banco de Germoplama del Jardín Botánico de Castilla-La Mancha
+1 records from Vascular Plant Herbarium, Oslo (O)
+1 records from Relevés floristiques du protocole de l&apos;Inventaire National Forestier de l&apos;IGN
+1 records from Geneva Herbarium – General Collection (G)
+1 records from Herbarium specimens of Limoges university (LIMO)
+1 records from Herbarium specimens of the Muséum d&apos;Histoire Naturelle d&apos;Autun (AUT)
+1 records from MBM - Herbário do Museu Botânico Municipal
+1 records from Données ONF faune-flore-fonge
+1 records from Données d&apos;occurrence Espèces issues de la base Natura 2000 : espèces d&apos;intérêt communautaire et autres espèces remarquables renseignées dans les FSD
+1 records from Application INPN Espèces: Observations naturalistes, participatives et opportunistes, fondée sur des photographies
+1 records from Catálogo Florístico Histórico de Navarra. Gobierno de Navarra
+2 records from Universidad de Oviedo. Departamento de Biología de Organismos y Sistemas: FCO
+2 records from Universidad de Oviedo. Departamento de Biología de Organismos y Sistemas: FCO-Briof
+2 records from Données naturalistes d&apos;Olivier ESCUDER
+2 records from Phanerogamic Botanical Collections (S)
+2 records from RB - Rio de Janeiro Botanical Garden Herbarium Collection
+2 records from Collection botanique Le Grand A. (BOUM)
+2 records from Tropicos Specimen Data
+2 records from Natural History Museum (London) Collection Specimens
+3 records from International Barcode of Life project (iBOL)
+3 records from Colección de plantas vasculares del Herbario de la Universidad de Granada.
+3 records from Fundación Carl Faust: Herbario del Jardí Botànic Marimurtra: HMIM
+4 records from Aranzadi Zientzi Elkartea
+4 records from Herbarium of Vascular Plants Collection of the University of Extremadura (Spain)
+4 records from Herbario de la Universidad de Sevilla, SEV-Historico
+4 records from Herbarium of Namur
+4 records from Herbarium Senckenbergianum (FR)
+4 records from Herbario del Jardín Botánico-Histórico La Concepción: HBC
+4 records from Institut Menorquí d&apos;Estudis. Colección Histórica de Rodríguez Femenías, Herbarium Generale Minoricae: HGM-Femenias
+4 records from Universidad de Navarra, Herbarium: PAMP-Vascular Plants
+5 records from Phytochorologie des départements français
+5 records from Données acquises dans le cadre de l&apos;activité du bureau d&apos;étude BIOTOPE (1994 - 2013)
+5 records from Natural History Museum, Vienna - Herbarium W
+6 records from NMNH Extant Specimen Records
+7 records from Herbario COFC de la Universidad de Córdoba: colección general de plantas vasculares
+7 records from VIT Herbarium - Vascular Plants (The Natural History Museum of Alava)
+7 records from Meise Botanic Garden Herbarium (BR)
+7 records from Colección del Banco de Germoplasma de la Universitat de València
+8 records from SANT Herbarium vascular plants collection
+8 records from iNaturalist Research-grade Observations
+8 records from Colección de plantas vasculares del Herbario &quot;Jaime Andrés Rodríguez&quot;. LEB
+9 records from Inventario de Flora y Vegetación del Municipio de Enguídanos (Cuenca), 2010. Asociación de Desarrollo Integral de la Manchuela Conquense (ADIMAN)
+10 records from Geneva Herbarium – De Candolle&apos;s Prodromus (G-DC)
+11 records from Herbario EMMA. Herbario de la Escuela Técnica Superior de Ingenieros de Montes. UPM
+11 records from Données naturalistes de Thomas GAILLARD
+12 records from Jardín Botánico de Córdoba: Herbarium COA
+13 records from Herbario de la Universidad de Almería
+13 records from Herbario de Universidad de Murcia: MUB
+17 records from Institut Botanic de Barcelona (IBB-CSIC-ICUB), BC-Plantae
+17 records from Données de la base Ecosphère
+24 records from Herbario de Plantas Vasculares de la Universidad de Salamanca: SALA
+25 records from Carnet en Ligne
+27 records from Données d&apos;occurrences Espèces issues de l&apos;inventaire des ZNIEFF
+28 records from Royal Botanic Garden Edinburgh Herbarium (E)
+42 records from Herbario ABH (Universidad de Alicante)
+49 records from Herbarium specimens of Université de Montpellier 2, Institut de Botanique (MPU))
+53 records from Naturalis Biodiversity Center (NL) - Botany
+57 records from Cartografía de vegetación a escala de detalle 1:10.000 de la masa forestal de Andalucía
+60 records from Herbario de la Universidad de Sevilla
+68 records from Localización de táxones botánicos de interés para la identificación de hábitats de la REDIAM (Secretaría General de Medio Ambiente, Agua y Cambio Climático)
+73 records from MGC Herbarium of University of Malaga (Spain): MGC-Cormof dataset
+158 records from Livre rouge de la flore menacée de France (tomes I et II) - (FCBN)
+159 records from Colección de plantas vasculares del herbario de la Universitat de València (VAL).
+170 records from The vascular plants collection (P) at the Herbarium of the Muséum national d&apos;Histoire Naturelle (MNHN - Paris)
+235 records from CSIC-Real Jardín Botánico-Colección de Plantas Vasculares (MA)
+399 records from Sistema de Información de la vegetación Ibérica y Macaronésica
+464 records from CSIC-Real Jardín Botánico-Anthos. Sistema de Información de las Plantas de España
+718 records from FloraCAT: Banco de datos de los cormófitos de Cataluña
+741 records from INPN - Données flore des CBN agrégées par la FCBN
+2149 records from Banco de Datos de la Biodiversidad de la Comunitat Valenciana
+</para>
+    </abstract>
+      <contact>
+    <individualName>
+          <surName>GBIF Download Service</surName>
+    </individualName>
+<electronicMailAddress>support@gbif.org</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:45Z</dateStamp>
+      <citation identifier="10.15468/dl.4zkqkp">GBIF Occurrence Download 10.15468/dl.4zkqkp</citation>
+              <physical>
+                  <objectName>Darwin Core Archive</objectName>
+                  <characterEncoding>UTF-8</characterEncoding>
+                  <dataFormat>
+                      <externallyDefinedFormat>
+                          <formatName>Darwin Core Archive</formatName>
+                      </externallyDefinedFormat>
+                  </dataFormat>
+                  <distribution>
+                      <online>
+                          <url function="download">http://api.gbif.org/v1/occurrence/download/request/0000607-200127171203522.zip</url>
+                      </online>
+                  </distribution>
+              </physical>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

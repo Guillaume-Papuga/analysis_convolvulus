@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="4f6d7736-ef4b-4115-a4e4-020b15c0bb28"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>10.15470/dktqcx</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=jbuv</alternateIdentifier>
+        <alternateIdentifier>4f6d7736-ef4b-4115-a4e4-020b15c0bb28</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource?r=jbuv</alternateIdentifier>
+    <title>Colección del Banco de Germoplasma de la Universitat de València</title>
+    <creator>
+    <individualName>
+<givenName>Elena</givenName>          <surName>Estrelles</surName>
+    </individualName>
+<organizationName>Universitat de València, Jardí Botànic</organizationName><positionName>Conservador</positionName>    <address>
+<deliveryPoint>C/ Quart 80</deliveryPoint><city>València</city><administrativeArea>Comunitat Valenciana</administrativeArea><postalCode>46008</postalCode><country>SPAIN</country>    </address>
+<phone>+(34) 963156800</phone><electronicMailAddress>elena.estrelles@uv.es</electronicMailAddress><onlineUrl>http://jardibotanic.org/?apid=banc_de_germoplasma-11</onlineUrl>      <userId directory="http://orcid.org/">0000-0002-2869-3684</userId>
+    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Elena</givenName>          <surName>Estrelles</surName>
+    </individualName>
+<organizationName>Universitat de València, Jardí Botànic</organizationName><positionName>Conservador</positionName>    <address>
+<deliveryPoint>C/ Quart 80</deliveryPoint><city>València</city><administrativeArea>Comunitat Valenciana</administrativeArea><postalCode>46008</postalCode><country>SPAIN</country>    </address>
+<phone>+(34) 963156800</phone><electronicMailAddress>elena.estrelles@uv.es</electronicMailAddress><onlineUrl>http://jardibotanic.org/?apid=banc_de_germoplasma-11</onlineUrl>      <userId directory="http://orcid.org/">0000-0002-2869-3684</userId>
+    </metadataProvider>
+      <pubDate>
+      2018-11-30
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>La colección del Banco de Germoplasma JBVAL-BG se creó en el Jardín Botánico de la Universitat de València en 1991. Esta colección conserva a largo plazo material vegetal vivo, en forma de semillas y esporas. Desde 1992 es cofinanciado por la Generalitat Valenciana y en 2009 constituido como Banco de Germoplasma de Flora Silvestre de la Comunitat Valenciana en el Catálogo Valenciano de Especies de Flora Amenazadas (Decreto 70/2009).
+La mayoría de los especímenes provienen de la Comunidad Valenciana (España), dando prioridad a los taxones endémicos, iberolevantinos, o con algún tipo de amenaza. Sus objetivos generales son: 
+- Localizar, recolectar y conservar plantas consideradas de interés prioritario para nuestra sociedad.
+- Trabajar para el conocimiento científico orientado a la optimización de la conservación y uso de los recursos fitogenéticos.
+Toda actividad del Banco de Germoplasma está orientada a cumplir con el compromiso de la Estrategia Europea para la Conservación de Plantas (EPCS). 
+En la actualidad, se conservan en el banco más de cuatro mil muestras. Esta cifra se ve incrementada año tras año con nuevas recolecciones. 
+Además de la actividad básica de conservación a largo plazo del germoplasma se desarrollan los siguientes aspectos:
+- Búsqueda de las condiciones óptimas de germinación de las semillas y esporas de pteridofitos.
+- Estudios de pérdida de viabilidad.
+- Evaluación de los niveles de dormición en semillas y determinación de los pretratamientos necesarios para romperla.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Seed</keyword>
+              <keyword>long time conservation</keyword>
+              <keyword>fern spore</keyword>
+              <keywordThesaurus>n/a</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>Principalmente se conserva germoplasma de taxones recolectados en la Comunitat Valenciana (España)</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-1.65</westBoundingCoordinate>
+                      <eastBoundingCoordinate>0.6</eastBoundingCoordinate>
+                      <northBoundingCoordinate>40.9</northBoundingCoordinate>
+                      <southBoundingCoordinate>37.82</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+          <temporalCoverage>
+            <rangeOfDates>
+              <beginDate>
+                <calendarDate>      1991-01-01
+</calendarDate>
+              </beginDate>
+              <endDate>
+                <calendarDate>      2015-12-31
+</calendarDate>
+              </endDate>
+            </rangeOfDates>
+          </temporalCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Flora vascular de la Comunitat Valenciana principalmente.</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Tracheophyta</taxonRankValue>
+                          <commonName>Plantas vasculares</commonName>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>annually</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Elena</givenName>          <surName>Estrelles</surName>
+    </individualName>
+<organizationName>Universitat de València, Jardí Botànic</organizationName><positionName>Conservador</positionName>    <address>
+<deliveryPoint>C/ Quart 80</deliveryPoint><city>València</city><administrativeArea>Comunitat Valenciana</administrativeArea><postalCode>46008</postalCode><country>SPAIN</country>    </address>
+<phone>+(34) 963156800</phone><electronicMailAddress>elena.estrelles@uv.es</electronicMailAddress><onlineUrl>http://jardibotanic.org/?apid=banc_de_germoplasma-11</onlineUrl>      <userId directory="http://orcid.org/">0000-0002-2869-3684</userId>
+      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:42Z</dateStamp>
+      <citation identifier="http://doi.org/10.15470/dktqcx">Estrelles E (2018). Colección del Banco de Germoplasma de la Universitat de València. Version 1.2. Botanical Garden, University of Valencia. Occurrence dataset https://doi.org/10.15470/dktqcx accessed via GBIF.org on 2020-01-28.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

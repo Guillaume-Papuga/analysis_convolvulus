@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="837c0162-f762-11e1-a439-00145eb45e9a"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>10.15468/fdzzal</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=herbariocofc</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource?r=herbariocofc</alternateIdentifier>
+        <alternateIdentifier>837c0162-f762-11e1-a439-00145eb45e9a</alternateIdentifier>
+        <alternateIdentifier>292</alternateIdentifier>
+    <title>Herbario COFC de la Universidad de Córdoba: colección general de plantas vasculares</title>
+    <creator>
+    <individualName>
+<givenName>Juan Antonio</givenName>          <surName>Devesa Alcaraz</surName>
+    </individualName>
+<organizationName>Universidad de Córdoba</organizationName><positionName>Catedrático/Conservador</positionName>    <address>
+<deliveryPoint>Dpto. Botánica, Ecología, Fisiología Vegetal. Edif Celestino Mutis, 3ª planta. Campus de Rabanales, Ctra. de Madrid km 396</deliveryPoint><city>Córdoba</city><administrativeArea>Córdoba</administrativeArea><postalCode>14014</postalCode><country>SPAIN</country>    </address>
+<phone>+34957218731</phone><electronicMailAddress>bv1dealj@uco.es</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Gloria</givenName>          <surName>Martínez Sagarra</surName>
+    </individualName>
+<organizationName>Universidad de Córdoba</organizationName><positionName>Doctora contratada a proyecto</positionName>    <address>
+<deliveryPoint>Dpto. Botánica, Ecología, Fisiología Vegetal. Edif Celestino Mutis, 3ª planta. Campus de Rabanales, Ctra. de Madrid km 396</deliveryPoint><city>Córdoba</city><administrativeArea>Córdoba</administrativeArea><postalCode>14014</postalCode><country>SPAIN</country>    </address>
+<phone>+34957218731</phone><electronicMailAddress>bv2masag@uco.es</electronicMailAddress>    </metadataProvider>
+      <pubDate>
+      2019-10-16
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>El Herbario fue creado en 1977 y está asociado al área de Botánica del Departamento de Botánica, Ecología y Fisiología Vegetal (Facultad de Ciencias) de la Universidad de Córdoba (España). Sus instalaciones se ubican en el Campus de Rabanales, a las afueras de la ciudad de Córdoba. Este herbario, registrado en Index Herbariorum con el acrónimo COFC (Thiers 2019;  http://sweetgum.nybg.org/science/ih/), incluye 3 colecciones botánicas: una de hongos y dos de plantas vasculares, la colección histórica y la colección general, esta última la más significativa. 
+
+La colección general alberga una amplia representación de la flora vascular de la provincia de Córdoba y, en menor medida, de otras regiones españolas, así como una modesta representación de plantas recolectadas en países limítrofes (Portugal, Francia y Marruecos). Comprende en su mayoría plantas silvestres, con una mínima representación de plantas ornamentales. La colección, aparte de su importancia desde el punto de vista educativo y docente, supone una valiosa fuente de investigación que ha sido de utilidad para la elaboración de importantes obras como Flora Vascular de Andalucía Occidental y Flora iberica. En los últimos años la colección se ha nutrido sobre todo del gran número de recolecciones efectuadas por el territorio peninsular con motivo de la revisión taxonómica de diversos géneros dentro del Proyecto Flora iberica, siendo uno de los herbarios peninsulares con mayor representación de los géneros Centaurea (Asteraceae) y Festuca (Poaceae), considerados ambos entre los más diversos y con mayor complejidad taxonómica en la Península Ibérica. 
+
+Para más información consúltese la página web: http://www.uco.es/organiza/departamentos/botanica/recursos-instalaciones/herbario.html.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>herbarium collection</keyword>
+              <keyword>colección de herbario</keyword>
+              <keyword>España</keyword>
+              <keyword>taxonomy</keyword>
+              <keyword>Córdoba</keyword>
+              <keyword>Spain</keyword>
+              <keyword>taxonomía</keyword>
+              <keyword>Cordoba</keyword>
+              <keyword>COFC</keyword>
+              <keyword>vascular plants.
+
+Andalucía occidental</keyword>
+              <keyword>Western Andalusia</keyword>
+              <keyword>Flora iberica</keyword>
+              <keyword>plantas vasculares.</keyword>
+              <keywordThesaurus>NA</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://data.gbif.org/datasets/resource/292/</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>La mayoría de los especímenes de la colección proceden de la Península Ibérica, con especial representación de la flora de Andalucía Occidental. La provincia con mayor número de registros es Córdoba, seguida de Sevilla y Jaén. Además, existe una modesta representación de países limítrofes, como Portugal, Marruecos y Francia. Tan solo de forma testimonial existen pliegos recolectados en Andorra, Noruega, Suiza, Gran Bretaña, Irlanda, Israel, Italia y EEUU.</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-19.863</westBoundingCoordinate>
+                      <eastBoundingCoordinate>12.832</eastBoundingCoordinate>
+                      <northBoundingCoordinate>51.836</northBoundingCoordinate>
+                      <southBoundingCoordinate>26.902</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+          <temporalCoverage>
+            <rangeOfDates>
+              <beginDate>
+                <calendarDate>      1935-01-01
+</calendarDate>
+              </beginDate>
+              <endDate>
+                <calendarDate>      2018-12-31
+</calendarDate>
+              </endDate>
+            </rangeOfDates>
+          </temporalCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>La mayoría de los especímenes de la colección son angiospermas, pertenecientes a las clases Magnoliopsida y Liliopsida. A ellas siguen en representación los helechos y grupos afines, y por último, las gimnospermas. En total, están representadas 178 familias, siendo Asteraceae, Fabaceae y Poaceae las familias que más contribuyen al porcentaje total de plantas conservadas en la colección.</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Kingdom</taxonRankName>
+                        <taxonRankValue>Plantae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Tracheophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Cycadopsida, Equisetopsida, Ginkgopsida, Gnetopsida, Liliopsida, Lycopodiopsida, Magnoliopsida, Pinopsida, Polypodiopsida, Psilotopsida</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Acanthaceae, Adoxaceae, Aizoaceae, Alismataceae, Amaranthaceae, Amaryllidaceae, Anacardiaceae, Annonaceae, Apiaceae, Apocynaceae, Aquifoliaceae, Araceae, Araliaceae, Araucariaceae, Arecaceae, Aristolochiaceae, Asparagaceae, Asphodelaceae, Aspleniaceae, Asteraceae, Athyriaceae, Balsaminaceae, Begoniaceae, Berberidaceae, Betulaceae, Bignoniaceae, Blechnaceae, Boraginaceae, Brassicaceae, Bromeliaceae, Butomaceae, Buxaceae, Cactaceae, Campanulaceae, Cannabaceae, Capparaceae, Caprifoliaceae, Caryophyllaceae, Casuarinaceae, Celastraceae, Ceratophyllaceae, Cistaceae, Cleomaceae, Clusiaceae, Colchicaceae, Commelinaceae, Convolvulaceae, Coriariaceae, Cornaceae, Crassulaceae, Cucurbitaceae, Culcitaceae, Cupressaceae, Cycadaceae, Cymodoceaceae, Cynomoriaceae, Cyperaceae, Cystopteridaceae, Cytinaceae, Davalliaceae, Dennstaedtiaceae, Didiereaceae, Dioscoreaceae, Drosophyllaceae, Dryopteridaceae, Ebenaceae, Elaeagnaceae, Elatinaceae, Ephedraceae, Equisetaceae, Ericaceae, Escalloniaceae, Euphorbiaceae, Fabaceae, Fagaceae, Frankeniaceae, Garryaceae, Gentianaceae, Geraniaceae, Ginkgoaceae, Grossulariaceae, Haloragaceae, Heliotropiaceae, Hydrangeaceae, Hydrocharitaceae, Hypericaceae, Iridaceae, Isoetaceae, Juglandaceae, Juncaceae, Juncaginaceae, Lamiaceae, Lauraceae, Lentibulariaceae, Liliaceae, Linaceae, Linderniaceae, Lycopodiaceae, Lythraceae, Magnoliaceae, Malvaceae, Marantaceae, Marsileaceae, Martyniaceae, Melanthiaceae, Meliaceae, Menispermaceae, Menyanthaceae, Molluginaceae, Montiaceae, Moraceae, Musaceae, Myricaceae, Myrtaceae, Nephrolepidaceae, Nyctaginaceae, Nymphaeaceae, Oleaceae, Onagraceae, Ophioglossaceae, Orchidaceae, Orobanchaceae, Osmundaceae, Oxalidaceae, Paeoniaceae, Papaveraceae, Passifloraceae, Paulowniaceae, Phrymaceae, Phyllanthaceae, Phytolaccaceae, Pinaceae, Piperaceae, Pittosporaceae, Plantaginaceae, Platanaceae, Plumbaginaceae, Poaceae, Polemoniaceae, Polygalaceae, Polygonaceae, Polypodiaceae, Portulacaceae, Potamogetonaceae, Primulaceae, Proteaceae, Pteridaceae, Rafflesiaceae, Ranunculaceae, Resedaceae, Rhamnaceae, Rosaceae, Rubiaceae, Ruppiaceae, Rutaceae, Salicaceae, Salviniaceae, Santalaceae, Sapindaceae, Saxifragaceae, Scrophulariaceae, Selaginellaceae, Simaroubaceae, Smilacaceae, Solanaceae, Tamaricaceae, Taxaceae, Tetradiclidaceae, Thelypteridaceae, Thymelaeaceae, Tropaeolaceae, Typhaceae, Ulmaceae, Urticaceae, Verbenaceae, Violaceae, Vitaceae, Zygophyllaceae</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>annually</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Técnicos:</givenName>          <surName>Pilar Abad, Silvia Jurado y Javier Ruiz</surName>
+    </individualName>
+<organizationName>Universidad de Córdoba</organizationName><positionName>Técnicos de Herbario</positionName>    <address>
+<deliveryPoint>Dpto. Botánica, Ecología, Fisiología Vegetal. Edif Celestino Mutis, 3ª planta. Campus de Rabanales, Ctra. de Madrid km 396</deliveryPoint><city>Córdoba</city><administrativeArea>Córdoba</administrativeArea><postalCode>14014</postalCode><country>SPAIN</country>    </address>
+<phone>+34957218632</phone><electronicMailAddress>herbario_cofc@uco.es</electronicMailAddress>      </contact>
+      <contact>
+    <individualName>
+<givenName>Juan Antonio</givenName>          <surName>Devesa Alcaraz</surName>
+    </individualName>
+<organizationName>Universidad de Córdoba</organizationName><positionName>Catedrático/Conservador</positionName>    <address>
+<deliveryPoint>Dpto. Botánica, Ecología, Fisiología Vegetal. Edif Celestino Mutis, 3ª planta. Campus de Rabanales, Ctra. de Madrid km 396</deliveryPoint><city>Córdoba</city><administrativeArea>Córdoba</administrativeArea><postalCode>14014</postalCode><country>SPAIN</country>    </address>
+<phone>+34957218731</phone><electronicMailAddress>bv1dealj@uco.es</electronicMailAddress>      </contact>
+      <methods>
+            <methodStep>
+                <description>
+                    <para>Recolección de material en campo, prensado e identificación del mismo. Se han empleado los procedimientos habituales para el montaje, informatización de los datos de la muestra, y almacenamiento del material vegetal en el herbario. El material fresco es secado mediante prensado, a veces con secado simultáneo con una estufa o calefactor. Cuando ya está seco, y previo a su almacenamiento, se utiliza la técnica de congelación rotatoria a -18ºC durante 4 días con objeto de conservar el material y evitar su destrucción por hongos e insectos y así evitar infecciones posteriores, y aproximadamente cada 6 meses se repite dicho procedimiento. Los especímenes se almacenan en cajas dentro de armarios compactos ubicados en una dependencia aislada con temperatura y humedad controlada. En ellos, las familias están ordenadas alfabéticamente, y de igual forma los géneros y especies.</para>
+                </description>
+            </methodStep>
+            <sampling>
+                <studyExtent>
+                    <description>
+                        <para>La mayoría de los especímenes de la colección proceden de la Península Ibérica. Andalucía (sur de España) es la región con mayor representación, y más concretamente la provincia de Córdoba, seguida de las de Sevilla, Jaén, Huelva y Cádiz.</para>
+                    </description>
+                </studyExtent>
+                <samplingDescription>
+                    <para>Recolección de material fresco en el campo. El muestreo o prospecciones de campo son heterogéneas en función del objetivo de la recolección. Contiene principalmente material recolectado durante los últimos 40 años, fruto de las exploraciones y estudios efectuados por investigadores del Área de Botánica (Departamento de Botánica, Ecología y Fisiología Vegetal), así como derivados de Tesis, Trabajos Fin de Máster y de Grado y, en menor medida, procedentes de intercambios o donaciones con otros herbarios.</para>
+                </samplingDescription>
+            </sampling>
+            <qualityControl>
+                <description>
+                    <para>Se realiza en dos niveles:
+
+(1) Durante el procesado de las muestras: el cuidado y control de la colección incluye su monitoreo mediante la gestión y el registro de todos los especímenes botánicos entrantes y salientes a cargo del Servicio de Herbario, con la supervisión del curator. 
+
+(2) Durante la fase de identificación: determinación del material por parte de los miembros del Área de Botánica, así como de investigadores de otras instituciones. Las principales obras utilizadas para la identificación del material son: Flora Vascular de Andalucía Occidental (Valdés et al., 1987), Flora vascular de Andalucía Oriental (Blanca et al., 2009), Flora iberica (Castroviejo, 1986-2019), y Flora europaea (Tutin et al., 1964–1980).</para>
+                </description>
+            </qualityControl>
+      </methods>
+
+      <project id="CGL2008-02982-C03-03; CGL2011-28613-C03-02; CGL2014-52787-C3-3-P; CGL2017-85204-C3-3-P">
+          <title>Flora iberica VII-XI</title>
+          <personnel>
+    <individualName>
+<givenName>Juan Antonio</givenName>          <surName>Devesa Alcaraz</surName>
+    </individualName>
+    <role>PRINCIPAL_INVESTIGATOR</role>
+          </personnel>
+          <abstract>
+              <para>Edición y estudio taxonómico de géneros incluidos en los volúmenes XV (Rubiaceae), XVI(I) (Asteraceae) y XIX(I) (Poaceae) de la obra Flora iberica.</para>
+          </abstract>
+          <funding>
+              <para>Ministerio de Ciencia e Innovación (Gobierno de España), cofinanciado por FEDER (Unión Europea).</para>
+          </funding>
+            <studyAreaDescription>
+                <descriptor name="generic" citableClassificationSystem="false">
+                    <descriptorValue>Península Ibérica e Islas Baleares</descriptorValue>
+                </descriptor>
+            </studyAreaDescription>
+      </project>
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:42Z</dateStamp>
+      <citation>Devesa Alcaraz J A, Martínez Sagarra G (2019). Herbario COFC de la Universidad de Córdoba: colección general de plantas vasculares. Dept. of Botany, Ecology and Plant physiology, University of Cordoba. Occurrence dataset https://doi.org/10.15468/fdzzal accessed via GBIF.org on 2020-01-28.</citation>
+              <bibliography>
+      <citation>Blanca G, Cabezudo B, Cueto M, Fernández López C, Morales Torres C -eds.- (2009). Flora Vascular de Andalucía Oriental, 4 vols. Consejería de Medio Ambiente, Junta de Andalucía, Sevilla.</citation>
+      <citation>Castroviejo S. -coord.- (1986−2019) Flora iberica. Plantas vasculares de la Península Ibérica e Islas Baleares, vols. I-XVIII, XX, XXI. CSIC. Madrid.</citation>
+      <citation>Thiers B (2019) Index Herbariorum: A global directory of public herbaria and associated staff. New York Botanical Garden’s Virtual Herbarium. http://sweetgum.nybg.org/ science/ih/ [6 May 2019].</citation>
+      <citation>Tutin TG, Heywood VH, Burges NA, Moore DM, Valentine DH, Walters SM, Webb DA -eds.- (1964-1982) Flora Europaea, vols. 1−5. Cambridge University Press, Cambridge.</citation>
+      <citation>Valdés B, Talavera S, Galiano EF -eds.- (1987) Flora vascular de Andalucía occidental, 3 vols. Ed. Ketres. Barcelona.</citation>
+              </bibliography>
+              <resourceLogoUrl>http://www.uco.es/imagesn2/banner40.jpg</resourceLogoUrl>
+              <collection>
+                <parentCollectionIdentifier>No aplica</parentCollectionIdentifier>
+                <collectionIdentifier>837c0162-f762-11e1-a439-00145eb45e9a</collectionIdentifier>
+                <collectionName>Herbario COFC de la Universidad de Córdoba: colección general de plantas vasculares</collectionName>
+              </collection>
+              <formationPeriod>1977-presente</formationPeriod>
+                <specimenPreservationMethod>DRIED_AND_PRESSED</specimenPreservationMethod>
+                  <jgtiCuratorialUnit>
+                      <jgtiUnitType>Registros</jgtiUnitType>
+                      <jgtiUnits>60,566</jgtiUnits>
+                  </jgtiCuratorialUnit>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

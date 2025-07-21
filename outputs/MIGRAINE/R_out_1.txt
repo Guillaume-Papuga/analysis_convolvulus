@@ -1,0 +1,355 @@
+
+R version 4.0.5 (2021-03-31) -- "Shake and Throw"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## This is free software written by a free software
+> ## covered by the CeCILL licence (GPL compatible).
+> ## © F. Rousset & R. Leblois 2007- ; contributor: C.R.Beeravolu
+> ## Migraine version 0.5.4.1 (Built on Feb 13 2019 at 14:06:23).
+> ## ...
+> 
+> if (interactive()) {options(error=recover)} else {
++   options(echo = FALSE)
++   options(error = quote(dump.frames(paste("dump",blackbox.getOption("jobSampleNbr"),sep=""), TRUE)))
++ }
+
+Highest likelihood in pointls_1.txt for 
+       pGSM        2Nmu       Tg/2N       Dg/2N     2Nancmu      -ln(L) 
+  0.6197725   1.3347920   0.0000000  13.8484400 139.4600000 475.3269000 
+
+*** Estimation of Kriging parameters by generalized cross-validation *** 
+    Selection of points for GCV: 
+Pure RMSE from all smoothed duplicated points= 0.584 
+default dLnL threshold value (Chi-square threshold + probable extreme deviate):  
+14.12 ( = 11.76 + 2.368 ) 
+    3162 points pre-selected, (2958 singlets plus 102 doublets) 
+    689 points selected, (485 singlets plus 102 doublets) 
+  (see GCVptnbr setting(Migraine)/argument(R) for controlling this). 
+Found # initCovFnParam= 0.0984092010134585 1.15006838951118 7.02305462253009 100.446487757885 4 in 'nextpoints' file
+iteration: 1
+	f(x) = 0.119689
+iteration: 2
+	f(x) = 0.130385
+iteration: 3
+	f(x) = 0.132142
+iteration: 4
+	f(x) = 0.131346
+iteration: 5
+	f(x) = 0.119884
+iteration: 6
+	f(x) = 0.132102
+iteration: 7
+	f(x) = 0.202896
+iteration: 8
+	f(x) = 0.163505
+iteration: 9
+	f(x) = 0.250334
+iteration: 10
+	f(x) = 0.119496
+iteration: 11
+	f(x) = 0.155822
+iteration: 12
+	f(x) = 0.126418
+iteration: 13
+	f(x) = 0.121872
+iteration: 14
+	f(x) = 0.119457
+iteration: 15
+	f(x) = 0.120116
+iteration: 16
+	f(x) = 0.119639
+iteration: 17
+	f(x) = 0.118888
+iteration: 18
+	f(x) = 0.118914
+iteration: 19
+	f(x) = 0.118846
+iteration: 20
+	f(x) = 0.118944
+iteration: 21
+	f(x) = 0.119327
+iteration: 22
+	f(x) = 0.118740
+iteration: 23
+	f(x) = 0.118785
+iteration: 24
+	f(x) = 0.118752
+iteration: 25
+	f(x) = 0.118733
+iteration: 26
+	f(x) = 0.118806
+iteration: 27
+	f(x) = 0.118679
+iteration: 28
+	f(x) = 0.118671
+iteration: 29
+	f(x) = 0.118736
+iteration: 30
+	f(x) = 0.118691
+iteration: 31
+	f(x) = 0.118850
+iteration: 32
+	f(x) = 0.118670
+iteration: 33
+	f(x) = 0.118665
+iteration: 34
+	f(x) = 0.118666
+iteration: 35
+	f(x) = 0.118664
+iteration: 36
+	f(x) = 0.118661
+iteration: 37
+	f(x) = 0.118660
+iteration: 38
+	f(x) = 0.118664
+iteration: 39
+	f(x) = 0.118660
+iteration: 40
+	f(x) = 0.118662
+iteration: 41
+	f(x) = 0.118662
+iteration: 42
+	f(x) = 0.118661
+iteration: 43
+	f(x) = 0.118658
+iteration: 44
+	f(x) = 0.118656
+iteration: 45
+	f(x) = 0.118656
+iteration: 46
+	f(x) = 0.118655
+iteration: 47
+	f(x) = 0.118654
+iteration: 48
+	f(x) = 0.118654
+iteration: 49
+	f(x) = 0.118654
+iteration: 50
+	f(x) = 0.118654
+iteration: 51
+	f(x) = 0.118659
+iteration: 52
+	f(x) = 0.118651
+iteration: 53
+	f(x) = 0.118648
+iteration: 54
+	f(x) = 0.118646
+iteration: 55
+	f(x) = 0.118643
+iteration: 56
+	f(x) = 0.118642
+iteration: 57
+	f(x) = 0.118636
+iteration: 58
+	f(x) = 0.118630
+iteration: 59
+	f(x) = 0.118619
+iteration: 60
+	f(x) = 0.118603
+iteration: 61
+	f(x) = 0.118610
+iteration: 62
+	f(x) = 0.118601
+iteration: 63
+	f(x) = 0.118554
+iteration: 64
+	f(x) = 0.118496
+iteration: 65
+	f(x) = 0.118427
+iteration: 66
+	f(x) = 0.129710
+iteration: 67
+	f(x) = 0.119342
+iteration: 68
+	f(x) = 0.118351
+iteration: 69
+	f(x) = 0.118322
+iteration: 70
+	f(x) = 0.118274
+iteration: 71
+	f(x) = 0.118086
+iteration: 72
+	f(x) = 0.117876
+iteration: 73
+	f(x) = 0.117508
+iteration: 74
+	f(x) = 0.117336
+iteration: 75
+	f(x) = 0.117698
+iteration: 76
+	f(x) = 0.118950
+iteration: 77
+	f(x) = 0.117263
+iteration: 78
+	f(x) = 0.116996
+iteration: 79
+	f(x) = 0.116990
+iteration: 80
+	f(x) = 0.116975
+iteration: 81
+	f(x) = 0.117033
+iteration: 82
+	f(x) = 0.118639
+iteration: 83
+	f(x) = 0.116971
+iteration: 84
+	f(x) = 0.116969
+iteration: 85
+	f(x) = 0.117719
+iteration: 86
+	f(x) = 0.116979
+iteration: 87
+	f(x) = 0.117131
+iteration: 88
+	f(x) = 0.116950
+iteration: 89
+	f(x) = 0.116948
+iteration: 90
+	f(x) = 0.116946
+iteration: 91
+	f(x) = 0.116946
+iteration: 92
+	f(x) = 0.117006
+iteration: 93
+	f(x) = 0.116946
+iteration: 94
+	f(x) = 0.116946
+iteration: 95
+	f(x) = 0.116945
+iteration: 96
+	f(x) = 0.116945
+iteration: 97
+	f(x) = 0.116945
+iteration: 98
+	f(x) = 0.116945
+iteration: 99
+	f(x) = 0.116948
+iteration: 100
+	f(x) = 0.116944
+iteration: 101
+	f(x) = 0.116944
+iteration: 102
+	f(x) = 0.116943
+iteration: 103
+	f(x) = 0.116943
+iteration: 104
+	f(x) = 0.116943
+iteration: 105
+	f(x) = 0.116942
+iteration: 106
+	f(x) = 0.116942
+iteration: 107
+	f(x) = 0.116942
+iteration: 108
+	f(x) = 0.116942
+iteration: 109
+	f(x) = 0.116942
+iteration: 110
+	f(x) = 0.116941
+iteration: 111
+	f(x) = 0.116941
+iteration: 112
+	f(x) = 0.116941
+iteration: 113
+	f(x) = 0.116941
+iteration: 114
+	f(x) = 0.116941
+iteration: 115
+	f(x) = 0.116941
+iteration: 116
+	f(x) = 0.116941
+iteration: 117
+	f(x) = 0.116941
+iteration: 118
+	f(x) = 0.116944
+iteration: 119
+	f(x) = 0.116949
+iteration: 120
+	f(x) = 0.116941
+iteration: 121
+	f(x) = 0.116941
+iteration: 122
+	f(x) = 0.116942
+iteration: 123
+	f(x) = 0.116941
+iteration: 124
+	f(x) = 0.116941
+iteration: 125
+	f(x) = 0.116941
+iteration: 126
+	f(x) = 0.116941
+iteration: 127
+	f(x) = 0.116941
+iteration: 128
+	f(x) = 0.116941
+iteration: 129
+	f(x) = 0.116942
+iteration: 130
+	f(x) = 0.116941
+iteration: 131
+	f(x) = 0.116942
+iteration: 132
+	f(x) = 0.116942
+iteration: 133
+	f(x) = 0.116941
+iteration: 134
+	f(x) = 0.116941
+iteration: 135
+	f(x) = 0.116941
+iteration: 136
+	f(x) = 0.116942
+iteration: 137
+	f(x) = 0.116941
+iteration: 138
+	f(x) = 0.116941
+iteration: 139
+	f(x) = 0.116941
+Estimation of covariance parameters required  3618  CV function evaluations 
+Cross-validation estimates of correlation function parameters: 
+      pGSM       2Nmu      Dg/2N    2Nancmu smoothness 
+ 0.1057522  1.3145902  6.8379615 61.5829680  4.0000000 
+
+  Selection of points for Kriging: 
+default dLnL threshold value (Chi-square threshold + probable extreme deviate):  
+14.12 ( = 11.76 + 2.368 ) 
+    3162 points pre-selected, (2958 singlets plus 102 doublets) 
+    3162 points selected, (2958 singlets plus 102 doublets) 
+  (see min/maxKrigPtNbr setting(Migraine)/argument(R) for controlling this). 
+
+*** Kriging *** 
+RMS residual error from predictions of smoothed points:  0.195 
+ (RMS of variance from all pairs, smoothed or not:  0.584 ) 
+
+*** Maximization *** 
+Primary likelihood estimates, and predicted Log(likelihood): 
+      pGSM       2Nmu      Tg/2N      Dg/2N    2Nancmu      ln(L) 
+   0.56295    1.29367    0.00000    7.35750  382.78000 -474.95000 
+*** Computing 6 one-dimensional profile confidence plots *** (may be slow) 
+Estimated time for pGSM profile plot: 120 s. (remaining: 110 s.)      Estimated time for pGSM profile plot: 110 s. (remaining: 93 s.)      Estimated time for pGSM profile plot: 86 s. (remaining: 69 s.)      Estimated time for pGSM profile plot: 79 s. (remaining: 58 s.)      Estimated time for pGSM profile plot: 82 s. (remaining: 55 s.)      Estimated time for pGSM profile plot: 94 s. (remaining: 56 s.)      Estimated time for pGSM profile plot: 94 s. (remaining: 50 s.)      Estimated time for pGSM profile plot: 100 s. (remaining: 47 s.)      Estimated time for pGSM profile plot: 110 s. (remaining: 43 s.)      Estimated time for pGSM profile plot: 110 s. (remaining: 35 s.)      Estimated time for pGSM profile plot: 100 s. (remaining: 28 s.)      Estimated time for pGSM profile plot: 110 s. (remaining: 22 s.)      Estimated time for pGSM profile plot: 120 s. (remaining: 15 s.)      Estimated time for pGSM profile plot: 110 s. (remaining: 7.4 s.)      Estimated time for pGSM profile plot: 110 s. (remaining: 0 s.)      Estimated time for 2Nmu profile plot: 34 s. (remaining: 32 s.)      Estimated time for 2Nmu profile plot: 40 s. (remaining: 34 s.)      Estimated time for 2Nmu profile plot: 99 s. (remaining: 79 s.)      Estimated time for 2Nmu profile plot: 91 s. (remaining: 67 s.)      Estimated time for 2Nmu profile plot: 85 s. (remaining: 57 s.)      Estimated time for 2Nmu profile plot: 82 s. (remaining: 49 s.)      Estimated time for 2Nmu profile plot: 93 s. (remaining: 49 s.)      Estimated time for 2Nmu profile plot: 110 s. (remaining: 50 s.)      Estimated time for 2Nmu profile plot: 120 s. (remaining: 46 s.)      Estimated time for 2Nmu profile plot: 120 s. (remaining: 39 s.)      Estimated time for 2Nmu profile plot: 110 s. (remaining: 30 s.)      Estimated time for 2Nmu profile plot: 110 s. (remaining: 22 s.)      Estimated time for 2Nmu profile plot: 100 s. (remaining: 14 s.)      Estimated time for 2Nmu profile plot: 100 s. (remaining: 6.7 s.)      Estimated time for 2Nmu profile plot: 96 s. (remaining: 0 s.)      Estimated time for Dg/2N profile plot: 39 s. (remaining: 36 s.)      Estimated time for Dg/2N profile plot: 43 s. (remaining: 38 s.)      Estimated time for Dg/2N profile plot: 47 s. (remaining: 38 s.)      Estimated time for Dg/2N profile plot: 50 s. (remaining: 36 s.)      Estimated time for Dg/2N profile plot: 66 s. (remaining: 44 s.)      Estimated time for Dg/2N profile plot: 92 s. (remaining: 55 s.)      Estimated time for Dg/2N profile plot: 110 s. (remaining: 59 s.)      Estimated time for Dg/2N profile plot: 120 s. (remaining: 57 s.)      Estimated time for Dg/2N profile plot: 130 s. (remaining: 51 s.)      Estimated time for Dg/2N profile plot: 130 s. (remaining: 43 s.)      Estimated time for Dg/2N profile plot: 130 s. (remaining: 34 s.)      Estimated time for Dg/2N profile plot: 120 s. (remaining: 25 s.)      Estimated time for Dg/2N profile plot: 120 s. (remaining: 16 s.)      Estimated time for Dg/2N profile plot: 120 s. (remaining: 8.3 s.)      Estimated time for Dg/2N profile plot: 120 s. (remaining: 0 s.)      Estimated time for 2Nancmu profile plot: 88 s. (remaining: 82 s.)      Estimated time for 2Nancmu profile plot: 86 s. (remaining: 74 s.)      Estimated time for 2Nancmu profile plot: 98 s. (remaining: 79 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: 75 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: 68 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: 61 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: 56 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: 47 s.)      Estimated time for 2Nancmu profile plot: 96 s. (remaining: 38 s.)      Estimated time for 2Nancmu profile plot: 99 s. (remaining: 33 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: 27 s.)      Estimated time for 2Nancmu profile plot: 99 s. (remaining: 20 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: 13 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: 6.9 s.)      Estimated time for 2Nancmu profile plot: 100 s. (remaining: -1.4e-14 s.)      Estimated time for Nratio profile plot: 52 s. (remaining: 48 s.)      Estimated time for Nratio profile plot: 80 s. (remaining: 69 s.)      Estimated time for Nratio profile plot: 91 s. (remaining: 73 s.)      Estimated time for Nratio profile plot: 97 s. (remaining: 71 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 69 s.)      Estimated time for Nratio profile plot: 98 s. (remaining: 59 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 55 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 47 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 40 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 33 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 28 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 21 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 14 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 6.8 s.)      Estimated time for Nratio profile plot: 100 s. (remaining: 1.4e-14 s.)      Estimated time for Dg*mu profile plot: 47 s. (remaining: 44 s.)      Estimated time for Dg*mu profile plot: 48 s. (remaining: 42 s.)      Estimated time for Dg*mu profile plot: 50 s. (remaining: 40 s.)      Estimated time for Dg*mu profile plot: 54 s. (remaining: 40 s.)      Estimated time for Dg*mu profile plot: 76 s. (remaining: 51 s.)      Estimated time for Dg*mu profile plot: 84 s. (remaining: 50 s.)      Estimated time for Dg*mu profile plot: 97 s. (remaining: 52 s.)      Estimated time for Dg*mu profile plot: 110 s. (remaining: 51 s.)      Estimated time for Dg*mu profile plot: 110 s. (remaining: 44 s.)      Estimated time for Dg*mu profile plot: 110 s. (remaining: 36 s.)      Estimated time for Dg*mu profile plot: 100 s. (remaining: 27 s.)      Estimated time for Dg*mu profile plot: 97 s. (remaining: 19 s.)      Estimated time for Dg*mu profile plot: 93 s. (remaining: 12 s.)      Estimated time for Dg*mu profile plot: 88 s. (remaining: 5.9 s.)      Estimated time for Dg*mu profile plot: 84 s. (remaining: 0 s.)      *** Computing 6 two-dimensional profile confidence plots *** (may be slow) 
+Estimated time for pGSM, 2Nmu profile plot: 190 s. (remaining: 180 s.)      Estimated time for pGSM, 2Nmu profile plot: 240 s. (remaining: 200 s.)      Estimated time for pGSM, 2Nmu profile plot: 290 s. (remaining: 230 s.)      Estimated time for pGSM, 2Nmu profile plot: 340 s. (remaining: 250 s.)      Estimated time for pGSM, 2Nmu profile plot: 350 s. (remaining: 230 s.)      Estimated time for pGSM, 2Nmu profile plot: 390 s. (remaining: 240 s.)      Estimated time for pGSM, 2Nmu profile plot: 450 s. (remaining: 240 s.)      Estimated time for pGSM, 2Nmu profile plot: 460 s. (remaining: 210 s.)      Estimated time for pGSM, 2Nmu profile plot: 470 s. (remaining: 190 s.)      Estimated time for pGSM, 2Nmu profile plot: 480 s. (remaining: 160 s.)      Estimated time for pGSM, 2Nmu profile plot: 490 s. (remaining: 130 s.)      Estimated time for pGSM, 2Nmu profile plot: 500 s. (remaining: 100 s.)      Estimated time for pGSM, 2Nmu profile plot: 510 s. (remaining: 68 s.)      Estimated time for pGSM, 2Nmu profile plot: 500 s. (remaining: 33 s.)      Estimated time for pGSM, 2Nmu profile plot: 480 s. (remaining: 0 s.)      Estimated time for pGSM, Dg/2N profile plot: 260 s. (remaining: 240 s.)      Estimated time for pGSM, Dg/2N profile plot: 290 s. (remaining: 260 s.)      Estimated time for pGSM, Dg/2N profile plot: 280 s. (remaining: 220 s.)      Estimated time for pGSM, Dg/2N profile plot: 290 s. (remaining: 220 s.)      Estimated time for pGSM, Dg/2N profile plot: 300 s. (remaining: 200 s.)      Estimated time for pGSM, Dg/2N profile plot: 310 s. (remaining: 190 s.)      Estimated time for pGSM, Dg/2N profile plot: 410 s. (remaining: 220 s.)      Estimated time for pGSM, Dg/2N profile plot: 480 s. (remaining: 230 s.)      Estimated time for pGSM, Dg/2N profile plot: 540 s. (remaining: 220 s.)      Estimated time for pGSM, Dg/2N profile plot: 560 s. (remaining: 190 s.)      Estimated time for pGSM, Dg/2N profile plot: 570 s. (remaining: 150 s.)      Estimated time for pGSM, Dg/2N profile plot: 580 s. (remaining: 120 s.)      Estimated time for pGSM, Dg/2N profile plot: 580 s. (remaining: 77 s.)      Estimated time for pGSM, Dg/2N profile plot: 580 s. (remaining: 38 s.)      Estimated time for pGSM, Dg/2N profile plot: 560 s. (remaining: 0 s.)      Estimated time for pGSM, 2Nancmu profile plot: 320 s. (remaining: 300 s.)      Estimated time for pGSM, 2Nancmu profile plot: 400 s. (remaining: 350 s.)      Estimated time for pGSM, 2Nancmu profile plot: 480 s. (remaining: 380 s.)      Estimated time for pGSM, 2Nancmu profile plot: 520 s. (remaining: 380 s.)      Estimated time for pGSM, 2Nancmu profile plot: 540 s. (remaining: 360 s.)      Estimated time for pGSM, 2Nancmu profile plot: 570 s. (remaining: 340 s.)      Estimated time for pGSM, 2Nancmu profile plot: 590 s. (remaining: 310 s.)      Estimated time for pGSM, 2Nancmu profile plot: 610 s. (remaining: 290 s.)      Estimated time for pGSM, 2Nancmu profile plot: 620 s. (remaining: 250 s.)      Estimated time for pGSM, 2Nancmu profile plot: 630 s. (remaining: 210 s.)      Estimated time for pGSM, 2Nancmu profile plot: 640 s. (remaining: 170 s.)      Estimated time for pGSM, 2Nancmu profile plot: 650 s. (remaining: 130 s.)      Estimated time for pGSM, 2Nancmu profile plot: 660 s. (remaining: 87 s.)      Estimated time for pGSM, 2Nancmu profile plot: 640 s. (remaining: 43 s.)      Estimated time for pGSM, 2Nancmu profile plot: 620 s. (remaining: 1.1e-13 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 140 s. (remaining: 130 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 270 s. (remaining: 240 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 360 s. (remaining: 290 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 360 s. (remaining: 260 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 360 s. (remaining: 240 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 370 s. (remaining: 220 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 470 s. (remaining: 250 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 520 s. (remaining: 240 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 570 s. (remaining: 230 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 620 s. (remaining: 210 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 620 s. (remaining: 170 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 620 s. (remaining: 120 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 600 s. (remaining: 80 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 590 s. (remaining: 39 s.)      Estimated time for 2Nmu, Dg/2N profile plot: 570 s. (remaining: 0 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 150 s. (remaining: 140 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 270 s. (remaining: 230 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 400 s. (remaining: 320 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 450 s. (remaining: 330 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 480 s. (remaining: 320 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 520 s. (remaining: 310 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 550 s. (remaining: 300 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 590 s. (remaining: 280 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 600 s. (remaining: 240 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 620 s. (remaining: 210 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 640 s. (remaining: 170 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 650 s. (remaining: 130 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 640 s. (remaining: 85 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 630 s. (remaining: 42 s.)      Estimated time for 2Nmu, 2Nancmu profile plot: 620 s. (remaining: 0 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 370 s. (remaining: 340 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 450 s. (remaining: 390 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 530 s. (remaining: 420 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 570 s. (remaining: 420 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 600 s. (remaining: 400 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 620 s. (remaining: 370 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 630 s. (remaining: 340 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 640 s. (remaining: 300 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 650 s. (remaining: 260 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 650 s. (remaining: 220 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 650 s. (remaining: 170 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 640 s. (remaining: 130 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 640 s. (remaining: 86 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 620 s. (remaining: 41 s.)      Estimated time for Dg/2N, 2Nancmu profile plot: 590 s. (remaining: 0 s.)      
+*** Confidence intervals ***  
+
+*** Generating points for next iteration *** 
+    ...already 38 points generated...    ...already 102 points generated...    ...already 132 points generated...From rhullByEI(): 'tryn' reduced from 5200 to 3162 
+    ...already 512 points generated......done. 
+
+*** Final likelihood estimates, and predicted logL: *** 
+      pGSM       2Nmu      Tg/2N      Dg/2N    2Nancmu      ln(L) 
+   0.65227    1.50398    0.00000    2.86307    0.15701 -473.85000 
+See file(s) Rplots_1.eps for figures 
+

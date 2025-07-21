@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="90ae13f0-288f-4108-b741-ac8a0f9e0878"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>10.15468/m86bzk</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=aran-eh</alternateIdentifier>
+        <alternateIdentifier>http://ipt.gbif.es/resource?r=aran-eh</alternateIdentifier>
+        <alternateIdentifier>90ae13f0-288f-4108-b741-ac8a0f9e0878</alternateIdentifier>
+        <alternateIdentifier>0dd99089-0b01-4b8e-bc69-850216a4e8c9</alternateIdentifier>
+        <alternateIdentifier>14708</alternateIdentifier>
+    <title>Base de datos de plantas vasculares del País Vasco: ARAN-EH</title>
+    <creator>
+    <individualName>
+<givenName>Iñaki</givenName>          <surName>Aizpuru Oiarbide</surName>
+    </individualName>
+<organizationName>Aranzadi Science Society</organizationName><positionName>Administrative Point Of Contact</positionName>    <address>
+<deliveryPoint>Aranzadi Zientzia Elkartea, Zorroagagaina 11</deliveryPoint><city>Donostia - San Sebastián</city><administrativeArea>Gipuzkoa</administrativeArea><postalCode>20014</postalCode>    </address>
+<phone>+34 94 346 61 42</phone><electronicMailAddress>botanika@aranzadi-zientziak.org</electronicMailAddress><onlineUrl>http://www.aranzadi-zientziak.org/contacto</onlineUrl>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Katia</givenName>          <surName>Cezón</surName>
+    </individualName>
+<organizationName>GBIF Spain</organizationName>    <address>
+<administrativeArea>Madrid</administrativeArea><country>SPAIN</country>    </address>
+<electronicMailAddress>katia.gbif@gmail.com</electronicMailAddress>    </metadataProvider>
+    <metadataProvider>
+    <individualName>
+<givenName>Iñaki</givenName>          <surName>Aizpuru Oiarbide</surName>
+    </individualName>
+<organizationName>Aranzadi Science Society</organizationName><positionName>Administrative Point Of Contact</positionName>    <address>
+<deliveryPoint>Aranzadi Zientzia Elkartea, Zorroagagaina 11</deliveryPoint><city>Donostia - San Sebastián</city><administrativeArea>Gipuzkoa</administrativeArea><postalCode>20014</postalCode>    </address>
+<phone>+34 94 346 61 42</phone><electronicMailAddress>botanika@aranzadi-zientziak.org</electronicMailAddress><onlineUrl>http://www.aranzadi-zientziak.org/contacto</onlineUrl>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Katia</givenName>          <surName>Cezón</surName>
+    </individualName>
+<electronicMailAddress>katia.gbif@gmail.com</electronicMailAddress>    <role>USER</role>
+    </associatedParty>
+      <pubDate>
+      2018-11-30
+      </pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+        <para>&lt;p&gt;Base de datos creada en el 2006 con la ayuda del Departamento de Medio Ambiente y Política Territorial del Gobierno Vasco. Contiene información sobre plantas vasculares procedentes de citas que aparecen en bibliografía encontradas en el País Vasco y territorios limítrofes. Actualmente, cuenta con 182.899 registros informatizados de citas que aparecen en la bibliografía. Se recogen 5.993 especies de las cuales 1.145 incluyen su nombre en euskara, 1.762 en castellano y 2.378 su sinonimia. En algunas especies también se han recopilado los siguientes datos descriptivos: forma biológica, tamaño mínimo y máximo, época de floración, hábitat, altitud mínima y máxima y distribución. Asimismo, están registrados 2.062 libros/artículos de los cuales 896 (el 43%) están disponibles en formato digital.&lt;/p&gt;
+&lt;p&gt;Note: this dataset was previously orphaned. It has been rescued by ① extracting it from the GBIF.org index (see GBIF Download in External Data) and ② republishing it on this IPT data hosting centre as version 1.0.”&lt;/p&gt;</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by/4.0/legalcode"><citetitle>Creative Commons Attribution (CC-BY) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Iñaki</givenName>          <surName>Aizpuru Oiarbide</surName>
+    </individualName>
+<organizationName>Aranzadi Science Society</organizationName><positionName>Administrative Point Of Contact</positionName>    <address>
+<deliveryPoint>Aranzadi Zientzia Elkartea, Zorroagagaina 11</deliveryPoint><city>Donostia - San Sebastián</city><administrativeArea>Gipuzkoa</administrativeArea><postalCode>20014</postalCode>    </address>
+<phone>+34 94 346 61 42</phone><electronicMailAddress>botanika@aranzadi-zientziak.org</electronicMailAddress><onlineUrl>http://www.aranzadi-zientziak.org/contacto</onlineUrl>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:38Z</dateStamp>
+      <citation>Aizpuru Oiarbide I, Cezón K (2018). Base de datos de plantas vasculares del País Vasco: ARAN-EH. Version 1.3. Aranzadi Science Society. Occurrence dataset https://doi.org/10.15468/m86bzk accessed via GBIF.org on 2020-01-28.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

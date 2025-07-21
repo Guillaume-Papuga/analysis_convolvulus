@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="e5f16d86-e225-4822-97be-a64ce17079c7"  system="http://gbif.org" scope="system"
+  xml:lang="fr">
+
+<dataset>
+      <alternateIdentifier>10.15468/kqs0zw</alternateIdentifier>
+        <alternateIdentifier>http://ipt-inpn.gbif.fr/resource?r=IPT-4A9DDA1F-B7F3-3E13-E053-2614A8C02B7C</alternateIdentifier>
+        <alternateIdentifier>e5f16d86-e225-4822-97be-a64ce17079c7</alternateIdentifier>
+        <alternateIdentifier>http://ipt-inpn.gbif.fr/resource?r=4A9DDA1F-B7F3-3E13-E053-2614A8C02B7C</alternateIdentifier>
+    <title>Relevés floristiques du protocole de l&apos;Inventaire National Forestier de l&apos;IGN</title>
+    <creator>
+    <individualName>
+<givenName>n/a</givenName>          <surName>DUPREZ Cédric</surName>
+    </individualName>
+<organizationName>INSTITUT NATIONAL DE L&apos;INFORMATION GEOGRAPHIQUE ET FORESTIERE</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+<electronicMailAddress>cedric.duprez@ign.fr</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+          <surName>Inventaire National du Patrimoine Naturel</surName>
+    </individualName>
+<organizationName>Unité mixte de service 2006 Patrimoine Naturel</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+    </metadataProvider>
+    <associatedParty>
+    <individualName>
+          <surName>GBIF France</surName>
+    </individualName>
+<organizationName>GBIF France</organizationName><positionName>IT support</positionName>    <address>
+<deliveryPoint>GBIF France - MNHN Géologie CP48, 43 rue Buffon</deliveryPoint><city>Paris</city><administrativeArea>Île-de-France</administrativeArea><postalCode>75005</postalCode><country>FRANCE</country>    </address>
+<phone>+33140798065</phone><electronicMailAddress>connexion@gbif.fr</electronicMailAddress>    <role>DISTRIBUTOR</role>
+    </associatedParty>
+      <pubDate>
+      2019-12-12
+      </pubDate>
+    <language>FRENCH</language>
+    <abstract>
+        <para>Inventaire forestier décennal concernant la France métropolitaine mené par l’IGN depuis novembre 2004. Relevés floristiques et forestiers effectués sur placettes en forêt et peupleraie. Il s’agit de relevés protocolés, avec un plan d’échantillonnage basé sur une grille régulière de mailles carrées de 1 km de côté, couvrant l’ensemble du territoire. Les placettes sont de 15 m de rayon (7 ares) pour l’ensemble de la flore vasculaire et de 25 m de rayon (20 ares) pour les arbres. Les relevés sont associes à d’autres mesures dendrologiques et écologiques. Ils ne sont pas tous effectues à la même période. 
+http://inventaire-forestier.ign.fr/spip/spip.php?rubrique205</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>See map.</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-4.854</westBoundingCoordinate>
+                      <eastBoundingCoordinate>9.569</eastBoundingCoordinate>
+                      <northBoundingCoordinate>51.086</northBoundingCoordinate>
+                      <southBoundingCoordinate>41.363</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>n/a</givenName>          <surName>VEST Frédéric</surName>
+    </individualName>
+<organizationName>UNITE MIXTE DE SERVICE 2006 PATRIMOINE NATUREL</organizationName><positionName>n/a</positionName>    <address>
+<country>FRANCE</country>    </address>
+<electronicMailAddress>sinp-data@mnhn.fr</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:39Z</dateStamp>
+      <citation>DUPREZ Cédric N (2019). Relevés floristiques du protocole de l&apos;Inventaire National Forestier de l&apos;IGN. Version 1.1. UMS PatriNat (OFB-CNRS-MNHN), Paris. Occurrence dataset https://doi.org/10.15468/kqs0zw accessed via GBIF.org on 2020-01-28.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

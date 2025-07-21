@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="c5542412-e7f0-40ce-b134-9a435a836e9b"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>10.15468/xbgyqj</alternateIdentifier>
+        <alternateIdentifier>http://www.aimjb.net:8080/ipt/resource.do?r=botanicocastillalamancha</alternateIdentifier>
+        <alternateIdentifier>c5542412-e7f0-40ce-b134-9a435a836e9b</alternateIdentifier>
+    <title>Banco de Germoplama del Jardín Botánico de Castilla-La Mancha</title>
+    <creator>
+    <individualName>
+<givenName>Alejandro</givenName>          <surName>Santiago González</surName>
+    </individualName>
+<organizationName>Jardín Botánico de Castilla-La Mancha</organizationName><positionName>Conservador</positionName>    <address>
+<deliveryPoint>Avda. de La Mancha s/n</deliveryPoint><city>Albacete</city><administrativeArea>Albacete</administrativeArea><postalCode>02006</postalCode>    </address>
+<phone>+34 967 23 88 20</phone><electronicMailAddress>conservador@jardinbotanico-clm.com</electronicMailAddress><onlineUrl>http://www.jardinbotanico-clm.com</onlineUrl>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Alejandro</givenName>          <surName>Santiago González</surName>
+    </individualName>
+<organizationName>Jardín Botánico de Castilla-La Mancha</organizationName><positionName>Conservador</positionName>    <address>
+<deliveryPoint>Avda. de La Mancha s/n</deliveryPoint><city>Albacete</city><administrativeArea>Albacete</administrativeArea><postalCode>02006</postalCode>    </address>
+<phone>+34 967 23 88 20</phone><electronicMailAddress>conservador@jardinbotanico-clm.com</electronicMailAddress><onlineUrl>http://www.jardinbotanico-clm.com</onlineUrl>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Alejandro</givenName>          <surName>Santiago González</surName>
+    </individualName>
+<organizationName>Jardín Botánico de Castilla-La Mancha</organizationName><positionName>Conservador</positionName>    <address>
+<deliveryPoint>Avda. de La Mancha s/n</deliveryPoint><city>Albacete</city><administrativeArea>Albacete</administrativeArea><postalCode>02006</postalCode>    </address>
+<electronicMailAddress>conservador@jardinbotanico-clm.com</electronicMailAddress>    <role>CURATOR</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>José María</givenName>          <surName>Herranz Sanz</surName>
+    </individualName>
+<organizationName>Dpto. Producción Vegetal y Tecnología Agraria. Universidad de Castilla-La Mancha</organizationName>    <address>
+<deliveryPoint>Escuela Técnica Superior de Ingenieros Agrónomos y de Montes (ETSIAM)  Higher Technical School of Agricultural and Forestry Engineering  Universidad de Castilla-La Mancha  University of Castile-La Mancha  Campus Universitario, s/n</deliveryPoint><city>Albacete</city><administrativeArea>Albacete</administrativeArea><postalCode>02071</postalCode><country>SPAIN</country>    </address>
+<electronicMailAddress>Jose.Herranz@uclm.es</electronicMailAddress>    <role>PRINCIPAL_INVESTIGATOR</role>
+    </associatedParty>
+      <pubDate>
+      2016-04-29
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>El Banco de Germoplasma Vegetal (BGV) del Jardín Botánico de Castilla-La Mancha (JBCLM) se inició a principios de año 2007 en el marco del desarrollo del proyecto “Creación de un banco de germoplasma de flora silvestre amenazada en el JBCLM”, financiado por la Consejería de Educación y Ciencia de la Junta de Comunidades de Castilla-La Mancha durante el periodo 2007-2009, incorporando también a las existencias del proyecto las accesiones recolectadas y conservadas previamente por el profesorado de la unidad de Botánica y Ecología de la Escuela Técnica Superior de Ingenieros Agrónomos y de Montes (Universidad de Castilla-La Mancha, UCLM).
+En el año 2008 entró a formar parte de la REDBAG (Red Española de Bancos de Germoplasma de Plantas Silvestres) fundada en 2002 a iniciativa de la Asociación Ibero-Macaronésica de Jardines Botánicos. Durante los últimos años ha podido incrementar notablemente el número de accesiones conservadas gracias a la acción complementaria tipo E titulada “Recolección y conservación de semillas de 50 taxones de labiadas del cuadrante sureste ibérico con interés aromático, medicinal u ornamental”, financiado por el INIA durante el período 2012-2014.
+
+Este banco se diseñó con la idea de conservar semillas de tipo ortodoxo (admiten desecación hasta el 4-5% de humedad y temperaturas bajas, -10ºC en este banco) pertenecientes a especies de la flora amenazada regional castellano-manchega, aunque con el transcurso del tiempo se ha ido ampliando el abanico de especies objeto de recolección y conservación. Dentro de las instalaciones del JBCLM, se halla ubicado en el Instituto Botánico (sección de Recursos Fitogenéticos), centro de investigación dependiente de la UCLM. El responsable del BGV es José Mª Herranz Sanz, investigador principal de los dos proyectos indicados en el párrafo anterior (jose.herranz&amp;#64;uclm.es).
+
+En enero de 2014, el número de accesiones conservadas ascendía a 872, de las que 830 corresponden a material recogido en estado silvestre y 42 a material cultivado en el JBCLM para poder disponer de mayor número de semillas en el caso de especies escasamente recolectadas en su hábitat natural. Las 830 accesiones recogidas en estado silvestre pertenecen a 60 familias de fanerógamas y 496 taxones diferentes. Algunas cifras ilustrativas del material conservado son las siguientes: 206 accesiones, pertenecientes a 114 taxones diferentes, correspondientes a taxones amenazados (incluidos en el Catálogo Regional de Especies Amenazadas de Castilla-La Mancha y /o en la Lista Roja de Flora Vascular Española del año 2008); 201 accesiones, pertenecientes a 109 taxones, correspondientes a taxones no amenazados incluidos en la Estrategia Española para la Conservación y el Uso Sostenible de los Recursos Genéticos Forestales (ERGF); 134 accesiones (66 taxones) correspondientes a endemismos ibéricos y 51 accesiones (26 taxones) correspondientes a endemismos iberonorteafricanos, en ambos casos ni amenazados ni incluidos en ERGF. Hay también 110 accesiones correspondientes a 62 taxones con distribución geográfica amplia que se ofertan en el Index Seminum del JBCLM con la finalidad de intercambio con otros jardines botánicos o centros de investigación. Las 128 accesiones restantes de material recogido en estado silvestre corresponden a taxones con interés ornamental, aromático, medicinal, o bien con proximidad genética a especies cultivadas o bien con utilidad para recrear las comunidades vegetales castellano-manchegas en el JBCLM.
+
+Otro aspecto relevante es que el material conservado en el BGV del JBCLM ha servido para la realización de refuerzos poblacionales de especies amenazadas en sus hábitats naturales en territorio castellano-manchego (Coincya rupestris subsp. rupestris, Delphinium fissum subsp. sordidum, Nepeta hispanica, Helianthemum guerrae, H. polygonoides, Sideritis chamaedryfolia, S. serrata, Senecio auricula, Sisymbrium cavanillesianum y Vella pseudocytisus subsp. pseudocytisus). Asimismo, dentro de las colecciones de plantas del JBCLM, en la zona dedicada a ecosistemas regionales, hemos logrado recrear los hábitats naturales de algunas de estas especies (Helianthemum guerrae-Sideritis chamaedryfolia, Sideritis serrata, Vella pseudocytisus subsp. pseudocytisus) a partir de las semillas del BGV.
+
+El 90% del material conservado ha sido recolectado por personal del Instituto Botánico (José Mª Herranz Sanz, Miguel A. Copete Carreño, Alejandro Santiago González, Pablo Ferrandis Gotor, Elena Copete Carreño, Esmeralda Martínez Duro y Arturo Valdes Franzi). Entre las aportaciones externas más significativas se hallan las efectuadas por Segundo Ríos, Julián García y Sara Martínez.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Germplasm Bank</keyword>
+              <keyword>wild flora</keyword>
+              <keyword>Occurrence</keyword>
+              <keyword>Botanical Garden of Castilla-La Mancha.</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keyword>orthodox wild seeds</keyword>
+              <keyword>threatened plant species</keyword>
+              <keyword>Castilla-LA Mancha</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+      <additionalInfo>
+          <para>Alejandro Santiago González, José María Herranz Sanz, Pablo Ferrandis Gotor (2013)El banco de germoplasma vegetal del Jardín Botánico de Castilla-La Mancha: implicaciones para la conservación &quot;ex situ&quot; de flora silvestre. Sabuco: revista de estudios albacetenses,  9: 95-111, ISSN 1577-2969.</para>
+      </additionalInfo>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.jardinbotanico-clm.com/investigacion/</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>Castilla-La Mancha</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-4.34</westBoundingCoordinate>
+                      <eastBoundingCoordinate>-1.23</eastBoundingCoordinate>
+                      <northBoundingCoordinate>40.83</northBoundingCoordinate>
+                      <southBoundingCoordinate>38.2</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Phylum Magnoliophyta</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Magnoliophyta</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <purpose>
+          <para>In correspondence with the original vocation of the bank, i.e. ex situ conservation of plant taxa with narrow geographical range</para>
+      </purpose>
+      <contact>
+    <individualName>
+<givenName>Alejandro</givenName>          <surName>Santiago González</surName>
+    </individualName>
+<organizationName>Jardín Botánico de Castilla-La Mancha</organizationName><positionName>Conservador</positionName>    <address>
+<deliveryPoint>Avda. de La Mancha s/n</deliveryPoint><city>Albacete</city><administrativeArea>Albacete</administrativeArea><postalCode>02006</postalCode>    </address>
+<phone>+34 967 23 88 20</phone><electronicMailAddress>conservador@jardinbotanico-clm.com</electronicMailAddress><onlineUrl>http://www.jardinbotanico-clm.com</onlineUrl>      </contact>
+
+      <project >
+          <title>Creation of a germplasm bank of threatened wild flora in the Botanical Garden of Castilla-La Mancha</title>
+          <personnel>
+    <individualName>
+<givenName>José Mª</givenName>          <surName>Herranz Sanz</surName>
+    </individualName>
+    <role>PRINCIPAL_INVESTIGATOR</role>
+          </personnel>
+          <abstract>
+              <para></para>
+          </abstract>
+          <funding>
+              <para>Funded by the local Government of Castilla-La Mancha Region</para>
+          </funding>
+            <studyAreaDescription>
+                <descriptor name="generic" citableClassificationSystem="false">
+                    <descriptorValue>Castilla-La Mancha Region, Spain</descriptorValue>
+                </descriptor>
+            </studyAreaDescription>
+            <designDescription>
+                <description>
+                    <para>The main goal was to conserve orthodox seeds (those which tolerate desiccation up to 4-5% of water content and low temperatures) of threatened plant species. However, the status range of taxa included in the collection has been increasing as the project progressed. Up to June 2011, 577 accessions of 415 autochthonous taxa, belonging to 60 phanerogam families, were conserved. Many of them (164) are threatened taxa (those included in the Red List of Spanish Vascular Flora and/or the Regional Catalogue of Threatened Species of Castilla-La Mancha), in correspondence with the original vocation of the bank, i.e. ex situ conservation of plant taxa with narrow geographical range. In addition, many accessions (93) in the bank belong to species with forest interest included in the Strategy for Conservation and Sustainable Use of Genetic Forest Resources. The remaining 320 accessions correspond to species with ornamental, aromatic, and medicinal interest.</para>
+                </description>
+            </designDescription>
+      </project>
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:39Z</dateStamp>
+      <citation>Santiago González A (2016). Banco de Germoplama del Jardín Botánico de Castilla-La Mancha. Jardín Botánico de Castilla-La Mancha. Occurrence dataset https://doi.org/10.15468/xbgyqj accessed via GBIF.org on 2020-01-28.</citation>
+              <resourceLogoUrl>http://www.aimjb.net:8080/ipt/logo.do?r=botanicocastillalamancha</resourceLogoUrl>
+              <collection>
+                <parentCollectionIdentifier>Not applicable</parentCollectionIdentifier>
+                <collectionIdentifier>BGJBCLM</collectionIdentifier>
+                <collectionName>Banco de Germoplasma de Castilla-La Mancha</collectionName>
+              </collection>
+                <specimenPreservationMethod>FREEZE_DRIED</specimenPreservationMethod>
+              <livingTimePeriod>2007-present</livingTimePeriod>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

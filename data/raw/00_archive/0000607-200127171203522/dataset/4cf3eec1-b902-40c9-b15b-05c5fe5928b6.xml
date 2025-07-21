@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="4cf3eec1-b902-40c9-b15b-05c5fe5928b6"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>10.15468/4wnutv</alternateIdentifier>
+        <alternateIdentifier>https://ipt.gbif.es/resource?r=rjb-anthos</alternateIdentifier>
+        <alternateIdentifier>http://ipt.gbif.es/resource?r=rjb-anthos</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource?r=rjb-anthos</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource?r=anthos</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource.do?r=anthos</alternateIdentifier>
+        <alternateIdentifier>4cf3eec1-b902-40c9-b15b-05c5fe5928b6</alternateIdentifier>
+        <alternateIdentifier>9090</alternateIdentifier>
+    <title>CSIC-Real Jardín Botánico-Anthos. Sistema de Información de las Plantas de España</title>
+    <creator>
+    <individualName>
+<givenName>Leopoldo</givenName>          <surName>Medina Domingo</surName>
+    </individualName>
+<organizationName>Real Jardín Botánico (CSIC)</organizationName><positionName>Titulado Superior</positionName>    <address>
+<deliveryPoint>Plaza Murillo 2</deliveryPoint><city>Madrid</city><administrativeArea>Madrid</administrativeArea><postalCode>28014</postalCode><country>SPAIN</country>    </address>
+<phone>+34914203585</phone><electronicMailAddress>anthos@rjb.csic.es</electronicMailAddress><onlineUrl>http://www.anthos.es/</onlineUrl>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Carlos</givenName>          <surName>Aedo Pérez</surName>
+    </individualName>
+<organizationName>Real Jardín Botánico (CSIC)</organizationName><positionName>Investigador</positionName>    <address>
+<deliveryPoint>Plaza Murillo 2</deliveryPoint><city>Madrid</city><administrativeArea>Madrid</administrativeArea><postalCode>28014</postalCode><country>SPAIN</country>    </address>
+<phone>+34914203585</phone><electronicMailAddress>anthos@rjb.csic.es</electronicMailAddress><onlineUrl>http://www.anthos.es/</onlineUrl>    </metadataProvider>
+      <pubDate>
+      2019-07-22
+      </pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+        <para>El Real Jardín Botánico ha desarrollado y mantenido diversas bases de datos sobre las plantas de la Península Ibérica. Uno de los proyectos que se desarrollaron en el RJB en la década de 1990 consistió en extraer de la literatura los datos de distribución de plantas. En 1999, cuando esta base de datos contaba con aproximadamente 600.000 registros, se continuó el trabajo a través del programa ANTHOS, financiado por la Fundación Biodiversidad (Ministerio de Agricultura, Alimentación y Medio Ambiente) y el Consejo Superior de Investigaciones Científicas - Real Jardín Botánico (Ministerio de Economía y Competitividad). Desde el año 2006 cuenta con una aplicación desarrollada sobre un sistema de información geográfica (SIG) que integra y mejora los procedimientos y consultas de la anterior, incrementa notablemente el conjunto de los datos disponibles —en la actualidad tenemos c. 1,8 millones—, hasta un horizonte de c. 3,5 millones de registros que estimamos para la bibliografía botánica de España. Además, la nueva aplicación combina la información corológica con otra de tipo cartográfico sobre variables ambientales y mapas de referencia, lo que permite localizar con mayor exactitud las citas de plantas, así como explicar de forma visual los patrones de distribución de las distintas especies. Se ha elegido como ámbito geográfico general del proyecto, la vista de la Península Ibérica e islas de la Macaronesia (Canarias, Madeira y Azores) como representación de las unidades biogeográficas presentes en España, de manera que se pueda estudiar la distribución de un taxon en todo el territorio nacional y zonas aledañas, e integrado en su componente geográfica.
+Actualmente la información está también accesible a través del portal de colecciones del RJB (http://colecciones.rjb.csic.es/), con lo que conseguimos llegar aún a más usuarios.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Other</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.anthos.es/</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>Spain (mainland Spain, Baleric Islands and Canary Islands), with data of Portugal (mainland Portugal, Madeira Islands and Azores Islands), other European Mediterranean countries and North Africa territories</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-31.16</westBoundingCoordinate>
+                      <eastBoundingCoordinate>6.68</eastBoundingCoordinate>
+                      <northBoundingCoordinate>44.64</northBoundingCoordinate>
+                      <southBoundingCoordinate>25.89</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+              <taxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Chlorophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Equisetophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Gnetophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Lycopodiophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Magnoliophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Magnoliophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Pinophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Psilophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Pteridophyta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Charophyceae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Equisetopsida</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Gnetopsida</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Lycopodiopsida</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Liliopsida</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Magnoliopsida</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Pinopsida</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Psilopsida</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Filicopsida</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <purpose>
+          <para>Mostrar en internet, de forma libre y gratuita, información de calidad sobre la diversidad de las plantas de España</para>
+      </purpose>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>daily</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Carlos</givenName>          <surName>Aedo Pérez</surName>
+    </individualName>
+<organizationName>Real Jardín Botánico (CSIC)</organizationName><positionName>Investigador</positionName>    <address>
+<deliveryPoint>Plaza Murillo 2</deliveryPoint><city>Madrid</city><administrativeArea>Madrid</administrativeArea><postalCode>28014</postalCode><country>SPAIN</country>    </address>
+<phone>+34914203585</phone><electronicMailAddress>anthos@rjb.csic.es</electronicMailAddress><onlineUrl>http://www.anthos.es/</onlineUrl>      </contact>
+      <methods>
+            <methodStep>
+                <description>
+                    <para></para>
+                </description>
+            </methodStep>
+      </methods>
+
+      <project >
+          <title>Proyecto Anthos: Sistema de Información de las Plantas de España. Fundación Biodiversidad-Real Jardín Botánico (CSIC)</title>
+          <personnel>
+    <individualName>
+<givenName>Leopoldo</givenName>          <surName>Medina Domingo</surName>
+    </individualName>
+    <role>POINT_OF_CONTACT</role>
+          </personnel>
+          <abstract>
+              <para></para>
+          </abstract>
+          <funding>
+              <para>Fundación Biodiversidad (http://www.fundacion-biodiversidad.es/) and Consejo Superior de Investigaciones Científicas (www.csic.es)</para>
+          </funding>
+      </project>
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:44Z</dateStamp>
+      <citation>Medina Domingo L, Aedo Pérez C (2019). CSIC-Real Jardín Botánico-Anthos. Sistema de Información de las Plantas de España. Version 1.17. CSIC-Real Jardín Botánico. Occurrence dataset https://doi.org/10.15468/4wnutv accessed via GBIF.org on 2020-01-28.</citation>
+              <resourceLogoUrl>http://www.gbif.es/ipt/logo.do?r=anthos</resourceLogoUrl>
+              <collection>
+                <parentCollectionIdentifier>Not applicable</parentCollectionIdentifier>
+                <collectionIdentifier>4cf3eec1-b902-40c9-b15b-05c5fe5928b6</collectionIdentifier>
+                <collectionName>Anthos</collectionName>
+              </collection>
+                <specimenPreservationMethod>NO_TREATMENT</specimenPreservationMethod>
+              <livingTimePeriod>1999-2014</livingTimePeriod>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

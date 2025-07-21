@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="95e635d4-f762-11e1-a439-00145eb45e9a"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>10.15468/b4yqdy</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource?r=bdbcv-general</alternateIdentifier>
+        <alternateIdentifier>http://www.gbif.es/ipt/resource.do?r=bdbcv-general</alternateIdentifier>
+        <alternateIdentifier>95e635d4-f762-11e1-a439-00145eb45e9a</alternateIdentifier>
+        <alternateIdentifier>8004</alternateIdentifier>
+    <title>Banco de Datos de la Biodiversidad de la Comunitat Valenciana</title>
+    <creator>
+    <individualName>
+<givenName>Javier</givenName>          <surName>Ranz</surName>
+    </individualName>
+<organizationName>Generalitat Valenciana</organizationName><positionName>Técnico</positionName>    <address>
+<deliveryPoint>Castán Tobeñas, 77</deliveryPoint><city>Valencia</city>    </address>
+<phone>961208596</phone><electronicMailAddress>ranz_jav@gva.es</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Javier</givenName>          <surName>Ranz</surName>
+    </individualName>
+<organizationName>Generalitat Valenciana</organizationName><positionName>Técnico</positionName>    <address>
+<deliveryPoint>Castán Tobeñas, 77</deliveryPoint><city>Valencia</city>    </address>
+<phone>961208596</phone><electronicMailAddress>ranz_jav@gva.es</electronicMailAddress>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Javier</givenName>          <surName>Ranz</surName>
+    </individualName>
+<organizationName>Generalitat Valenciana</organizationName><positionName>Técnico</positionName>    <address>
+<deliveryPoint>Castán Tobeñas, 77</deliveryPoint><city>Valencia</city>    </address>
+<phone>961208596</phone><electronicMailAddress>ranz_jav@gva.es</electronicMailAddress>    <role>USER</role>
+    </associatedParty>
+      <pubDate>
+      2017-05-09
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>El Banco de Datos de Biodiversidad de la Comunitat Valenciana tiene como objetivo recoger toda la información de localización de especies en el territorio de la Comunitat Valenciana y su entorno marino. Los datos son provenientes de colecciones, bibliografía y trabajos de campo. Todas las citas están georreferenciadas. Se aportan, para algunas especies, imágenes y fichas con descripción y biología, distribución, hábitat, situación actual, amenazas y acciones de conservación, y las evoluciones poblaciones.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>plantae</keyword>
+              <keyword>Banco de datos de biodiversidad</keyword>
+              <keyword>hongos</keyword>
+              <keyword>información sobre biodiversidad</keyword>
+              <keyword>distribución geográfica</keyword>
+              <keyword>fauna</keyword>
+              <keyword>comunidad valenciana</keyword>
+              <keyword>flora</keyword>
+              <keyword>taxon</keyword>
+              <keyword>taxonomia</keyword>
+              <keyword>animalia</keyword>
+              <keywordThesaurus>n/a</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://bdb.cma.gva.es</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>Datos exclusivamente de la Comunidad Valenciana (España)</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-180</westBoundingCoordinate>
+                      <eastBoundingCoordinate>180</eastBoundingCoordinate>
+                      <northBoundingCoordinate>90</northBoundingCoordinate>
+                      <southBoundingCoordinate>-90</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+          <temporalCoverage>
+            <rangeOfDates>
+              <beginDate>
+                <calendarDate>      1950-01-01
+</calendarDate>
+              </beginDate>
+              <endDate>
+                <calendarDate>      2013-06-25
+</calendarDate>
+              </endDate>
+            </rangeOfDates>
+          </temporalCoverage>
+              <taxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Kingdom</taxonRankName>
+                        <taxonRankValue>Animalia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Kingdom</taxonRankName>
+                        <taxonRankValue>Plantae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Kingdom</taxonRankName>
+                        <taxonRankValue>Chromista</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Kingdom</taxonRankName>
+                        <taxonRankValue>Protozoa</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>daily</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Javier</givenName>          <surName>Ranz</surName>
+    </individualName>
+<organizationName>Generalitat Valenciana</organizationName><positionName>Técnico</positionName>    <address>
+<deliveryPoint>Castán Tobeñas, 77</deliveryPoint><city>Valencia</city>    </address>
+<phone>961208596</phone><electronicMailAddress>ranz_jav@gva.es</electronicMailAddress>      </contact>
+      <methods>
+            <methodStep>
+                <description>
+                    <para>Revisión de la cita por expertos para su validación y publicación en internet</para>
+                </description>
+            </methodStep>
+            <qualityControl>
+                <description>
+                    <para>Gran sistema de validación de todas las citas ofrecidas en internet, expertos en todos los grupos taxonómicos presentes en la Comunidad Valenciana, cada dato es revisado con exhaustividad para darle una fiabilidad al recurso que se consulta</para>
+                </description>
+            </qualityControl>
+      </methods>
+
+      <project >
+          <title>Banco de Datos de Biodiversidad de la Comunidad Valenciana</title>
+          <personnel>
+    <individualName>
+<givenName>Generalitat</givenName>          <surName>Valenciana</surName>
+    </individualName>
+    <role>CUSTODIAN_STEWARD</role>
+          </personnel>
+          <abstract>
+              <para></para>
+          </abstract>
+          <funding>
+              <para></para>
+          </funding>
+      </project>
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2020-01-28T16:40:44Z</dateStamp>
+      <citation>Ranz J (2017). Banco de Datos de la Biodiversidad de la Comunitat Valenciana. Biodiversity data bank of Generalitat Valenciana. Occurrence dataset https://doi.org/10.15468/b4yqdy accessed via GBIF.org on 2020-01-28.</citation>
+              <resourceLogoUrl>http://www.gbif.es/ipt/logo.do?r=bdbcv-general</resourceLogoUrl>
+              <collection>
+                <parentCollectionIdentifier>NA</parentCollectionIdentifier>
+                <collectionIdentifier>http://data.gbif.org/datasets/provider/593/</collectionIdentifier>
+                <collectionName>Banco de Datos de la Biodiversidad de la Comunitat Valenciana</collectionName>
+              </collection>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>
