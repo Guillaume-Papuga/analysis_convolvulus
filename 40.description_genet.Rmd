@@ -1,7 +1,7 @@
 ---
 title: "08.description_genet.Rmd"
-author: "Guillaume Papuga"
-date: "2023-11-02"
+author: "Guillaume Papuga & Eric Imbert"
+date: "2025-07-21"
 output: html_document
 ---
 
@@ -9,22 +9,244 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# 1. Load genetic data
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r load data}
+# Script Eric? 
+# Localisation GPS
+gps = read.table(here::here ("data", "raw", "genetic", "GENEPOP", "location.csv"), header=T, dec=",")
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# Table des pops de Paca
+PACA = gps[gps$Longitude>0 & gps$Latitude>42.5,]
 
-```{r cars}
-summary(cars)
+# Charge la table des FsT de GENEPOP
+#fst = read.table(here::here ("data", "raw", "genetic", "GENEPOP","fst.csv"), header=F) #fst/1-fst from GenepopV4
 ```
 
-## Including Plots
+```{r}
+# Chargement des données génétiques
+df <- read.csv(here::here("data", "processed", "genetic.data.csv"),
+               sep = ",", header = TRUE, dec = ".")
 
-You can also embed plots, for example:
+# Aperçu de la structure des données
+str(df)
+head(df)
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+# Étape 1 : Sélection des colonnes de génotypes
+# On suppose que les génotypes sont dans des colonnes nommées "SSR_locus_1", "SSR_locus_2", etc.
+geno_cols <- grep("^SSR_", names(df), value = TRUE)  # toutes les colonnes débutant par SSR_
+geno_data <- df[, geno_cols]
+
+# 🧼 Étape 2 : Remplacement des 0 par NA (0 = génotype manquant dans ton codage)
+geno_data[geno_data == 0] <- NA
+
+# Étape 3 : Nettoyage des noms de colonnes
+# On enlève le préfixe "SSR_" pour plus de clarté
+names(geno_data) <- gsub("^SSR_", "", names(geno_data))
+
+# On force un format standard : locus_1 / locus_2
+# Si une colonne se termine par ".1", on la renomme en ".2"
+names(geno_data) <- ifelse(grepl("\\.1$", names(geno_data)),
+                           gsub("\\.1$", "_2", names(geno_data)),
+                           paste0(names(geno_data), "_1"))
+
+# Remplacement final des "." par "_" pour éviter des erreurs dans les noms de variables
+names(geno_data) <- gsub("\\.", "_", names(geno_data))
+
+# Étape 4 : Identifier les locus (sans suffixe _1/_2)
+loci <- unique(sub("_[12]$", "", names(geno_data)))  # ex : "GA12"
+
+# Étape 5 : Créer une matrice collée allèle1_allèle2 par locus (format attendu par df2genind)
+geno_collapsed <- sapply(loci, function(locus) {
+  paste(geno_data[[paste0(locus, "_1")]],
+        geno_data[[paste0(locus, "_2")]],
+        sep = "_")
+})
+
+# Conversion en data.frame
+geno_collapsed <- as.data.frame(geno_collapsed, stringsAsFactors = FALSE)
+
+# Étape 6 : Conversion en genind
+# Variables d'identité : noms d’individus et populations
+genind_obj <- df2genind(geno_collapsed,
+                        ploidy = 2,
+                        sep = "_",
+                        ind.names = df$Accession.N.,  # ou autre identifiant individuel
+                        pop = as.factor(df$Pop.N.))   # nom ou code de population
+
+# Résumé de l'objet genind
+summary(genind_obj)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+# 2. Visualisation et description des données
+
+```{r}
+# Aperçu des données (exemple avec un data.frame df)
+head(df)
+
+# Distribution spatiale des échantillons
+ggplot(df, aes(x=longitude, y=latitude)) +
+  geom_point(color="blue") +
+  coord_fixed() +
+  ggtitle("Répartition spatiale des échantillons") +
+  theme_minimal()
+```
+Interprétation :
+Cette carte nous donne une idée de la couverture géographique des échantillons. Une bonne répartition est essentielle pour détecter une structure spatiale.
+
+
+```{r}
+# Résumé par locus avec adegenet
+locus_summary <- summary(genind_obj)
+
+# On peut extraire par exemple :
+locus_summary$loc.n.all   # nombre d'allèles par locus
+locus_summary$Hobs        # hétérozygotie observée
+locus_summary$Hexp        # hétérozygotie attendue (He)
+
+# Visualisation du nombre d’allèles par locus
+allele_df <- data.frame(
+  locus = names(locus_summary$loc.n.all),
+  nb_alleles = locus_summary$loc.n.all
+)
+
+ggplot(allele_df, aes(x = reorder(locus, -nb_alleles), y = nb_alleles)) +
+  geom_col(fill = "#4472C4") +
+  coord_flip() +
+  labs(title = "Nombre d'allèles par locus",
+       x = "Locus",
+       y = "Nombre d'allèles") +
+  theme_minimal()
+
+```
+
+Interprétation :
+Les loci avec peu d’allèles (< 3) peuvent être peu informatifs. Des loci très polymorphes (> 10 allèles) peuvent avoir un grand pouvoir discriminant, mais parfois aussi plus de bruit ou d’erreurs de génotypage.
+
+
+```{r}
+# library(hierfstat)
+# Transformation en objet hierfstat
+geno_hierf <- genind2hierfstat(genind_obj)
+
+# Calcul de la richesse allélique (nombre moyen d'allèles par locus)
+allelic_richness <- allelic.richness(geno_hierf)
+
+# Résultat : tableau avec la richesse allélique par population
+print(allelic_richness$Ar)
+
+# Visualisation
+ar_df <- as.data.frame(allelic_richness$Ar)
+ar_df$population <- rownames(ar_df)
+
+ggplot(ar_df, aes(x = reorder(population, -All), y = All)) +
+  geom_col(fill = "#2C7BB6") +
+  coord_flip() +
+  labs(title = "Richesse allélique par population",
+       x = "Population",
+       y = "Richesse allélique moyenne") +
+  theme_minimal()
+
+```
+
+Interprétation :
+La richesse allélique reflète la diversité génétique potentielle. Des populations avec une faible richesse peuvent avoir subi une érosion génétique (ex : goulot d’étranglement), ou être en périphérie.
+
+```{r pressure, echo=FALSE, include=FALSE}
+summary(genind_obj)  # déjà vu, bon pour inspection rapide
+
+Hs <- Hs(genind_obj)  # diversités génétiques intra-population (He)
+Ho <- summary(genind_obj)$Hobs  # Hétérozygotie observée
+Fis <- inbreeding(genind_obj)  # indice de fixation individuel
+```
+
+# 3. Calcul des indices de diversité génétique par population ou par secteur géographique
+
+
+
+```{r}
+# Supposons que les colonnes génotypes soient en format microsatellite dans un objet genind (adegenet)
+# Conversion du dataframe en genind (exemple simplifié)
+# df_genind <- df2genind(df[,c("locus1", "locus2", ...)], ploidy=2, pop=df$population)
+
+# Indices classiques : He, Ho, nombre d'allèles
+library(hierfstat)
+diversity <- basic.stats(df_genind)
+
+# Résumé par population
+pop_summary <- data.frame(
+  population = rownames(diversity$Hs),
+  Ho = diversity$Ho,
+  He = diversity$Hs,
+  Fis = diversity$Fis
+)
+print(pop_summary)
+```
+
+Interprétation :
+
+    Ho = hétérozygotie observée
+
+    He = hétérozygotie attendue (diversité génétique sous Hardy-Weinberg)
+
+    Fis mesure la consanguinité/inbreeding : positive = déficit d'hétérozygotes.
+
+# 4. Analyse de la structure génétique globale
+
+```{r}
+# PCA des données génétiques pour visualiser la variation principale
+pca <- glPca(df_genind, nf=3)
+
+# Plot PCA
+autoplot(pca$scores, data=df, x=1, y=2, colour='population') +
+  ggtitle("PCA des profils génétiques") +
+  theme_minimal()
+```
+
+Interprétation :
+Les groupes/clusters sur la PCA peuvent refléter des sous-populations génétiquement différenciées.
+
+# 5. Analyse spatiale de la diversité génétique
+## 5.1 Isolation par la distance (IBD)
+
+```{r}
+# Calcul de la matrice génétique : distance de Nei
+dist_gen <- dist.genpop(df_genind) # si regroupé par population
+
+# Calcul de la matrice géographique : distances en km
+coords <- df %>% distinct(population, longitude, latitude)
+dist_geo <- distm(coords[,c("longitude", "latitude")])/1000
+
+# Test Mantel (correlation distance génétique - distance géographique)
+mantel_test <- mantel(dist_gen, dist_geo, permutations=999)
+print(mantel_test)
+```
+
+Interprétation :
+Un Mantel test significatif indique que la distance génétique augmente avec la distance géographique (effet IBD).
+
+# 5.2 Cartographie des indices génétiques
+
+```{r}
+library(sf)
+library(ggspatial)
+
+df_sf <- st_as_sf(df, coords = c("longitude", "latitude"), crs = 4326)
+
+ggplot(df_sf) +
+  geom_sf(aes(color = Ho), size = 3) +
+  scale_color_viridis_c() +
+  ggtitle("Carte de l'hétérozygotie observée (Ho)") +
+  theme_minimal()
+
+Interprétation :
+Visualiser la variation spatiale de Ho peut indiquer des zones de forte ou faible diversité génétique.
+Conclusion
+
+Cette analyse exploratoire fournit une première vision de la diversité génétique et de sa structuration spatiale, essentielle pour orienter les stratégies de conservation et la gestion des populations.
+
+```
+
+
+
+
