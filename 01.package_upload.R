@@ -22,12 +22,15 @@ library(reshape2)
 library(hierfstat)
 library(vegan)          # analyses multivariées (ex : mantel test)
 
-
+library(maps)
 library(pegas)          # analyses génétiques complémentaires
 library(geosphere)      # calculs géographiques
 library(ape)  
-
-
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(ggspatial)
+library(MASS) # pour kde2d
+library(elevatr)
 
 ## Packages conflict
 

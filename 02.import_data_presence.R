@@ -37,7 +37,7 @@ d.occ.raw = d.occ.raw %>%
 # 1. CBN Med
 #####
 # Load data
-raw.occ_cbn = read.csv(here::here("data", "raw", "presence", "occ.cbn.convol_lan.260722.csv"), # upload data
+raw.occ_cbn = read.csv(here::here("data", "raw", "presence", "utd_export_ligne_21072025_113605_convolvulus lanuginosus.csv"), # upload data
                        sep = "\t", header = T, dec = ".")
 
 # Identify the relevant columns
@@ -80,7 +80,7 @@ d.occ_cbn = raw.occ_cbn %>%
 # 2. GBIF
 #####
 # Load data
-raw.occ_gbif = read.csv(here::here("data", "raw", "presence", "occ.gbif.convol_lan.260722.csv"), # upload data
+raw.occ_gbif = read.csv(here::here("data", "raw", "presence", "utd_occ.GBIF_0021384-250717081556266.csv"), # upload data
                         sep = "\t", header = T, dec = ".")
 
 # Identify the relevant columns
@@ -118,7 +118,7 @@ d.occ_gbif = raw.occ_gbif %>%
 # 3. iNat
 #####
 # Load data
-raw.occ_inat = read.csv(here::here("data", "raw", "presence", "occ.inat.convol_lan.010822.csv"), # upload data
+raw.occ_inat = read.csv(here::here("data", "raw", "presence", "utd_occ.iNat_observations-597402.csv"), # upload data
                        sep = ",", header = T, dec = ".")
 
 # Identify the relevant columns
@@ -153,12 +153,56 @@ d.occ_inat = raw.occ_inat %>%
   arrange (date)
 
 #####
-# 4. Assembling the dataset
+# 5. perso
+#####
+# Load data
+raw.occ_perso = read.csv(here::here("data", "raw", "presence", "utd_occ_perso_convolvulus.csv"), # upload data
+                        sep = ";", header = T, dec = ",")
+
+# Identify the relevant columns
+# str(raw.occ_perso) 
+
+# Format the dataset
+d.occ_perso = raw.occ_perso %>% 
+  # Add columns
+  mutate (sp.name = "Convolvulus lanuginosus", # add the name of the species
+          presence = 1,
+          source = "perso") %>% # add the `presence` column
+  # Transform the date into a `date` format
+  mutate(date = as.Date(Date, format =  "%Y%m%d"))
+
+# Add the date 
+d.occ_perso$date[is.na(d.occ_perso$date)] <- as.Date(paste0(d.occ_perso$Année[is.na(d.occ_perso$date)], "-01-01"))
+
+# Select variables
+d.occ_perso = d.occ_perso %>%
+  dplyr::select ("Code",  # select the columns
+                 "sp.name", 
+                 "presence", 
+                 "date", 
+                 "Longitude", 
+                 "Latitude", 
+                 "Précision", 
+                 "source") %>%
+  dplyr::rename ("code.pop" = "Code", # rename the variables
+                 "x" = "Longitude", 
+                 "y" = "Latitude", 
+                 "precision" = "Précision") %>% 
+  # Filter
+  tidyr::drop_na () %>% # delete rows with NA
+  filter (precision < 1000 , 
+          date > "1990-01-01") %>%
+  # Arrange (year)
+  arrange (date)
+
+
+#####
+# 5. Assembling the dataset
 #####
 
 # Assemble-filter the complete dataset
 d.occ = d.occ.raw %>%
-  bind_rows(d.occ_cbn, d.occ_gbif, d.occ_inat) %>% 
+  bind_rows(d.occ_cbn, d.occ_gbif, d.occ_inat, d.occ_perso) %>% 
   distinct(x, y, .keep_all= TRUE) # eliminate potential duplicate from different databases
 
 # Identify and delete outliers in a plot
@@ -168,10 +212,16 @@ plot(d.occ$x, d.occ$y, # set the plot
      xlim = c(min (d.occ$x)*0.95, max (d.occ$x)*1.05),
      pch = 19, cex = 0.3) 
 
+# Add countries' borders
+map("world", add = TRUE, col = "grey50", lwd = 1)
+
 outliers = identify(d.occ$x, d.occ$y, # vectors of identified outliers
                     tolerance = 0.8, 
                     labels = d.occ$code.pop, atpen = T)
+# Visualize outliers
+d.occ %>% slice(outliers)
 
+# Delete outliers
 d.occ = d.occ %>% 
   slice(-outliers) # delete outliers
 
@@ -188,6 +238,15 @@ synth.tab = data.frame(t(table(d.occ$source))) %>%
   dplyr::select(Var2, Freq) %>%
   dplyr::rename ("Source" = "Var2", # rename the variables
                  "N_unfiltered" = "Freq") 
+
+# ##### Difference avec unique, a revoir
+# d.occ_unique = d.occ %>%
+#   distinct(x, y, .keep_all = TRUE)
+# 
+# synth.tab.unique = data.frame(t(table(d.occ_unique$source))) %>%
+#   dplyr::select(Var2, Freq) %>%
+#   dplyr::rename ("Source" = "Var2", # rename the variables
+#                  "N_unfiltered" = "Freq") 
 
 # Create the folder
 # dir.create (path = here::here("outputs", "tables"))
