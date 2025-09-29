@@ -7,7 +7,7 @@
 #######################################################
 
 #####
-# 1. Define paths
+# 1. Define paths 
 #####
 # Raster : define the path to the source folder
 climate.folder = "/media/papuga/TOSHIBA EXT/02.spatial.data/20.environement/climat/chelsa_bioclim" # climate folder for the project
