@@ -1,0 +1,413 @@
+---
+title: "Convolvulus"
+author: "Eric Imbert"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r libraries and directory, echo=FALSE}
+rm(list=ls())
+# library(maps)
+# library(plotrix)
+# library(ggplot2)
+# library(genepop)
+# library(diveRsity)
+# library(sp)
+# library(ade4)
+# library(grid)
+# library(ggmap)
+# #devtools::install_github('oswaldosantos/ggsn')
+# library(ggsn)
+# library(poppr)
+# library(adegenet)
+# library(hierfstat)
+# library(LEA)
+
+setwd("~/Documents/Recherches/liseron")
+
+coordonnees <- read.table("data/location.csv", header=T, dec=",")
+```
+
+Test for Multilocus genotypes and private alleles
+library poppr
+```{r}
+donnees <- read.genepop("data/donnees_16loc.gen", ncode=3L)
+MGL <- mlg(donnees)
+
+colSums(private_alleles(donnees, count.alleles = FALSE))
+rowSums(private_alleles(donnees, count.alleles = FALSE))
+```
+
+
+library genepop
+```{r null alleles and other basic things, eval=FALSE}
+nulls("data/donnees_initiales", "resultats/nulls.txt", CIcoverage=0.95, nullAlleleMethod = 'B96')
+```
+Using these analyses and analyses from CERVUS, 4 locus are suspected to show high frequency (>0.3) of null alleles
+CLA28, CLA62, CLA80 and CLA94
+These locus are removed from the following analyses
+
+library genepop
+```{r linkage disequilibrium, eval=FALSE}
+test_LD("data/donnees_16loc", "resultats/testLD")
+```
+
+library genepop & diveRsity
+```{r HW equilibrium , eval=FALSE}
+test_HW("data/donnees_16loc", outputFile="resultats/testHW.out")
+genedivFis("data/donnees_16loc", outputFile="resultats/genevidFis.out")
+basicStats("data/donnees_16loc", outfile="resultats/basicStats.out")
+```
+
+
+
+library genepop
+```{r FST and tests, , eval=FALSE}
+Fst("data/donnees_16loc", pairs=FALSE, outputFile="resultats/globalFst.txt");test_diff("data/donnees_16loc", genic=FALSE, pairs=FALSE,outputFile="resultats/TESTglobalFst.txt")
+Fst("data/donnees_16loc", pairs=TRUE,outputFile="resultats/pairedFst.txt");test_diff("data/donnees_16loc", genic=FALSE, pairs=TRUE,outputFile="resultats/TESTpairedFst.txt")
+
+```
+
+Fst for each region
+library genepop
+```{r}
+Fst("data/PACA", pairs=FALSE, outputFile="resultats/globalFst_PACA.txt");test_diff("data/PACA", genic=FALSE, pairs=FALSE,outputFile="resultats/TEST_PACAglobalFst.txt");test_diff("data/PACA", genic=FALSE, pairs=TRUE,outputFile="resultats/TEST_PACApairedFst.txt")
+
+Fst("data/LR", pairs=FALSE, outputFile="resultats/globalFst_LR.txt");test_diff("data/LR", genic=FALSE, pairs=FALSE,outputFile="resultats/TEST_LRglobalFst.txt");test_diff("data/LR", genic=FALSE, pairs=TRUE,outputFile="resultats/TEST_LRpairedFst.txt")
+
+Fst("data/Valencia", pairs=FALSE, outputFile="resultats/globalFst_Valencia.txt");test_diff("data/Valencia", genic=FALSE, pairs=FALSE,outputFile="resultats/TEST_ValenciaglobalFst.txt");test_diff("data/Valencia", genic=FALSE, pairs=TRUE,outputFile="resultats/TEST_ValenciapairedFst.txt")
+
+Fst("data/Andalucia", pairs=FALSE, outputFile="resultats/globalFst_Andalucia.txt");test_diff("data/Andalucia", genic=FALSE, pairs=FALSE,outputFile="resultats/TEST_AndaluciaglobalFst.txt");test_diff("data/Andalucia", genic=FALSE, pairs=TRUE,outputFile="resultats/TEST_AndaluciapairedFst.txt")
+
+Fst("data/Catalunya", pairs=FALSE, outputFile="resultats/globalFst_Catalunya.txt");test_diff("data/Catalunya", genic=FALSE, pairs=FALSE,outputFile="resultats/TEST_CatalunyaglobalFst.txt");test_diff("data/Catalunya", genic=FALSE, pairs=TRUE,outputFile="resultats/TEST_CatalunyapairedFst.txt")
+
+```
+
+library ade4
+
+```{r Fst and distance}
+geodis=spDists(cbind(coordonnees$Longitude,coordonnees$Latitude), longlat=T)
+geodis=as.dist(geodis, diag=T, upper=T)
+
+#Pour trouver les populations concernées
+Pop1 <- Pop2 <- NULL
+for (i in 1:(length(coordonnees$Population)-1))
+{Pop1 <- append(Pop1, coordonnees$Population[(i+1):20])
+ Pop2 <- append(Pop2, rep(coordonnees$Population[i],each=(20-i)))
+} 
+Pop1[which.min(geodis)]
+Pop2[which.min(geodis)]
+
+fst=read.table('resultats/Fst.csv', header=F, dec=".", na.strings="na", sep=",")
+fst=as.dist(fst, diag=T, upper=T)
+min(fst) 
+Pop1[which.min(fst)]
+Pop2[which.min(fst)]
+
+max(fst)
+Pop1[which.max(fst)]
+Pop2[which.max(fst)]
+
+Modifiedfst=fst/(1-fst)
+Lgeodis=log(geodis)
+m1=lm(as.vector(Modifiedfst) ~ as.vector(Lgeodis))
+
+mantel.rtest(Lgeodis,Modifiedfst, nrepet=9999)
+
+
+```
+
+
+Figure IBD
+```{r}
+postscript("Figures/FigureIBD.eps",horizontal =T, height=10, width=10)
+plot(Lgeodis,Modifiedfst, xlab=" Log (geographical distance in km)", ylab="Fst/(1-Fst)", ylim=c(0,0.6))
+points(Lgeodis[which.min(Modifiedfst)], min(Modifiedfst), col="red", pch=19)
+points(Lgeodis[which.max(Modifiedfst)], max(Modifiedfst), col="green", pch=19)
+regression=paste("y=",round(coefficients(m1)[1],3),"+",round(coefficients(m1)[2],3),".x")
+text(3,0.5, regression)
+#les points associés à redonnes sont mis en avant, voir plus bas
+points(Lgeodis[Pop1=="Redonnes"], Modifiedfst[Pop1=="Redonnes"], col="blue", pch=19)
+dev.off()
+```
+
+
+Hierarchie
+library adegenet et hierfstat
+
+```{r}
+donnees <- read.genepop("data/donnees_16loc.gen", ncode=3L)
+donnees2 <- genind2hierfstat(donnees)
+
+donnees2$region <- NA
+
+for (i in unique(donnees2$pop))
+{donnees2$region[donnees2$pop==i] <- coordonnees$Region[coordonnees$Population==i] }
+
+attach(donnees2)
+hierarchical <- varcomp.glob(data.frame(region,pop),donnees2[,2:17])  
+detach(donnees2)
+
+hierarchical
+
+test.between(donnees2[,2:17], rand.unit = donnees2$pop, test=donnees2$region, nperm = 1000)
+test.within(donnees2[,2:17], test=donnees2$pop, within=donnees2$region, nperm = 1000)
+
+
+```
+
+
+
+
+Clustering library LEA
+```{r}
+struct2geno(input.file = "data/donnees3.csv", ploidy=2, FORMAT = 1, extra.row = 0, extra.column = 2)
+
+
+#find the best clustering
+obj.snmf = snmf("data/donnees3.csv.geno", K = 1:8, ploidy = 2, entropy = T, alpha = 100, project = "new", repetitions = 100)
+plot(obj.snmf, col = "blue4", cex = 1.4, pch = 19)
+project_K1_8 = load.snmfProject("data/donnees3.csv.snmfProject")
+summary(project_K1_8)
+
+
+
+
+
+#K=2 3 ou 4
+objK2.snmf = snmf("data/donnees3.csv.geno", K = 2, ploidy = 2, entropy = T, alpha = 100, project = "new", repetitions = 1)
+qmatrixK2=Q(objK2.snmf, K=2)
+
+
+objK3.snmf = snmf("data/donnees3.csv.geno", K = 3, ploidy = 2, entropy = T, alpha = 100, project = "new", repetitions = 1)
+qmatrixK3=Q(objK3.snmf, K=3)
+
+objK4.snmf = snmf("data/donnees3.csv.geno", K = 4, ploidy = 2, entropy = T, alpha = 100, project = "new", repetitions = 1)
+qmatrixK4=Q(objK4.snmf, K=4)
+
+
+
+
+rer = read.csv("data/donnees3.csv", header = FALSE, sep=" ")
+Idplant <- rer$V1
+Idpop <- rer$V2
+Idregion <- NULL
+
+#pour chaque pop, on rajoute la région
+for (i in coordonnees$Population)
+{Idregion <- append(Idregion,rep(coordonnees$Region[coordonnees$Population==i],length(Idpop[Idpop==i])))}
+
+Idregionbis <- NULL
+#pour simplifier le classement PACA=1, LR=2, Catalunya=3 Valencia=4 Andaluz=5
+Idregionbis[Idregion=="PACA"] <-1
+Idregionbis[Idregion=="LR"] <-2
+Idregionbis[Idregion=="Catalunya"] <-3
+Idregionbis[Idregion=="Valencia"] <-4
+Idregionbis[Idregion=="Andaluz"] <-5
+
+taillePACA <- length(Idregion[Idregion=="PACA"])
+tailleLR <- length(Idregion[Idregion=="LR"])
+tailleCat <- length(Idregion[Idregion=="Catalunya"])
+tailleVal <- length(Idregion[Idregion=="Valencia"])
+tailleAndal <- length(Idregion[Idregion=="Andaluz"])
+
+
+resultatk2 <- data.frame(cbind(Idplant,Idregion,Idregionbis,Idpop, qmatrixK2))
+resultatk2 <- resultatk2[order(resultatk2$Idregionbis),]
+
+resultatk3 <- data.frame(cbind(Idplant,Idregion,Idregionbis,Idpop, qmatrixK3))
+resultatk3 <- resultatk3[order(resultatk3$Idregionbis),]
+
+resultatk4 <- data.frame(cbind(Idplant,Idregion,Idregionbis,Idpop, qmatrixK4))
+resultatk4 <- resultatk4[order(resultatk4$Idregionbis),]
+
+
+postscript("Figures/Figurex.ps")
+par(mfrow=c(3,1))
+par(xpd=NA)
+barplot(t(resultatk2[,5:6]), col = c("red","green"), border = NA, space = 0, 
+        axisname=FALSE, ylab = "Admixture coefficients")
+segments(x0=taillePACA, y0=-0.2,
+         x1=taillePACA, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR
+         , y0=-0.2,
+         x1=taillePACA+tailleLR, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR+tailleCat, y0=-0.2,
+         x1=taillePACA+tailleLR+tailleCat, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR+tailleCat+tailleVal, y0=-0.2,
+         x1=taillePACA+tailleLR+tailleCat+tailleVal, y1=1.2,col="black", lty=1)
+
+text(0,1.1,"K=2")
+text(round(taillePACA/2), -0.1, "PACA")
+text(taillePACA+round(tailleLR)/2, -0.1, "LR")
+text(taillePACA+tailleLR+round(tailleCat)/2, -0.1, "Catalunya")
+text(taillePACA+tailleLR+tailleCat+round(tailleVal/2), -0.1, "Valencia")
+text(taillePACA+tailleLR+tailleCat+tailleVal+round(tailleAndal/2), -0.1, "Andalucia")
+
+#On rajoute un code pour les individus issus de Redonnes
+pos_x=seq(1:nrow(resultatk2))
+debut_x=min(pos_x[resultatk2$Idpop=="Redonnes"])-1 #les positions commencent en 0
+fin_x=max(pos_x[resultatk2$Idpop=="Redonnes"]) #les positions commencent en 0
+segments(debut_x,1.01,fin_x,1.01, lty=1)
+text(debut_x,1.01,"l")
+text((debut_x+fin_x)/2,1.1, "Redonnes")
+
+
+par(xpd=NA)
+barplot(t(resultatk3[,5:7]), col = c("green","blue", "red"), border = NA, space = 0, 
+        axisname=FALSE, ylab = "Admixture coefficients")
+segments(x0=taillePACA, y0=-0.2,
+         x1=taillePACA, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR
+         , y0=-0.2,
+         x1=taillePACA+tailleLR, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR+tailleCat, y0=-0.2,
+         x1=taillePACA+tailleLR+tailleCat, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR+tailleCat+tailleVal, y0=-0.2,
+         x1=taillePACA+tailleLR+tailleCat+tailleVal, y1=1.2,col="black", lty=1)
+
+text(0,1.1,"K=3")
+text(round(taillePACA/2), -0.1, "PACA")
+text(taillePACA+round(tailleLR)/2, -0.1, "LR")
+text(taillePACA+tailleLR+round(tailleCat)/2, -0.1, "Catalunya")
+text(taillePACA+tailleLR+tailleCat+round(tailleVal/2), -0.1, "Valencia")
+text(taillePACA+tailleLR+tailleCat+tailleVal+round(tailleAndal/2), -0.1, "Andalucia")
+
+
+
+par(xpd=NA)
+barplot(t(resultatk4[,5:8]), col = c("purple","green","red","blue"), border = NA, space = 0, 
+        axisname=FALSE, ylab = "Admixture coefficients")
+segments(x0=taillePACA, y0=-0.2,
+         x1=taillePACA, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR
+         , y0=-0.2,
+         x1=taillePACA+tailleLR, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR+tailleCat, y0=-0.2,
+         x1=taillePACA+tailleLR+tailleCat, y1=1.2,col="black", lty=1)
+segments(x0=taillePACA+tailleLR+tailleCat+tailleVal, y0=-0.2,
+         x1=taillePACA+tailleLR+tailleCat+tailleVal, y1=1.2,col="black", lty=1)
+text(0,1.1,"K=4")
+text(round(taillePACA/2), -0.1, "PACA")
+text(taillePACA+round(tailleLR)/2, -0.1, "LR")
+text(taillePACA+tailleLR+round(tailleCat)/2, -0.1, "Catalunya")
+text(taillePACA+tailleLR+tailleCat+round(tailleVal/2), -0.1, "Valencia")
+text(taillePACA+tailleLR+tailleCat+tailleVal+round(tailleAndal/2), -0.1, "Andalucia")
+dev.off()
+```
+
+représentation cartographique K=4
+```{r}
+qpop <- matrix(NA, ncol = 4, nrow = 20)
+k <-1
+for (i in unique(Idpop)) {
+qpop[k,] <- apply(qmatrixK4[Idpop == i,], 2, mean)
+k <- k+1}
+
+
+
+library(mapplots)
+plot(coordonnees$Longitude, coordonnees$Latitude, xlab = "Longitude", ylab = "Latitude", xlim=c(-10,10), ylim=c(30,50),type = "n")
+map(add = T, col = "grey90", fill = TRUE)
+k <-1
+for (i in unique(Idpop)){
+  add.pie(z = qpop[k,], x = coordonnees$Longitude[k], y = coordonnees$Latitude[k], labels = "",col = c("purple","green","red","blue"), radius=0.5)
+  k <- k+1
+  }
+
+
+
+#focus sud de France
+plot(coordonnees$Longitude, coordonnees$Latitude, xlab = "Longitude", ylab = "Latitude", xlim=c(2,7), ylim=c(42,44),type = "n")
+map(add = T, col = "grey90", fill = TRUE)
+k <-1
+for (i in unique(Idpop)){
+  add.pie(z = qpop[k,], x = coordonnees$Longitude[k], y = coordonnees$Latitude[k], labels = "",col = c("purple","green","red","blue"), radius=0.1)
+  k <- k+1
+  }
+
+
+
+```
+
+Redonnes est bien particuliere
+Voir la figure IDB
+
+On fait un test de IBD
+```{r}
+
+m2=lm(Modifiedfst[Pop1=="Redonnes"] ~ Lgeodis[Pop1=="Redonnes"])
+anova(m2)
+summary(m2)
+
+
+```
+
+
+
+
+Figure localisation des pops.
+```{r}
+mappy=map_data("world",xlim=c(-10,10), ylim=c(35,45))
+
+all_pop=ggplot()
+all_pop=all_pop + geom_map(data=mappy, map=mappy, aes(long, lat, map_id=region), fill="white", colour="black") + 
+    coord_map(xlim=c(-10,10), ylim=c(35,45))
+
+all_pop = all_pop + geom_point(data=data.frame(longitude=coordonnees$Longitude[coordonnees$Region=="PACA"], latitude= coordonnees$Latitude[coordonnees$Region=="PACA"]), aes(longitude, latitude), size = 1, col="red")
+
+all_pop = all_pop + geom_point(data=data.frame(longitude=coordonnees$Longitude[coordonnees$Region=="LR"], latitude= coordonnees$Latitude[coordonnees$Region=="LR"]), aes(longitude, latitude), size = 1, col="blue")
+
+all_pop = all_pop + geom_point(data=data.frame(longitude=coordonnees$Longitude[coordonnees$Region=="Catalunya"], latitude= coordonnees$Latitude[coordonnees$Region=="Catalunya"]), aes(longitude, latitude), size = 2, col="purple")
+
+all_pop = all_pop + geom_point(data=data.frame(longitude=coordonnees$Longitude[coordonnees$Region=="Valencia"], latitude= coordonnees$Latitude[coordonnees$Region=="Valencia"]), aes(longitude, latitude), size = 2, col="cyan")
+
+all_pop = all_pop + geom_point(data=data.frame(longitude=coordonnees$Longitude[coordonnees$Region=="Andaluz"], latitude= coordonnees$Latitude[coordonnees$Region=="Andaluz"]), aes(longitude, latitude), size = 2, col="green")
+
+
+all_pop  = all_pop + scalebar(data=mappy, dist=100, dist_unit="km", height=0.010,
+                  transform=TRUE, model= "WGS84", st.dist=0.005,
+                  st.size=2, anchor=c(x=-5,y=44.5))
+
+all_pop
+```
+
+focus on South of France
+
+```{r}
+mappy=map_data("world",xlim=c(2,7), ylim=c(42,44))
+
+south=ggplot()
+south=south + geom_map(data=mappy, map=mappy, aes(long, lat, map_id=region), fill="white", colour="black") + 
+    coord_map(xlim=c(2,7), ylim=c(42,44))
+
+south = south + geom_point(data=data.frame(longitude=coordonnees$Longitude[coordonnees$Region=="PACA"], latitude= coordonnees$Latitude[coordonnees$Region=="PACA"]), aes(longitude, latitude), size = 1.5, col="red")
+
+south = south + geom_point(data=data.frame(longitude=coordonnees$Longitude[coordonnees$Region=="LR"], latitude= coordonnees$Latitude[coordonnees$Region=="LR"]), aes(longitude, latitude), size = 1.5, col="blue")
+
+south  = south + scalebar(data=mappy, dist=25, dist_unit="km", height=0.005,
+                  transform=TRUE, model= "WGS84", st.dist=0.005,
+                  st.size=2, anchor=c(x=4,y=43.8))
+
+south
+#dev.off()
+
+
+
+```
+Figure to print
+
+```{r}
+postscript("Figures/FigureLocPop.eps", horizontal = F, height=10, width=10)
+
+print(all_pop)
+vp <- viewport(width = 0.5, height = 0.5, x = 0.8, y = 0.4)
+print(south, vp=vp)
+dev.off()
+```
+

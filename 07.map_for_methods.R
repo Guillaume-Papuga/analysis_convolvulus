@@ -14,17 +14,13 @@ countries <- ne_countries(scale = "medium", returnclass = "sf")
 
 # ---- France métropole ----
 france <- countries %>% filter(admin == "France")
-metropole_rect <- st_polygon(list(rbind(
-  c(-5,41), c(10,41), c(10,51), c(-5,51), c(-5,41)
-)))
+metropole_rect <- st_polygon(list(rbind(c(-5,41), c(10,41), c(10,51), c(-5,51), c(-5,41))))
 metropole_bbox <- st_sfc(metropole_rect, crs=st_crs(france)) %>% st_sf()
 fr_metropole <- st_intersection(france, metropole_bbox)
 
 # ---- Espagne (péninsule + Baléares) ----
 espagne <- countries %>% filter(admin == "Spain")
-peninsula_rect <- st_polygon(list(rbind(
-  c(-10,35), c(5,35), c(5,44.5), c(-10,44.5), c(-10,35)
-)))
+peninsula_rect <- st_polygon(list(rbind(c(-10,35), c(5,35), c(5,44.5), c(-10,44.5), c(-10,35))))
 peninsula_bbox <- st_sfc(peninsula_rect, crs=st_crs(espagne)) %>% st_sf()
 espagne_peninsula <- st_intersection(espagne, peninsula_bbox)
 
@@ -36,8 +32,7 @@ portugal_peninsula <- st_intersection(portugal, peninsula_bbox)
 study_area <- bind_rows(
   fr_metropole[, c("admin","geometry")],
   espagne_peninsula[, c("admin","geometry")],
-  portugal_peninsula[, c("admin","geometry")]
-)
+  portugal_peninsula[, c("admin","geometry")])
 
 # ---- Pays voisins pour contours ----
 neighbors <- countries %>% filter(admin %in% c("Morocco","Algeria","Andorra"))
@@ -54,15 +49,12 @@ xlim_mnt <- c(-10, 7.5)
 ylim_mnt <- c(28, 45)
 
 bbox_mat_mnt <- matrix(
-  c(
-    xlim_mnt[1], ylim_mnt[1],
+  c(xlim_mnt[1], ylim_mnt[1],
     xlim_mnt[2], ylim_mnt[1],
     xlim_mnt[2], ylim_mnt[2],
     xlim_mnt[1], ylim_mnt[2],
-    xlim_mnt[1], ylim_mnt[1]
-  ),
-  ncol = 2, byrow = TRUE
-)
+    xlim_mnt[1], ylim_mnt[1]),
+  ncol = 2, byrow = TRUE)
 bbox_poly_mnt <- st_polygon(list(bbox_mat_mnt)) %>% st_sfc(crs=4326) %>% st_sf()
 
 # Télécharger MNT
@@ -79,7 +71,7 @@ reclass_matrix <- cbind(
   c(-Inf, 0, 0, 100, 100, 300, 300, 500, 500, 1000, 1000, Inf),
   c(0, 0, 100, 300, 300, 500, 500, 1000, 1000, Inf, Inf, Inf),
   c(1, NA, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6)  # NA = mer
-)
+  )
 
 alt_cat <- classify(mnt_crop, reclass_matrix)
 alt_df <- as.data.frame(alt_cat, xy=TRUE)

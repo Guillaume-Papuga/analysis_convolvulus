@@ -21,7 +21,6 @@ library(ggplot2)
 library(reshape2)
 library(hierfstat)
 library(vegan)          # analyses multivariées (ex : mantel test)
-
 library(maps)
 library(pegas)          # analyses génétiques complémentaires
 library(geosphere)      # calculs géographiques
@@ -31,6 +30,21 @@ library(rnaturalearthdata)
 library(ggspatial)
 library(MASS) # pour kde2d
 library(elevatr)
+library(plotrix)
+library(genepop)
+library(sp) # ancien pour SF! A remplacer
+library(grid)
+library(ggmap)
+library(poppr)
+library(raster)
+
+# Voir avec Eric!
+
+#devtools::install_github('oswaldosantos/ggsn')
+
+#library(diveRsity) # pas trouvé sur R CRAN
+#library(ggsn) # pas trouvé
+#library(LEA)
 
 ## Packages conflict
 
