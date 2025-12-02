@@ -10,10 +10,10 @@
 # 1. Define paths 
 #####
 # Raster : define the path to the source folder
-climate.folder = "/media/papuga/TOSHIBA EXT1/02.spatial.data/20.environement/climat/chelsa_2.1/" # climate folder for the project
-act.climate.folder= "/media/papuga/TOSHIBA EXT1/02.spatial.data/20.environement/climat/chelsa_2.1/chelsa_bioclim/current/" # climate folder for the project
-past.climate.folder = "/media/papuga/TOSHIBA EXT1/02.spatial.data/20.environement/climat/chelsa_2.1/chelsa_bioclim/past/" # climate folder for the project
-geo.folder = "/media/papuga/TOSHIBA EXT/02.spatial.data/10.geographie" 
+climate.folder = "/home/papuga/Bureau/chelsa/actual/" # climate folder for the project
+act.climate.folder= "/home/papuga/Bureau/chelsa/actual/" # climate folder for the project
+past.climate.folder = "/home/papuga/Bureau/chelsa/actual/" # climate folder for the project
+geo.folder = "/home/papuga/Bureau/geography/" 
 
 #####
 # 2. Set spatial attributes
@@ -88,14 +88,19 @@ past.st = stack(paste(past.climate.folder, past_tiles, sep = ""))
 # crop to the spatial extent
 # lim = as(ext.stud, Class = "Spatial")
 # cur.st.m = raster::mask(cur.st, lim)
-cur.st.c = raster::crop (cur.st, p.extent)
+past.st.c = raster::crop (past.st, p.extent)
+
+# Project resolution 
+
+
 
 #####
 # 5. Elevation
 #####
 
 ### A. Import data
-elevation = raster(paste(geo.folder, "/worldclim.elevation/wc2.1_30s_elev.tif", sep = ""))
+tiles = list.files(path = paste (geo.folder)) # names of each tile
+elevation = raster(paste(geo.folder, "wc2.1_30s_elev.tif", sep = ""))
 
 ### B. Transform data
 # Project projection
@@ -115,5 +120,7 @@ cur_env = stack (cur.st.c,
                  elevation.c)
 
 # Past
+past_env = stack (past.st.c, 
+                  elevation.c)
 
 

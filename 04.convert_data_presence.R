@@ -35,10 +35,11 @@ write.csv(u.occ,
 #####
 
 # Build the table
-synth.tab = data.frame(t(table(u.occ$source))) #%>%
+synth.tab = data.frame(t(table(u.occ$source))) %>%
   dplyr::select(Var2, Freq) %>%
   dplyr::rename ("Source" = "Var2", # rename the variables
-                 "N_filtered" = "Freq") 
+                 "N_filtered" = "Freq") %>%
+  mutate(N_unfiltered = data.frame(t(table(d.occ$source)))[,"Freq"]) # ajoute les données brutes non filtrées
 
 # Write the table
 write.csv(synth.tab, 
