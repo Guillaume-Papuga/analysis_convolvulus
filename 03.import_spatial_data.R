@@ -10,10 +10,11 @@
 # 1. Define paths 
 #####
 # Raster : define the path to the source folder
-climate.folder = "/home/papuga/Bureau/chelsa/actual/" # climate folder for the project
-act.climate.folder= "/home/papuga/Bureau/chelsa/actual/" # climate folder for the project
-past.climate.folder = "/home/papuga/Bureau/chelsa/actual/" # climate folder for the project
-geo.folder = "/home/papuga/Bureau/geography/" 
+climate.folder = "/media/papuga/LaCie/01.spatial_data/climate/" # climate folder for the project
+act.climate.folder= "/media/papuga/LaCie/01.spatial_data/climate/CHELSA_bioclim_actual/" # climate folder for the project
+lgm.climate.folder = "/media/papuga/LaCie/01.spatial_data/climate/CHELSA_bioclim_past_LGM/" # climate folder for the project
+mholo.climate.folder = "/media/papuga/LaCie/01.spatial_data/climate/CHELSA_bioclim_past_midholo/" # climate folder for the project
+geo.folder = "/media/papuga/LaCie/01.spatial_data/geography/" 
 
 #####
 # 2. Set spatial attributes
@@ -66,20 +67,24 @@ cur.st = stack(paste(act.climate.folder, cur_tiles, sep = ""))
 # cur.st.m = raster::mask(cur.st, lim)
 cur.st.c = raster::crop (cur.st, p.extent)
 
+# Simplify the name
+names(cur.st.c) = paste0("bio", 1:19)
+
 # Project resolution 
 
+
 #####
-# 4. Past climate
+# 4. Past climate LGM
 #####
 ### A. Import data
 # List the files in the folder
-tiles = list.files(path = paste (past.climate.folder)) # names of each tile
+tiles = list.files(path = paste (lgm.climate.folder)) # names of each tile
 
 # Retain the `bio` variables
-past_tiles = grep("bio", tiles, value = TRUE)  
+lgm_tiles = grep("bio", tiles, value = TRUE)  
 
 # load as a `stack`
-past.st = stack(paste(past.climate.folder, past_tiles, sep = ""))
+lgm.st = stack(paste(lgm.climate.folder, lgm_tiles, sep = ""))
 
 ### B. Transform data
 # Project projection
@@ -88,14 +93,37 @@ past.st = stack(paste(past.climate.folder, past_tiles, sep = ""))
 # crop to the spatial extent
 # lim = as(ext.stud, Class = "Spatial")
 # cur.st.m = raster::mask(cur.st, lim)
-past.st.c = raster::crop (past.st, p.extent)
+lgm.st.c = raster::crop (lgm.st, p.extent)
+
+# Project resolution 
+
+#####
+# 5. Past climate Mid Holocene
+#####
+### A. Import data
+# List the files in the folder
+tiles = list.files(path = paste (mholo.climate.folder)) # names of each tile
+
+# Retain the `bio` variables
+mholo_tiles = grep("bio", tiles, value = TRUE)  
+
+# load as a `stack`
+mholo.st = stack(paste(mholo.climate.folder, mholo_tiles, sep = ""))
+
+### B. Transform data
+# Project projection
+
+# Project extent
+# crop to the spatial extent
+# lim = as(ext.stud, Class = "Spatial")
+# cur.st.m = raster::mask(cur.st, lim)
+mholo.st.c = raster::crop (mholo.st, p.extent)
 
 # Project resolution 
 
 
-
 #####
-# 5. Elevation
+# 6. Elevation
 #####
 
 ### A. Import data
@@ -112,7 +140,7 @@ elevation.c = raster::crop (elevation, p.extent)
 # Project resolution 
 
 #####
-# 6. Assemble maps
+# 7. Assemble maps
 #####
 
 # Current

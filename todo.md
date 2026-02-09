@@ -8,6 +8,7 @@
 ## A faire
 - carte distrib
 ---> cleaner le code, carte OK (29 septembre)
+---> ajouter les sites de collecte genet
 
 - lier les données
 
